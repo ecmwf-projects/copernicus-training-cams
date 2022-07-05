@@ -1,6 +1,6 @@
 ![logo](./LogoLine_EC_Cop_ECMWF.png)
 
-# Copernicus Atmosphere Monitoring (CAMS) Data Tutorials
+# Copernicus Atmosphere Monitoring Service (CAMS) Data Tutorials
 
 ***Discover how to access and handle atmospheric composition data!***
 
