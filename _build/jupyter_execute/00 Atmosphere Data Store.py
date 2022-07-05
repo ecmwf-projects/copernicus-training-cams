@@ -5,7 +5,7 @@
 
 # <br>
 
-# # The Copernicus Atmosphere Data Store (ADS) - Introduction and data access example
+# # Atmosphere Data Store (ADS) Tutorial
 
 # This notebook provides you an introduction to the [Copernicus Atmosphere Data Store (ADS)](https://ads.atmosphere.copernicus.eu/) and gives you a practical example how to access and retrieve data from the ADS.
 

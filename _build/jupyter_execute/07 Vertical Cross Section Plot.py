@@ -5,7 +5,7 @@
 
 # <br>
 
-# # CAMS cross-section plot of sulphur dioxide (SO<sub>2</sub>) for La Palma volcanic eruption in October 2021
+# # Vertical Cross Section Plot
 
 # ### About
 

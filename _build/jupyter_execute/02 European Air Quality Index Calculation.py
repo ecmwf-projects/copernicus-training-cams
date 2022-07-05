@@ -5,7 +5,7 @@
 
 # <br>
 
-# # CAMS - Introduction to the European Air Quality Index (EAQI)
+# # European Air Quality Index Calculation
 
 # ### About
 

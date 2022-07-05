@@ -5,7 +5,7 @@
 
 # <br>
 
-# # Access and Visualisation of CAMS Ozone Data
+# # Ozone Monitoring
 # In this tutorial we will access and view reanalysis data of total column ozone from the Atmosphere Data Store (ADS) of the Copernicus Atmosphere Monitoring Service (CAMS).
 
 # ### How to access the notebook
