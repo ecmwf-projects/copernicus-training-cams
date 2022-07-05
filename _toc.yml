@@ -1,0 +1,24 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+ - caption: Atmosphere Data Store
+   chapters:
+   - file: 00 Atmosphere Data Store
+ - caption: Tutorials
+   chapters:
+   - file: 01 Atmospheric Composition Data Visualisation
+   - file: 02 European Air Quality Index Calculation
+   - file: 03 Global Reanalysis Data Tutorial
+ - caption: Case Studies
+   chapters:
+   - file: 04 Dust Monitoring
+   - file: 05 Fire Monitoring
+   - file: 06 Ozone Monitoring
+ - caption: Functions & Tools
+   chapters:
+   - file: 07 Vertical Cross Section Plot
+
+
