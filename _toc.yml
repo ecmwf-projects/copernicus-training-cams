@@ -15,7 +15,7 @@ parts:
  - caption: Case Studies
    chapters:
    - file: 04 Dust Monitoring
-   - file: 05 Fire Monitoring
+   - file: 05 Wildfire Emissions
    - file: 06 Ozone Monitoring
  - caption: Functions & Tools
    chapters:
