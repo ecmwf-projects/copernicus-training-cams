@@ -5,7 +5,7 @@
 
 # | | | |
 # |:-:|:-:|:-:|
-# |[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/ecmwf-projects/copernicus-training/HEAD?urlpath=lab/tree/CAMS_atmospheric-composition.ipynb)|[![Kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://github.com/ecmwf-projects/copernicus-training/blob/master/CAMS_atmospheric-composition.ipynb)|[![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ecmwf-projects/copernicus-training/blob/master/CAMS_atmospheric-composition.ipynb)|
+# |[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/ecmwf-projects/copernicus-training-cams/master?labpath=08_Ozone_Monitoring_Tutorial.ipynb)|[![Kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://github.com/ecmwf-projects/copernicus-training-cams/blob/master/08_Ozone_Monitoring_Tutorial.ipynb)|[![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ecmwf-projects/copernicus-training-cams/blob/master/08_Ozone_Monitoring_Tutorial.ipynb)|
 
 # # Ozone Monitoring Tutorial
 # 
@@ -23,7 +23,7 @@
 get_ipython().system('pip install cdsapi')
 
 
-# In[191]:
+# In[1]:
 
 
 # CDS API
@@ -65,7 +65,7 @@ KEY = '##########################################'
 
 # Here we specify a data directory into which we will download our data and all output files that we will generate:
 
-# In[192]:
+# In[3]:
 
 
 DATADIR = './'
@@ -100,7 +100,7 @@ c.retrieve(
 # 
 # Here we read the data we downloaded into an xarray Dataset, and view its contents:
 
-# In[193]:
+# In[5]:
 
 
 fn = f'{DATADIR}/TCO3_202007-202101_SHem.nc'
@@ -116,7 +116,7 @@ ds
 
 # To facilitate further processing, we convert the Xarray Dataset into an Xarray Data Array containing the single variable of total column ozone.
 
-# In[194]:
+# In[6]:
 
 
 tco3 = ds['gtco3']
@@ -126,13 +126,13 @@ tco3 = ds['gtco3']
 # 
 # We can see from the attributes of our data are represented as mass concentration of ozone, in units of kg m**-2. We would like to convert this into Dobson Units, which is a standard for ozone measurements. The Dobson unit is defined as the thickness (in units of 10 μm) of a layer of pure gas (in this case O3) which would be formed by the total column amount at standard conditions for temperature and pressure.
 
-# In[195]:
+# In[7]:
 
 
 convertToDU = 1 / 2.1415e-5
 
 
-# In[196]:
+# In[8]:
 
 
 tco3 = tco3 * convertToDU
@@ -148,7 +148,7 @@ tco3 = tco3 * convertToDU
 
 # Extract range of values
 
-# In[197]:
+# In[9]:
 
 
 tco3max = tco3.max()
@@ -158,7 +158,7 @@ tco3range = (tco3max - tco3min)/20.
 
 # Define colourmap
 
-# In[198]:
+# In[10]:
 
 
 cmap = plt.cm.jet
@@ -169,7 +169,7 @@ norm = colors.BoundaryNorm(np.arange(tco3min, tco3max, tco3range), cmap.N)
 # 
 # We will now plot our data. Let us begin with a map for the first time step, 1 July 2020.
 
-# In[199]:
+# In[11]:
 
 
 fig = plt.figure(figsize=(5, 5)) 
@@ -178,7 +178,7 @@ ax.coastlines(color='black') # Add coastlines
 ax.gridlines(draw_labels=True, linewidth=1, color='gray', alpha=0.5, linestyle='--') 
 ax.set_title(f'Total Column Ozone, {str(tco3.time[0].values)[:-19]}', fontsize=12) 
 im = plt.pcolormesh(tco3.longitude.values, tco3.latitude.values, tco3[0,:,:],
-                cmap=cmap, norm=norm, transform=ccrs.PlateCarree(), vmin=tco3min, vmax=tco3max)
+                cmap=cmap, norm=norm, transform=ccrs.PlateCarree())
 cbar = plt.colorbar(im,fraction=0.046, pad=0.04) 
 cbar.set_label('Total Column Ozone (DU)') 
 
@@ -187,7 +187,7 @@ cbar.set_label('Total Column Ozone (DU)')
 # 
 # Let us now view the entire time series by means of an animation that shows all time steps. We see from the dataset description above, that the time dimension in our data includes 215 entries. These correspond to 215 time steps, i.e. 215 days, between 1 July 2020 and 31 January 2021. The number of frames of our animation is therefore 215.
 
-# In[200]:
+# In[12]:
 
 
 frames = 215
@@ -195,7 +195,7 @@ frames = 215
 
 # Now we will create an animation. The last cell, which creates the animation in Javascript, may take a few minutes to run.
 
-# In[201]:
+# In[13]:
 
 
 def animate(i):
@@ -204,7 +204,7 @@ def animate(i):
     ax.set_title(f'Total Column Ozone, {str(tco3.time[i].values)[:-19]}', fontsize=12)
 
 
-# In[202]:
+# In[15]:
 
 
 ani = animation.FuncAnimation(fig, animate, frames, interval=100)
@@ -226,7 +226,7 @@ HTML(ani.to_jshtml())
 # In order to calculate the size of the ozone hole, we need to define some constants. These include the following:
 # 1. Ozone hole limit, i.e. minimum ozone, in Dobson units, beneath which we consider there to be a hole in the ozone layer.
 
-# In[177]:
+# In[16]:
 
 
 OZONE_HOLE_LIMIT = 220.
@@ -234,7 +234,7 @@ OZONE_HOLE_LIMIT = 220.
 
 # 2. Radius of the Earth, in order to calculate the size of each geographic grid cell of our data.
 
-# In[178]:
+# In[17]:
 
 
 Rearth = 6371009.
@@ -248,7 +248,7 @@ Rearth = 6371009.
 # 
 # First we define a function to apply this formula, taking as arguments the min and max of the latitudes and longitudes represented by each grid cell:
 
-# In[179]:
+# In[18]:
 
 
 def geo_area_array(lats1,lons1,lats2,lons2):
@@ -259,7 +259,7 @@ def geo_area_array(lats1,lons1,lats2,lons2):
 
 # Then we apply this function to our data, calculating first the lat/lon extents of each cell (0.75 is the spatial resolution, in degrees):
 
-# In[180]:
+# In[19]:
 
 
 tco3['areas'] = geo_area_array(tco3['latitude']-0.75/2, tco3['longitude']-0.75/2, 
@@ -272,7 +272,7 @@ tco3['areas'] = geo_area_array(tco3['latitude']-0.75/2, tco3['longitude']-0.75/2
 # 
 # Here we define a mask with the threshold conditions for ozone and latitude:
 
-# In[181]:
+# In[20]:
 
 
 mask = tco3.where((tco3 < OZONE_HOLE_LIMIT) & (tco3["latitude"] < -60.))
@@ -280,7 +280,7 @@ mask = tco3.where((tco3 < OZONE_HOLE_LIMIT) & (tco3["latitude"] < -60.))
 
 # All data points that do not meet the conditions are set to NaN (Not a Number) in the resulting array. Dividing this array by itself gives us a mask with each valid data point set to 1. Multiplying this by the corresponding areas leaves us with an array of grid cell areas that meet the conditions of belonging to the Antarctic ozone hole.
 
-# In[182]:
+# In[21]:
 
 
 area = (mask / mask) * mask['areas']
@@ -290,17 +290,26 @@ area = (mask / mask) * mask['areas']
 
 # If we now sum these grid cell areas, we have the total ozone hole extent. This is applied across each time step. We multiply by the number 1e-12 to convert from meters squared to million kilometers squared.
 
-# In[183]:
+# In[23]:
 
 
 ozone_hole = area.sum(dim=["latitude", "longitude"], skipna=True) * 1e-12
+
+
+# Let us update the Data Array attributes:
+
+# In[25]:
+
+
+ozone_hole.attrs['long_name'] = 'Ozone hole area'
+ozone_hole.attrs['units'] = 'million km^2'
 
 
 # ### Plot ozone hole area at each time step
 # 
 # Finally we can plot the evolution of the ozone hole, in million km squared, throughout the time series.
 
-# In[184]:
+# In[26]:
 
 
 ozone_hole.plot()
