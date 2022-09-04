@@ -4,21 +4,28 @@
 format: jb-book
 root: intro
 parts:
- - caption: Atmosphere Data Store
+ - caption: Data Access Tutorials
    chapters:
-   - file: 00 Atmosphere Data Store
- - caption: Tutorials
+   - file: 01_Atmosphere_Data_Store
+   - file: 02_Read_Write
+     title: Import, Reduce, Export
+ - caption: Data Visualisation Tutorials
    chapters:
-   - file: 01 Atmospheric Composition Data Visualisation
-   - file: 02 European Air Quality Index Calculation
-   - file: 03 Global Reanalysis Data Tutorial
- - caption: Case Studies
+   - file: 03_Maps
+     title: Maps
+   - file: 04_Animations
+     title: Animations
+   - file: 05_Time_Series
+     title: Time Series
+   - file: 06_Profile_Plot_Zonal_Mean
+     title: Profile Plots and Zonal Means
+ - caption: Data Processing Tutorials
    chapters:
-   - file: 04 Dust Monitoring
-   - file: 05 Wildfire Emissions
-   - file: 06 Ozone Monitoring
- - caption: Functions & Tools
+   - file: 07_European_Air_Quality_Index_Calculation
+   - file: 08_Ozone_Monitoring_Tutorial
+ - caption: Climate Data Processing
    chapters:
-   - file: 07 Vertical Cross Section Plot
+   - url: https://ecmwf-projects.github.io/copernicus-training-c3s/
+     title: Tutorials from the Copernicus Climate Change Service (C3S)
 
 
