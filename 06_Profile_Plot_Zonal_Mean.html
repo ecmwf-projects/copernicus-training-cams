@@ -275,6 +275,11 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#install-and-import-packages">
+   Install and import packages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#data-access-and-preprocessing">
    Data access and preprocessing
   </a>
@@ -372,6 +377,11 @@ const thebe_selector_output = ".output, .cell_output"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#install-and-import-packages">
+   Install and import packages
+  </a>
+ </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#data-access-and-preprocessing">
    Data access and preprocessing
@@ -479,7 +489,9 @@ td, th {
     <th><a href="https://colab.research.google.com/github/ecmwf-projects/copernicus-training-cams/blob/master/06_Profile_Plot_Zonal_Mean.ipynb">
         <img src = "https://colab.research.google.com/assets/colab-badge.svg" alt = "Colab"></th>
   </tr>
-</table><div class="cell docutils container">
+</table><div class="section" id="install-and-import-packages">
+<h2>Install and import packages<a class="headerlink" href="#install-and-import-packages" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install cdsapi
 </pre></div>
@@ -515,6 +527,7 @@ Requirement already satisfied: colorama in c:\users\cxcs\anaconda3\lib\site-pack
 <span class="kn">import</span> <span class="nn">urllib3</span> 
 <span class="n">urllib3</span><span class="o">.</span><span class="n">disable_warnings</span><span class="p">()</span>
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -1581,7 +1594,7 @@ Attributes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/06_Profile_Plot_Zonal_Mean_39_0.png" src="_images/06_Profile_Plot_Zonal_Mean_39_0.png" />
+<img alt="_images/06_Profile_Plot_Zonal_Mean_40_0.png" src="_images/06_Profile_Plot_Zonal_Mean_40_0.png" />
 </div>
 </div>
 <p>Note the distribution of CO mainly in the lower part of the atmosphere, and the high values in 2021, due mainly to the significant wildfire activity that summer.</p>
@@ -1625,7 +1638,7 @@ Attributes:
   im = plt.pcolormesh(zonal.latitude, zonal.level_log10, zonal, cmap=&#39;YlOrRd&#39;)
 </pre></div>
 </div>
-<img alt="_images/06_Profile_Plot_Zonal_Mean_44_1.png" src="_images/06_Profile_Plot_Zonal_Mean_44_1.png" />
+<img alt="_images/06_Profile_Plot_Zonal_Mean_45_1.png" src="_images/06_Profile_Plot_Zonal_Mean_45_1.png" />
 </div>
 </div>
 <p>Note how at higher latitudes CO is concentrated more in the lower part of the atmosphere.</p>
