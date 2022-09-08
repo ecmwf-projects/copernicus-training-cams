@@ -275,6 +275,11 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#install-and-import-packages">
+   Install and import packages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#access-data">
    Access data
   </a>
@@ -331,6 +336,11 @@ const thebe_selector_output = ".output, .cell_output"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#install-and-import-packages">
+   Install and import packages
+  </a>
+ </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#access-data">
    Access data
@@ -397,7 +407,9 @@ td, th {
     <th><a href="https://colab.research.google.com/github/ecmwf-projects/copernicus-training-cams/blob/master/03_Maps.ipynb">
         <img src = "https://colab.research.google.com/assets/colab-badge.svg" alt = "Colab"></th>
   </tr>
-</table><div class="cell docutils container">
+</table><div class="section" id="install-and-import-packages">
+<h2>Install and import packages<a class="headerlink" href="#install-and-import-packages" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install cdsapi
 </pre></div>
@@ -438,6 +450,7 @@ Requirement already satisfied: colorama in c:\users\cxcs\anaconda3\lib\site-pack
 <span class="kn">import</span> <span class="nn">urllib3</span> 
 <span class="n">urllib3</span><span class="o">.</span><span class="n">disable_warnings</span><span class="p">()</span>
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -1285,7 +1298,7 @@ Attributes:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x12065458400&gt;
 </pre></div>
 </div>
-<img alt="_images/03_Maps_22_1.png" src="_images/03_Maps_22_1.png" />
+<img alt="_images/03_Maps_23_1.png" src="_images/03_Maps_23_1.png" />
 </div>
 </div>
 <p>This figure would be easier to interpret with some modifications. These may include adjusting the colourscale, or adding annotations such as coastlines. While xarray’s plotting functionality can be further customised, it is essentially a thin wrapper around the popular <a class="reference external" href="https://matplotlib.org/">matplotlib</a> library. The example below shows how to generate a more customised visualisation using both matplotlib (for visualisations) and <a class="reference external" href="https://pypi.org/project/Cartopy/">cartopy</a> (for geospatial data processing).</p>
@@ -1325,7 +1338,7 @@ Attributes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/03_Maps_25_0.png" src="_images/03_Maps_25_0.png" />
+<img alt="_images/03_Maps_26_0.png" src="_images/03_Maps_26_0.png" />
 </div>
 </div>
 <p>The colours used in the above figure are from one of many <a class="reference external" href="https://matplotlib.org/stable/tutorials/colors/colormaps.html">built-in colourmaps</a> used in matplotlib. We can also create our own colourmap. The code below shows how to create the same colourmap as used in many CAMS products, such as the <a class="reference external" href="https://atmosphere.copernicus.eu/charts/cams/aerosol-forecasts">CAMS aerosol forecasts</a>.</p>
@@ -1389,7 +1402,7 @@ Attributes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/03_Maps_30_0.png" src="_images/03_Maps_30_0.png" />
+<img alt="_images/03_Maps_31_0.png" src="_images/03_Maps_31_0.png" />
 </div>
 </div>
 </div>
@@ -1444,7 +1457,7 @@ Attributes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/03_Maps_35_0.png" src="_images/03_Maps_35_0.png" />
+<img alt="_images/03_Maps_36_0.png" src="_images/03_Maps_36_0.png" />
 </div>
 </div>
 <p>We can see that the high values of AOD seem to be mainly due to organic matter in North America and Siberia, which saw many wildfire activity in this period, while further south we can see a dust contribution.</p>
