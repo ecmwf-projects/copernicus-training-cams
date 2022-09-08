@@ -3,13 +3,27 @@
 
 # ![logo](./img/LogoLine_horizon_CAMS.png)
 
-# | | | |
-# |:-:|:-:|:-:|
-# |[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/ecmwf-projects/copernicus-training-cams/master?labpath=06_Profile_Plot_Zonal_Mean.ipynb)|[![Kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://github.com/ecmwf-projects/copernicus-training-cams/blob/master/06_Profile_Plot_Zonal_Mean.ipynb)|[![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ecmwf-projects/copernicus-training-cams/blob/master/06_Profile_Plot_Zonal_Mean.ipynb)|
-
 # # Profile Plots and Zonal Means
 # 
 # This tutorial demonstrates how to visualise [Copernicus Atmosphere Monitoring Service (CAMS)](https://atmosphere.copernicus.eu/) data of different atmospheric levels in the form of profile plots and zonal mean plots. The data used in this tutorial includes CO from the Northern Hemisphere during the summer (peak fire season) from 2003 to 2021.
+
+# <style>
+# td, th {
+#    border: 1px solid white;
+#    border-collapse: collapse;
+# }
+# </style>
+# <table align="left">
+#   <tr>
+#     <th>Run the tutorial via free cloud platforms: </th>
+#     <th><a href="https://mybinder.org/v2/gh/ecmwf-projects/copernicus-training-cams/master?labpath=06_Profile_Plot_Zonal_Mean.ipynb">
+#         <img src = "https://mybinder.org/badge.svg" alt = "Binder"></th>
+#     <th><a href="https://kaggle.com/kernels/welcome?src=https://github.com/ecmwf-projects/copernicus-training-cams/blob/master/06_Profile_Plot_Zonal_Mean.ipynb">
+#         <img src = "https://kaggle.com/static/images/open-in-kaggle.svg" alt = "Kaggle"></th>
+#     <th><a href="https://colab.research.google.com/github/ecmwf-projects/copernicus-training-cams/blob/master/06_Profile_Plot_Zonal_Mean.ipynb">
+#         <img src = "https://colab.research.google.com/assets/colab-badge.svg" alt = "Colab"></th>
+#   </tr>
+# </table>
 
 # In[1]:
 

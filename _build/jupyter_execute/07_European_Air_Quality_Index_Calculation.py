@@ -3,10 +3,6 @@
 
 # ![logo](./img/LogoLine_horizon_CAMS.png)
 
-# | | | |
-# |:-:|:-:|:-:|
-# |[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/ecmwf-projects/copernicus-training-cams/master?labpath=07_European_Air_Quality_Index_Calculation.ipynb)|[![Kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://github.com/ecmwf-projects/copernicus-training-cams/blob/master/07_European_Air_Quality_Index_Calculation.ipynb)|[![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ecmwf-projects/copernicus-training-cams/blob/master/07_European_Air_Quality_Index_Calculation.ipynb)|
-
 # <br>
 
 # # European Air Quality Index Calculation
@@ -66,6 +62,24 @@
 # * [Europe's air quality status 2021](https://www.eea.europa.eu/publications/air-quality-status-2021/air-quality-status-briefing-2021)
 # * [Air pollution stil too high in most EU Member States](https://www.eea.europa.eu/highlights/air-pollution-still-too-high-1)
 # * [Euronews: Copernicus air quality index](https://www.euronews.com/weather/copernicus-air-quality-index)
+
+# <style>
+# td, th {
+#    border: 1px solid white;
+#    border-collapse: collapse;
+# }
+# </style>
+# <table align="left">
+#   <tr>
+#     <th>Run the tutorial via free cloud platforms: </th>
+#     <th><a href="https://mybinder.org/v2/gh/ecmwf-projects/copernicus-training-cams/master?labpath=07_European_Air_Quality_Index_Calculation.ipynb">
+#         <img src = "https://mybinder.org/badge.svg" alt = "Binder"></th>
+#     <th><a href="https://kaggle.com/kernels/welcome?src=https://github.com/ecmwf-projects/copernicus-training-cams/blob/master/07_European_Air_Quality_Index_Calculation.ipynb">
+#         <img src = "https://kaggle.com/static/images/open-in-kaggle.svg" alt = "Kaggle"></th>
+#     <th><a href="https://colab.research.google.com/github/ecmwf-projects/copernicus-training-cams/blob/master/07_European_Air_Quality_Index_Calculation.ipynb">
+#         <img src = "https://colab.research.google.com/assets/colab-badge.svg" alt = "Colab"></th>
+#   </tr>
+# </table>
 
 # <hr>
 

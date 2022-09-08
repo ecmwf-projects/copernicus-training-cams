@@ -3,15 +3,29 @@
 
 # ![logo](./img/LogoLine_horizon_CAMS.png)
 
-# | | | |
-# |:-:|:-:|:-:|
-# |[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/ecmwf-projects/copernicus-training-cams/master?labpath=02_Read_Write.ipynb)|[![Kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://github.com/ecmwf-projects/copernicus-training-cams/blob/master/02_Read_Write.ipynb)|[![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ecmwf-projects/copernicus-training-cams/blob/master/02_Read_Write.ipynb)|
-
 # <br>
 
 # # Tutorial on how to import, subset, aggregate and export CAMS Data
 # 
 # This tutorial provides practical examples that demonstrate how to download, read into Xarray, subset, aggregate and export data from the [Atmosphere Data Store (ADS)](https://ads.atmosphere.copernicus.eu/) of the [Copernicus Atmosphere Monitoring Service (CAMS)](https://atmosphere.copernicus.eu/).
+
+# <style>
+# td, th {
+#    border: 1px solid white;
+#    border-collapse: collapse;
+# }
+# </style>
+# <table align="left">
+#   <tr>
+#     <th>Run the tutorial via free cloud platforms: </th>
+#     <th><a href="https://mybinder.org/v2/gh/ecmwf-projects/copernicus-training-cams/master?labpath=02_Read_Write.ipynb">
+#         <img src = "https://mybinder.org/badge.svg" alt = "Binder"></th>
+#     <th><a href="https://kaggle.com/kernels/welcome?src=https://github.com/ecmwf-projects/copernicus-training-cams/blob/master/02_Read_Write.ipynb">
+#         <img src = "https://kaggle.com/static/images/open-in-kaggle.svg" alt = "Kaggle"></th>
+#     <th><a href="https://colab.research.google.com/github/ecmwf-projects/copernicus-training-cams/blob/master/02_Read_Write.ipynb">
+#         <img src = "https://colab.research.google.com/assets/colab-badge.svg" alt = "Colab"></th>
+#   </tr>
+# </table>
 
 # ## Install ADS API
 # 

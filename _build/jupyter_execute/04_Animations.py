@@ -3,13 +3,27 @@
 
 # ![logo](./img/LogoLine_horizon_CAMS.png)
 
-# | | | |
-# |:-:|:-:|:-:|
-# |[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/ecmwf-projects/copernicus-training-cams/master?labpath=02_Read_Write.ipynb)|[![Kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://github.com/ecmwf-projects/copernicus-training-cams/blob/master/04_Animations.ipynb)|[![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ecmwf-projects/copernicus-training-cams/blob/master/04_Animations.ipynb)|
-
 # # Create Animations from CAMS Data
 # 
 # This tutorial demonstrates how to create animations from data of the [Copernicus Atmosphere Monitoring Service (CAMS)](https://atmosphere.copernicus.eu/). We will use as our example Organic Matter Aerosol Optical Depth (AOD) analysis data from the beginning of August 2021 over North America. This was a time of significant wildfire activity.
+
+# <style>
+# td, th {
+#    border: 1px solid white;
+#    border-collapse: collapse;
+# }
+# </style>
+# <table align="left">
+#   <tr>
+#     <th>Run the tutorial via free cloud platforms: </th>
+#     <th><a href="https://mybinder.org/v2/gh/ecmwf-projects/copernicus-training-cams/master?labpath=04_Animations.ipynb">
+#         <img src = "https://mybinder.org/badge.svg" alt = "Binder"></th>
+#     <th><a href="https://kaggle.com/kernels/welcome?src=https://github.com/ecmwf-projects/copernicus-training-cams/blob/master/04_Animations.ipynb">
+#         <img src = "https://kaggle.com/static/images/open-in-kaggle.svg" alt = "Kaggle"></th>
+#     <th><a href="https://colab.research.google.com/github/ecmwf-projects/copernicus-training-cams/blob/master/04_Animations.ipynb">
+#         <img src = "https://colab.research.google.com/assets/colab-badge.svg" alt = "Colab"></th>
+#   </tr>
+# </table>
 
 # In[1]:
 

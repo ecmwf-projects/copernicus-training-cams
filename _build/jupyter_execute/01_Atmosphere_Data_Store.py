@@ -3,10 +3,6 @@
 
 # ![logo](./img/LogoLine_horizon_CAMS.png)
 
-# | | | |
-# |:-:|:-:|:-:|
-# |[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/ecmwf-projects/copernicus-training-cams/master?labpath=01_Atmosphere_Data_Store.ipynb)|[![Kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://github.com/ecmwf-projects/copernicus-training-cams/blob/master/01_Atmosphere_Data_Store.ipynb)|[![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ecmwf-projects/copernicus-training-cams/blob/master/01_Atmosphere_Data_Store.ipynb)|
-
 # <br>
 
 # # Atmosphere Data Store (ADS) Tutorial
@@ -20,6 +16,24 @@
 #   * 2.2 - Access data programmatically with the CDS API
 #   * 2.3 - Further resources
 # * 3 - Example: CAMS data request
+
+# <style>
+# td, th {
+#    border: 1px solid white;
+#    border-collapse: collapse;
+# }
+# </style>
+# <table align="left">
+#   <tr>
+#     <th>Run the tutorial via free cloud platforms: </th>
+#     <th><a href="https://mybinder.org/v2/gh/ecmwf-projects/copernicus-training-cams/master?labpath=01_Atmosphere_Data_Store.ipynb">
+#         <img src = "https://mybinder.org/badge.svg" alt = "Binder"></th>
+#     <th><a href="https://kaggle.com/kernels/welcome?src=https://github.com/ecmwf-projects/copernicus-training-cams/blob/master/01_Atmosphere_Data_Store.ipynb">
+#         <img src = "https://kaggle.com/static/images/open-in-kaggle.svg" alt = "Kaggle"></th>
+#     <th><a href="https://colab.research.google.com/github/ecmwf-projects/copernicus-training-cams/blob/master/01_Atmosphere_Data_Store.ipynb">
+#         <img src = "https://colab.research.google.com/assets/colab-badge.svg" alt = "Colab"></th>
+#   </tr>
+# </table>
 
 # <hr>
 
