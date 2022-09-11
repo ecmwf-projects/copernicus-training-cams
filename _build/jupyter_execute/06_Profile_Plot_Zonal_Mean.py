@@ -25,6 +25,8 @@
 #   </tr>
 # </table>
 
+# <br>
+
 # ## Install and import packages
 
 # In[1]:
@@ -58,7 +60,7 @@ urllib3.disable_warnings()
 # 
 # Copy your API key into the code cell below, replacing `#######` with your key. (Remember, to access data from the ADS, you will need first to register/login https://ads.atmosphere.copernicus.eu and obtain an API key from https://ads.atmosphere.copernicus.eu/api-how-to.)
 
-# In[4]:
+# In[ ]:
 
 
 URL = 'https://ads.atmosphere.copernicus.eu/api/v2'
@@ -72,7 +74,7 @@ KEY = '##########################################'
 # In[2]:
 
 
-DATADIR = './'
+DATADIR = '.'
 
 
 # For this tutorial, we will use CAMS Global Reanalysis (EAC4) data. The code below shows the subset characteristics that we will extract from this dataset as an API request.
@@ -81,7 +83,7 @@ DATADIR = './'
 # Before running this code, ensure that you have **accepted the terms and conditions**. This is something you only need to do once for each CAMS dataset. You will find the option to do this by selecting the dataset in the ADS, then scrolling to the end of the *Download data* tab.
 # ```
 
-# In[5]:
+# In[36]:
 
 
 c = cdsapi.Client(url=URL, key=KEY)
@@ -90,15 +92,11 @@ c.retrieve(
     {
         'variable': 'carbon_monoxide',
         'pressure_level': [
-            '1', '2', '3',
-            '5', '7', '10',
-            '20', '30', '50',
-            '70', '100', '150',
-            '200', '250', '300',
-            '400', '500', '600',
-            '700', '800', '850',
-            '900', '925', '950',
-            '1000',
+            '100', '150', '200',
+            '250', '300', '400',
+            '500', '600', '700',
+            '800', '850', '900',
+            '925', '950', '1000',
         ],
         'year': [
             '2003', '2004', '2005',
@@ -113,10 +111,6 @@ c.retrieve(
             '06', '07', '08',
         ],
         'product_type': 'monthly_mean',
-        'area': [
-            90, -180, 0,
-            180,
-        ],
         'format': 'netcdf',
     },
     f'{DATADIR}/CO_NHemis_JJA_2003-2021.nc')
@@ -136,7 +130,7 @@ ds
 
 # ### Representation of pressure levels
 # 
-# Our CO dataset represents 25 levels of the atmosphere, from 1000 (surface) to 1 hectopascals (hPa). This can be best visualised in a logarithmic scale, or if converted to altitude.
+# Our CO dataset represents 15 levels of the atmosphere, from 1000 (surface) to 100 hectopascals (hPa). This can be best visualised in a logarithmic scale, or if converted to altitude.
 
 # #### Pressure levels in logarithmic scale
 # 
@@ -202,25 +196,58 @@ da = ds['co']
 da
 
 
-# ### Aggregation
+# ### Unit conversion
 # 
-# To facilitate visualisation of CO vertical profiles, we are going to aggregate the dataset we have downloaded both temporally and spatially.
+# Most of the chemical species in the CAMS Global data, including our CO data, is archived as mass mixing ratios (MMR, kg of gas / kg of air).
+# 
+# We will convert this to Volume Mixing Ratio (VMR, in units parts per billion, or ppbv)
+# 
+# To convert data from MMR to VMR you only need the molar masses of dry air and of the atmospheric species. For CO the formula is: VMR = 28.9644 / 28.0101 * 1e9 * MMR. The 1e9 in the formulae gives parts per billion (ppbv). If we wanted parts per million (ppmv) we would use 1e6. See [more details on unit conversions here](https://confluence.ecmwf.int/pages/viewpage.action?pageId=153391710).
+
+# In[11]:
+
+
+da = (28.9644 / 28.0101) * 1e9 * da
+
+
+# Here we update the attributes of our dataset with the new units.
+
+# In[13]:
+
+
+da.attrs['long_name'] = 'CO Volume Mixing Ratio'
+da.attrs['units'] = 'ppbv'
+
+
+# ### Subset and aggregation
+# 
+# We would like to visualise CO profiles over the northern hemisphere, so we will take a subset including only northern latitudes. Also, to facilitate visualisation of CO vertical profiles, we are going to average over the temporal and spatial dimensions.
+
+# #### Spatial subset
+# 
+# Here we subset the data to keep only northern latitudes.
+
+# In[14]:
+
+
+da_north = da.where(da.latitude > 0, drop=True)
+
 
 # #### Temporal aggregation
 # 
 # The purpose of the temporal aggregation is to average June, July and August in each year, resulting in one summer mean value at each year of the dataset.
 
-# In[11]:
+# In[15]:
 
 
-summer = da.groupby('time.year').mean(keep_attrs=True)
+summer = da_north.groupby('time.year').mean(keep_attrs=True)
 
 
 # #### Spatial aggregation
 # 
 # To visualise the data in a profile plot, we will aggregate over the spatial dimensions. For the latitudinal dimension, we need to take into account the variation in area as a function of latitude, which we will do by taking the cosine of the latitude as a proxy.
 
-# In[12]:
+# In[16]:
 
 
 weights = np.cos(np.deg2rad(summer.latitude))
@@ -228,7 +255,7 @@ weights.name = "weights"
 weighted = summer.weighted(weights)
 
 
-# In[13]:
+# In[17]:
 
 
 # Average (mean) over the latitudinal axis
@@ -236,8 +263,10 @@ co = weighted.mean(dim=["latitude", "longitude"])
 
 
 # ### Calculate quantiles of climatology
+# 
+# Here we calculate the 5th, 50th and 95th quantile of CO climatology from 2003 to 2021.
 
-# In[14]:
+# In[18]:
 
 
 co95 = co.quantile(0.95, dim='year')
@@ -247,14 +276,14 @@ co50 = co.quantile(0.5, dim='year')
 
 # ## Plot summer climatology of CO in Northern Hemisphere
 
-# In[15]:
+# In[19]:
 
 
 fig, ax = plt.subplots(1, 1, figsize = (6, 9))
 
-ax.set_title('CO in JJA in Northern Hemisphere', fontsize=12) # Set figure title
-ax.set_ylabel('Height (Kilometers)')
-ax.set_xlabel('CO')
+ax.set_title('CO in JJA in Northern Hemisphere', fontsize=12)
+ax.set_ylabel('Height [Kilometers]')
+ax.set_xlabel('CO [ppbv]')
 ax.plot(co50, co50.height, color='black', linestyle='--', label='2003-2021 median')
 ax.fill_betweenx(co50.height, co05, co95, alpha=0.1, color='black', label='2003-2021 5th to 95th quantile range')
 ax.plot(co[18,:], co.height, color='red', linestyle='-', label='2021')
@@ -267,39 +296,63 @@ ax.legend(handles, labels)
 fig.savefig(f'{DATADIR}/CO_JJA_NHem_2003-2021_profile.png')
 
 
-# Note the distribution of CO mainly in the lower part of the atmosphere, and the high values in 2021, due mainly to the significant wildfire activity that summer.
+# Note the distribution of CO mainly in the lower part of the atmosphere, and the high values in 2021, due mainly to the significant wildfire activity that summer. See the [BAMS State of the Climate 2021 report](https://www.ncei.noaa.gov/bams-state-of-climate) for more details.
 
 # ## Create zonal mean plot of CO summer climatology in Northern Hemisphere
 
-# In[16]:
+# ### Data prep
+# 
+# We again aggregate over time (June, July and Aug of each year), and over space. This time however the spatial aggregation is only over the longitudinal dimension, as we want to visualise data over all latitudinal zones.
+
+# In[21]:
 
 
-zonal = weighted.mean(dim=["longitude", "year"])
+jja = da.groupby('time.year').mean(keep_attrs=True)
+
+
+# In[22]:
+
+
+zonal = jja.mean(dim=["longitude", "year"])
 
 
 # ### Create zonal mean plot
+# 
+# Now we can plot our data. Before we do this however, we define the min, max and step of contours that we will use in a contour plot.
 
-# In[17]:
+# In[28]:
+
+
+vdiv = 10
+vmin = 50
+vmax = 200+vdiv
+clevs = np.arange(vmin,vmax,vdiv)
+
+
+# In[29]:
 
 
 # Define the figure and specify size
 fig, ax = plt.subplots(1, 1, figsize = (9, 6))
-# Set x and y axis tickmarks, labels and figure title
-ax.set_xlabel('Latitude')
-ax.set_ylabel('Log pressure level (10^x hPa)')
-ax.set_title('Zonal mean of CO in N. Hemisphere for JJA climatology (2003 to 2021)', fontsize=12)
-ax.invert_yaxis()
 
-# As the presure levels (25) are much less than the latitudes (180),
+# Configure the axes and figure title
+ax.set_xlabel('Latitude [degrees]')
+ax.set_ylabel('Altitude [km]')
+ax.set_title('Zonal mean of CO in N. Hemisphere for JJA climatology (2003 to 2021)', fontsize=12)
+
+# As the altitudes (15) are much less than the latitudes (180),
 # we need to ensure the plot fits into the size of the figure.
 ax.set_aspect('auto')
 
-# Plot the figure and specify a colourbar
-im = plt.pcolormesh(zonal.latitude, zonal.level_log10, zonal, cmap='YlOrRd')
-cbar = plt.colorbar(im,fraction=0.046, pad=0.04)
-cbar.set_label('CO (kg/kg**-1)')
+# Plot the data as a contour plot
+contour = ax.contourf(zonal.latitude, zonal.height, zonal, levels=clevs, cmap='YlOrRd', extend='max')
 
+# Specify the colourbar
+cbar = plt.colorbar(contour,fraction=0.046, pad=0.04)
+cbar.set_label('CO [ppbv]')
+
+# Save the plot
 fig.savefig(f'{DATADIR}/CO_JJA_NHem_2003-2021_zonal_mean.png')
 
 
-# Note how at higher latitudes CO is concentrated more in the lower part of the atmosphere.
+# Note the greater abundance of CO in the northern hemisphere, and in the lower part of the atmosphere.

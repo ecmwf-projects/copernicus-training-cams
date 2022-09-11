@@ -22,7 +22,8 @@ parts:
  - caption: Data Processing Tutorials
    chapters:
    - file: 07_European_Air_Quality_Index_Calculation
-   - file: 08_Ozone_Monitoring_Tutorial
+   - file: 08_Antarctic_Ozone_Monitoring
+     title: Antarctic Ozone Hole Monitoring
  - caption: Climate Data Processing
    chapters:
    - url: https://ecmwf-projects.github.io/copernicus-training-c3s/

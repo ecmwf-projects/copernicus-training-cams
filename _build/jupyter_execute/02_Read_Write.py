@@ -27,6 +27,8 @@
 #   </tr>
 # </table>
 
+# <br>
+
 # ## Install ADS API
 # 
 # We will need to install the Application Programming Interface (API) of the [Atmosphere Data Store (ADS)](https://ads.atmosphere.copernicus.eu). This will allow us to programmatically download data.
