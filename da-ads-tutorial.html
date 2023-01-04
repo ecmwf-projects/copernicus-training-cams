@@ -1,0 +1,743 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atmosphere Data Store (ADS) Tutorial &#8212; CAMS Training</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tutorial on how to import, subset, aggregate and export CAMS Data" href="da-read-write.html" />
+    <link rel="prev" title="Copernicus Atmosphere Monitoring Service (CAMS) Data Tutorials" href="intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/CAMS–POS–LINE.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">CAMS Training</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Copernicus Atmosphere Monitoring Service (CAMS) Data Tutorials
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Data Access Tutorials
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Atmosphere Data Store (ADS) Tutorial
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="da-read-write.html">
+   Import, Reduce, Export
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Data Visualisation Tutorials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="vis-maps.html">
+   Maps
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="vis-animations.html">
+   Animations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="vis-time-series.html">
+   Time Series
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="vis-profiles.html">
+   Profile Plots and Zonal Means
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Data Processing Tutorials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="proc-aq-index.html">
+   European Air Quality Index Calculation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="proc-ozone.html">
+   Antarctic Ozone Hole Monitoring
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Climate Data Processing
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="https://ecmwf-projects.github.io/copernicus-training-c3s/">
+   Tutorials from the Copernicus Climate Change Service (C3S)
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/da-ads-tutorial.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/ecmwf-projects/copernicus-training-cams"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/ecmwf-projects/copernicus-training-cams/issues/new?title=Issue%20on%20page%20%2Fda-ads-tutorial.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/ecmwf-projects/copernicus-training-cams/main?urlpath=tree/da-ads-tutorial.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#outline">
+   Outline
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#about">
+   1. About
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-retrieval">
+   2. Data retrieval
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#access-data-interactively-via-the-ads-web-interface">
+     2.1 Access data interactively via the ADS web interface
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#filter-and-select-a-dataset">
+       Filter and select a dataset
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#submit-the-download-data-form">
+       Submit the
+       <em>
+        Download data
+       </em>
+       form
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#access-data-programmatically-with-the-cds-api">
+     2.2 Access data programmatically with the CDS API
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#install-the-cds-api-key">
+       Install the CDS API key
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#alternative-set-cds-api-credentials-manually">
+       Alternative: Set CDS API credentials manually
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#install-the-cds-api-client">
+       Install the CDS API client
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#use-the-cds-api-client-for-data-access">
+       Use the CDS API client for data access
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#further-resources">
+     2.3 Further resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-cams-data-request">
+   3. Example: CAMS data request
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-cams-global-atmospheric-composition-forecasts-organic-matter-aerosol-optical-depth-at-550-nm">
+     Example: CAMS global atmospheric composition forecasts - Organic matter aerosol optical depth at 550 nm
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Atmosphere Data Store (ADS) Tutorial</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#outline">
+   Outline
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#about">
+   1. About
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-retrieval">
+   2. Data retrieval
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#access-data-interactively-via-the-ads-web-interface">
+     2.1 Access data interactively via the ADS web interface
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#filter-and-select-a-dataset">
+       Filter and select a dataset
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#submit-the-download-data-form">
+       Submit the
+       <em>
+        Download data
+       </em>
+       form
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#access-data-programmatically-with-the-cds-api">
+     2.2 Access data programmatically with the CDS API
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#install-the-cds-api-key">
+       Install the CDS API key
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#alternative-set-cds-api-credentials-manually">
+       Alternative: Set CDS API credentials manually
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#install-the-cds-api-client">
+       Install the CDS API client
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#use-the-cds-api-client-for-data-access">
+       Use the CDS API client for data access
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#further-resources">
+     2.3 Further resources
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-cams-data-request">
+   3. Example: CAMS data request
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-cams-global-atmospheric-composition-forecasts-organic-matter-aerosol-optical-depth-at-550-nm">
+     Example: CAMS global atmospheric composition forecasts - Organic matter aerosol optical depth at 550 nm
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <p><img alt="logo" src="_images/LogoLine_horizon_CAMS.png" /></p>
+<br><div class="tex2jax_ignore mathjax_ignore section" id="atmosphere-data-store-ads-tutorial">
+<h1>Atmosphere Data Store (ADS) Tutorial<a class="headerlink" href="#atmosphere-data-store-ads-tutorial" title="Permalink to this headline">¶</a></h1>
+<p>This notebook provides you an introduction to the <a class="reference external" href="https://ads.atmosphere.copernicus.eu/">Copernicus Atmosphere Data Store (ADS)</a> and gives you a practical example how to access and retrieve data from the ADS.</p>
+<div class="section" id="outline">
+<h2>Outline<a class="headerlink" href="#outline" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>1 - About</p></li>
+<li><p>2 - CAMS data retrieval</p>
+<ul>
+<li><p>2.1 - Access data interactively via the ADS web interface</p></li>
+<li><p>2.2 - Access data programmatically with the CDS API</p></li>
+<li><p>2.3 - Further resources</p></li>
+</ul>
+</li>
+<li><p>3 - Example: CAMS data request</p></li>
+</ul>
+<style>
+td, th {
+   border: 1px solid white;
+   border-collapse: collapse;
+}
+</style>
+<table align="left">
+  <tr>
+    <th>Run the tutorial via free cloud platforms: </th>
+    <th><a href="https://mybinder.org/v2/gh/ecmwf-projects/copernicus-training-cams/master?labpath=da-ads-tutorial.ipynb">
+        <img src = "https://mybinder.org/badge.svg" alt = "Binder"></th>
+    <th><a href="https://kaggle.com/kernels/welcome?src=https://github.com/ecmwf-projects/copernicus-training-cams/blob/master/da-ads-tutorial.ipynb">
+        <img src = "https://kaggle.com/static/images/open-in-kaggle.svg" alt = "Kaggle"></th>
+    <th><a href="https://colab.research.google.com/github/ecmwf-projects/copernicus-training-cams/blob/master/da-ads-tutorial.ipynb">
+        <img src = "https://colab.research.google.com/assets/colab-badge.svg" alt = "Colab"></th>
+  </tr>
+</table><hr></div>
+<div class="section" id="about">
+<h2>1. About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="https://ads.atmosphere.copernicus.eu/">Copernicus Atmosphere Data Store (ADS)</a> is the data access portal of the <a class="reference external" href="https://atmosphere.copernicus.eu/">Copernicus Atmosphere Monitoring Service (CAMS)</a> and offers access to data about the <code class="docutils literal notranslate"><span class="pre">Earth's</span> <span class="pre">past,</span> <span class="pre">present</span> <span class="pre">and</span> <span class="pre">future</span> <span class="pre">atmosphere</span></code>. Find more information in the <a class="reference external" href="https://confluence.ecmwf.int/display/CKB/Atmosphere+Data+Store+%28ADS%29+documentation">Atmosphere Data Store (ADS) documentation</a>.</p>
+<br><p><img alt="logo" src="_images/cams_data_store.png" /></p>
+<hr></div>
+<div class="section" id="data-retrieval">
+<h2>2. Data retrieval<a class="headerlink" href="#data-retrieval" title="Permalink to this headline">¶</a></h2>
+<p>There are two ways to access data from the Copernicus Atmosphere Data Store (ADS):</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#access_manual">interactively</a> via the ADS web interface, or</p></li>
+<li><p><a class="reference external" href="#access_programmatic">programmatically</a> with the CDS API</p></li>
+</ul>
+<p>In order to be able to access data from the Atmosphere Data Store (ADS), you first have to <a class="reference external" href="https://ads.atmosphere.copernicus.eu/#%21/home">self-register</a> at the ADS registration page (if you do not have an account yet) and second, you have to <a class="reference external" href="https://ads.atmosphere.copernicus.eu/user/login">login</a> to the ADS portal. You will be able to browse the ADS web interface without beging logged in, but you have to login for being able to download data.</p>
+<div class="section" id="access-data-interactively-via-the-ads-web-interface">
+<h3>2.1 Access data interactively via the ADS web interface<a class="headerlink" href="#access-data-interactively-via-the-ads-web-interface" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">ADS</span> <span class="pre">web</span> <span class="pre">interface</span></code> allows you to interactively <code class="docutils literal notranslate"><span class="pre">browse</span></code>, <code class="docutils literal notranslate"><span class="pre">select</span></code> and <code class="docutils literal notranslate"><span class="pre">download</span></code> data products offered by the ADS. First, under <a class="reference external" href="https://ads.atmosphere.copernicus.eu/cdsapp#%21/search?type=dataset">Datasets</a>, you can browse and select the data you are interested in. In a second step, you can specify details of the data download form you wish to submit.</p>
+<div class="section" id="filter-and-select-a-dataset">
+<h4>Filter and select a dataset<a class="headerlink" href="#filter-and-select-a-dataset" title="Permalink to this headline">¶</a></h4>
+<p>In a first step, you can <code class="docutils literal notranslate"><span class="pre">browse</span></code> and <code class="docutils literal notranslate"><span class="pre">filter</span></code> the datasets you are interested in. The <a class="reference external" href="https://ads.atmosphere.copernicus.eu/cdsapp#%21/search?type=dataset">Datasets</a> interface allows you either to select data based on different categories, e.g. <code class="docutils literal notranslate"><span class="pre">Product</span> <span class="pre">type</span></code>, <code class="docutils literal notranslate"><span class="pre">Variable</span> <span class="pre">domain</span></code>, <code class="docutils literal notranslate"><span class="pre">Spatial</span> <span class="pre">/</span> <span class="pre">Temporal</span> <span class="pre">coverage</span></code>, but also offers a free text search. The list of datasets in the main window allows you to select the dataset you are interested in.</p>
+<br><p><img alt="logo" src="_images/ads_data_overview.png" /></p>
+<br><p>Once you selected a dataset, you then get redirected to a <code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">description</span></code> section, which provides you an overview of the chosen dataset. Under <code class="docutils literal notranslate"><span class="pre">Download</span> <span class="pre">data</span></code>, you have the option to specify the dataset you would like to download and to submit the download form.</p>
+</div>
+<div class="section" id="submit-the-download-data-form">
+<h4>Submit the <em>Download data</em> form<a class="headerlink" href="#submit-the-download-data-form" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">Data</span> <span class="pre">description</span></code> section (see 1 in the image below) provides you an overview of the dataset, including a list of variables that are available. Under the tab <code class="docutils literal notranslate"><span class="pre">Download</span> <span class="pre">data</span></code>, the <code class="docutils literal notranslate"><span class="pre">&quot;Download</span> <span class="pre">data&quot;</span> <span class="pre">form</span></code> opens (see 2), which allows you to interactively filter the dataset based on specific keywords, such as:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Product</span> <span class="pre">type</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Variable</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Year</span> <span class="pre">/</span> <span class="pre">Month</span> <span class="pre">/</span> <span class="pre">Time</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Geographical</span> <span class="pre">area</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Format</span></code></p></li>
+</ul>
+<p>At the end of the <code class="docutils literal notranslate"><span class="pre">&quot;Download</span> <span class="pre">data&quot;</span> <span class="pre">form</span></code>, you get two options to select: <code class="docutils literal notranslate"><span class="pre">Show</span> <span class="pre">API</span> <span class="pre">request</span></code> and <code class="docutils literal notranslate"><span class="pre">Submit</span> <span class="pre">Form</span></code>. If you want to download the data interactively, the data requests will be executed as soon as you click on the <code class="docutils literal notranslate"><span class="pre">Submit</span> <span class="pre">Form</span></code> button.</p>
+<p><strong>Note:</strong> You need to be logged into the ADS portal and you have to accept the Terms and Conditions of the dataset before being able to download data.</p>
+<p>You will need the <code class="docutils literal notranslate"><span class="pre">Show</span> <span class="pre">API</span> <span class="pre">request</span></code>, if you want to request data programmatically. See <a class="reference external" href="#access_programmatic">Section 2.2</a> for further information.</p>
+<div class="alert alert-block alert-success">
+<b>NOTE</b>: <br>
+    Under the tab <code>Your requests</code> in the main menu, you can monitor the status of your data requests.</div>
+<br><br><p><img alt="logo" src="_images/ads_data_description_download_form.png" /></p>
+<br></div>
+</div>
+<div class="section" id="access-data-programmatically-with-the-cds-api">
+<h3>2.2 Access data programmatically with the CDS API<a class="headerlink" href="#access-data-programmatically-with-the-cds-api" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">CDS</span> <span class="pre">Application</span> <span class="pre">Program</span> <span class="pre">Interface</span> <span class="pre">(CDS</span> <span class="pre">API)</span></code> is a Python library which allows you to access data from the ADS <code class="docutils literal notranslate"><span class="pre">programmatically</span></code>. The library is available for both Python versions, Python 2.7.x and Python 3, but we recommend to use the library under Python 3. In order to use the CDS API, follow the steps below:</p>
+<div class="section" id="install-the-cds-api-key">
+<h4>Install the CDS API key<a class="headerlink" href="#install-the-cds-api-key" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ads.atmosphere.copernicus.eu/#%21/home">Self-register</a> at the ADS registration page (if you do not have an account yet)</p></li>
+<li><p><a class="reference external" href="https://ads.atmosphere.copernicus.eu/user/login">Login</a> to the ADS portal and go to the <a class="reference external" href="https://ads.atmosphere.copernicus.eu/api-how-to">api-how-to page</a></p></li>
+<li><p>Copy the CDS API key displayed in the black terminal window in a file under <code class="docutils literal notranslate"><span class="pre">$HOME/.cdsapirc</span></code></p></li>
+</ul>
+<p><strong>Note:</strong> You find your CDS API key displayed in the black terminal box under the section <code class="docutils literal notranslate"><span class="pre">Install</span> <span class="pre">the</span> <span class="pre">CDS</span> <span class="pre">API</span> <span class="pre">key</span></code>. If you do not see a URL or key appear in the black terminal box, please refresh your browser tab.</p>
+<br><p><img alt="logo" src="_images/ads_api_key_terminal.png" /></p>
+<br><p>The code below creates the file under your current working directory. Make sure to replace the <code class="docutils literal notranslate"><span class="pre">################</span></code> with your personal <code class="docutils literal notranslate"><span class="pre">CDS</span> <span class="pre">API</span> <span class="pre">key</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%writefile</span> ./.adsapirc
+
+<span class="n">url</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">ads</span><span class="o">.</span><span class="n">atmosphere</span><span class="o">.</span><span class="n">copernicus</span><span class="o">.</span><span class="n">eu</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span>
+<span class="n">key</span><span class="p">:</span> <span class="c1">################################</span>
+</pre></div>
+</div>
+</div>
+</div>
+<br>
+<div class="alert alert-block alert-success">
+<b>NOTE</b>: <br>
+   The Copernicus Climate Change Service (C3S) uses the same CDS API software, but provides access to different datasets. If you are accessing data also from the Copernicus Climate Data Store and you already have a <code>~/.cdsapirc</code> file created, then you have to store your ADS key elsewhere. <br>
+    You can e.g. store your ADS key under <code>./.adsapirc</code> and you can pass the key information to the client library explicitly. See the code cell below how to do this. </div>
+<br><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cdsapi</span>
+<span class="kn">import</span> <span class="nn">yaml</span>
+
+<span class="k">with</span> <span class="nb">open</span> <span class="p">(</span><span class="s1">&#39;./.adsapirc&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">credentials</span><span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">cdsapi</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">],</span> <span class="n">key</span><span class="o">=</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<br></div>
+<div class="section" id="alternative-set-cds-api-credentials-manually">
+<h4>Alternative: Set CDS API credentials manually<a class="headerlink" href="#alternative-set-cds-api-credentials-manually" title="Permalink to this headline">¶</a></h4>
+<p>Alternatively, you can also define variables for <code class="docutils literal notranslate"><span class="pre">url</span></code> and <code class="docutils literal notranslate"><span class="pre">key</span></code>. These variables can then be set when you define the <code class="docutils literal notranslate"><span class="pre">cdsapi.Client(url=URL,</span> <span class="pre">key=KEY)</span></code> (see next section for the different components of a data retrieval request).</p>
+<p><strong>Please note:</strong> in the workflow notebooks, we will use this modality and set manually the CDS API key information for the data retrievals.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">URL</span> <span class="o">=</span> <span class="s1">&#39;https://ads.atmosphere.copernicus.eu/api/v2&#39;</span>
+<span class="n">KEY</span> <span class="o">=</span> <span class="s1">&#39;############################&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<br></div>
+<div class="section" id="install-the-cds-api-client">
+<h4>Install the CDS API client<a class="headerlink" href="#install-the-cds-api-client" title="Permalink to this headline">¶</a></h4>
+<p>The next step is to install the <code class="docutils literal notranslate"><span class="pre">CDS</span> <span class="pre">API</span> <span class="pre">client</span></code>. You can do this with the package management system <code class="docutils literal notranslate"><span class="pre">pip</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install cdsapi
+</pre></div>
+</div>
+</div>
+</div>
+<br></div>
+<div class="section" id="use-the-cds-api-client-for-data-access">
+<h4>Use the CDS API client for data access<a class="headerlink" href="#use-the-cds-api-client-for-data-access" title="Permalink to this headline">¶</a></h4>
+<p>Once the <code class="docutils literal notranslate"><span class="pre">CDS</span> <span class="pre">API</span></code> is installed, it can be used to request data from the Atmosphere Data Store.</p>
+<p>Below, you see the principle of a <code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">retrieval</span></code> request. You always have to make sure to first <strong>import the cdsapi</strong> and define a <code class="docutils literal notranslate"><span class="pre">cdsapi.Client()</span></code> before you are able to execute an <code class="docutils literal notranslate"><span class="pre">API</span> <span class="pre">request</span></code>. You can use the <a class="reference external" href="https://ads.atmosphere.copernicus.eu/cdsapp#%21/search?type=dataset">web interface</a> to browse through the datasets. At the end of the <code class="docutils literal notranslate"><span class="pre">Download</span> <span class="pre">form</span></code>, there is the option to choose <code class="docutils literal notranslate"><span class="pre">Show</span> <span class="pre">API</span> <span class="pre">request</span></code>. If you click this button, the <code class="docutils literal notranslate"><span class="pre">API</span> <span class="pre">request</span></code> appears (see example below), which you can copy paste into your coding workflow.</p>
+<p><strong>Please note:</strong> you have to accept the Terms and Conditions of the dataset through the ADS web interface before you are able to request data via the CDS API.</p>
+<br>
+<p><img alt="logo" src="_images/ads_api_request.png" /></p>
+<br>
+<div class="alert alert-block alert-success">
+<b>NOTE</b>: <br>
+    For data originating from ECMWF's Meteorological and Archival System (MARS), data is stored on a grid with longitudes from 0 to 360 degrees. It can be reprojected to a regular geographic latitude-longitude grid, by setting the keyword argument <code>area</code> and <code>grid</code>. Per default, data is retrieved in <code>GRIB</code>. If you wish to retrieve the data in <code>netCDF</code>, you have to specify it by using the keyword argument <code>format</code>.</div>
+<br></div>
+</div>
+<div class="section" id="further-resources">
+<h3>2.3 Further resources<a class="headerlink" href="#further-resources" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://confluence.ecmwf.int/x/fMQMD">Atmosphere Data Store (ADS) documentation</a></p></li>
+<li><p><a class="reference external" href="https://confluence.ecmwf.int/x/RKOpD">Common Error Messages for CDS Requests</a></p></li>
+</ul>
+<hr></div>
+</div>
+<div class="section" id="example-cams-data-request">
+<h2>3. Example: CAMS data request<a class="headerlink" href="#example-cams-data-request" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="example-cams-global-atmospheric-composition-forecasts-organic-matter-aerosol-optical-depth-at-550-nm">
+<h3>Example: CAMS global atmospheric composition forecasts - Organic matter aerosol optical depth at 550 nm<a class="headerlink" href="#example-cams-global-atmospheric-composition-forecasts-organic-matter-aerosol-optical-depth-at-550-nm" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Data used in <span class="xref myst"><em>Fire Monitoring</em> case study</span></p>
+</div></blockquote>
+<p>CDS API name: <code class="docutils literal notranslate"><span class="pre">cams-global-atmospheric-composition-forecasts</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Variable: <code class="docutils literal notranslate"><span class="pre">organic_matter_aerosol_optical_depth_550nm</span></code></p></li>
+<li><p>Date: <code class="docutils literal notranslate"><span class="pre">2021-08-01/2021-08-08</span></code></p></li>
+<li><p>Time: <code class="docutils literal notranslate"><span class="pre">00:00</span></code></p></li>
+<li><p>Leadtime hour: <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">6,</span> <span class="pre">12,</span> <span class="pre">18,</span> <span class="pre">24,</span> <span class="pre">30,</span> <span class="pre">36,</span> <span class="pre">42,</span> <span class="pre">48]</span></code></p></li>
+<li><p>Type: <code class="docutils literal notranslate"><span class="pre">forecast</span></code></p></li>
+<li><p>Area: <code class="docutils literal notranslate"><span class="pre">[80,</span> <span class="pre">-150,</span> <span class="pre">25,</span> <span class="pre">-50]</span></code></p></li>
+<li><p>Format: <code class="docutils literal notranslate"><span class="pre">netcdf_zip</span></code></p></li>
+</ul>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cdsapi</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">cdsapi</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">URL</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">KEY</span><span class="p">)</span>
+<span class="n">c</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span>
+    <span class="s1">&#39;cams-global-atmospheric-composition-forecasts&#39;</span><span class="p">,</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="s1">&#39;2021-08-01/2021-08-08&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;forecast&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="s1">&#39;netcdf_zip&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;variable&#39;</span><span class="p">:</span> <span class="s1">&#39;organic_matter_aerosol_optical_depth_550nm&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="s1">&#39;00:00&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;leadtime_hour&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="s1">&#39;12&#39;</span><span class="p">,</span> <span class="s1">&#39;18&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;6&#39;</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="s1">&#39;area&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="mi">80</span><span class="p">,</span> <span class="o">-</span><span class="mi">150</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span>
+            <span class="o">-</span><span class="mi">50</span><span class="p">,</span>
+        <span class="p">],</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;./2021-08_NAmerica_organicMatterAOD.zip&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr><p></p>
+<span style='float:right'><p style=\"text-align:right;\">This project is licensed under <a href="./LICENSE">APACHE License 2.0</a>. | <a href=\"https://github.com/ecmwf-projects/copernicus-training">View on GitHub</a></span></div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Copernicus Atmosphere Monitoring Service (CAMS) Data Tutorials</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="da-read-write.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Tutorial on how to import, subset, aggregate and export CAMS Data</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By the Copernicus Atmosphere Monitoring Service (CAMS), entrusted to ECMWF (European Centre for Medium-Range Weather Forecasts)<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
