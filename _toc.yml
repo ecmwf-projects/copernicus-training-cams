@@ -6,23 +6,23 @@ root: intro
 parts:
  - caption: Data Access Tutorials
    chapters:
-   - file: 01_Atmosphere_Data_Store
-   - file: 02_Read_Write
+   - file: da-ads-tutorial
+   - file: da-read-write
      title: Import, Reduce, Export
  - caption: Data Visualisation Tutorials
    chapters:
-   - file: 03_Maps
+   - file: vis-maps
      title: Maps
-   - file: 04_Animations
+   - file: vis-animations
      title: Animations
-   - file: 05_Time_Series
+   - file: vis-time-series
      title: Time Series
-   - file: 06_Profile_Plot_Zonal_Mean
+   - file: vis-profiles
      title: Profile Plots and Zonal Means
  - caption: Data Processing Tutorials
    chapters:
-   - file: 07_European_Air_Quality_Index_Calculation
-   - file: 08_Antarctic_Ozone_Monitoring
+   - file: proc-aq-index
+   - file: proc-ozone
      title: Antarctic Ozone Hole Monitoring
  - caption: Climate Data Processing
    chapters:
