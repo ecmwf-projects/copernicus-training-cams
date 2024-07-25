@@ -1,507 +1,445 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Profile Plots and Zonal Means &#8212; CAMS Training</title>
-    
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'vis-profiles';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="European Air Quality Index Calculation" href="proc-aq-index.html" />
     <link rel="prev" title="Plot Time Series of CAMS Data" href="vis-time-series.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="_static/CAMS–POS–LINE.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">CAMS Training</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="intro.html">
-   Copernicus Atmosphere Monitoring Service (CAMS) Data Tutorials
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Data Access Tutorials
- </span>
-</p>
+    
+    
+    <img src="_static/CAMS–POS–LINE.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/CAMS–POS–LINE.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Copernicus Atmosphere Monitoring Service (CAMS) Data Tutorials
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Access Tutorials</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="da-ads-tutorial.html">
-   Atmosphere Data Store (ADS) Tutorial
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="da-read-write.html">
-   Import, Reduce, Export
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference external" href="https://ads-beta.atmosphere.copernicus.eu/user-guide">ADS User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="da-read-write.html">Import, Reduce, Export</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Data Visualisation Tutorials
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Visualisation Tutorials</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="vis-maps.html">
-   Maps
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="vis-animations.html">
-   Animations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="vis-time-series.html">
-   Time Series
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Profile Plots and Zonal Means
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="vis-maps.html">Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vis-animations.html">Animations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vis-time-series.html">Time Series</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Profile Plots and Zonal Means</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Data Processing Tutorials
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Processing Tutorials</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="proc-aq-index.html">
-   European Air Quality Index Calculation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="proc-ozone.html">
-   Antarctic Ozone Hole Monitoring
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="proc-aq-index.html">European Air Quality Index Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proc-ozone.html">Antarctic Ozone Hole Monitoring</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Climate Data Processing
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Climate Data Processing</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference external" href="https://ecmwf-projects.github.io/copernicus-training-c3s/">
-   Tutorials from the Copernicus Climate Change Service (C3S)
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference external" href="https://ecmwf-projects.github.io/copernicus-training-c3s/">Tutorials from the Copernicus Climate Change Service (C3S)</a></li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/vis-profiles.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-            <!-- Source interaction buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/ecmwf-projects/copernicus-training-cams"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/ecmwf-projects/copernicus-training-cams/issues/new?title=Issue%20on%20page%20%2Fvis-profiles.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+      </div>
+      
+      <main id="main-content" class="bd-main">
         
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/ecmwf-projects/copernicus-training-cams/main?urlpath=tree/vis-profiles.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
 </div>
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/ecmwf-projects/copernicus-training-cams/main?urlpath=tree/vis-profiles.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ecmwf-projects/copernicus-training-cams" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ecmwf-projects/copernicus-training-cams/issues/new?title=Issue%20on%20page%20%2Fvis-profiles.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/vis-profiles.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
     </div>
+  
 </div>
+</div>
+              
+              
 
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Profile Plots and Zonal Means</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#install-and-import-packages">
-   Install and import packages
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-access-and-preprocessing">
-   Data access and preprocessing
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#download-cams-global-reanalysis-data">
-     Download CAMS global reanalysis data
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#read-and-inspect-data">
-     Read and inspect data
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#representation-of-pressure-levels">
-     Representation of pressure levels
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#pressure-levels-in-logarithmic-scale">
-       Pressure levels in logarithmic scale
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#pressure-levels-to-altitude">
-       Pressure levels to altitude
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#convert-xarray-dataset-into-data-array">
-     Convert xarray Dataset into Data Array
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#unit-conversion">
-     Unit conversion
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#subset-and-aggregation">
-     Subset and aggregation
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#spatial-subset">
-       Spatial subset
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#temporal-aggregation">
-       Temporal aggregation
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#spatial-aggregation">
-       Spatial aggregation
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#calculate-quantiles-of-climatology">
-     Calculate quantiles of climatology
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#plot-summer-climatology-of-co-in-northern-hemisphere">
-   Plot summer climatology of CO in Northern Hemisphere
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#create-zonal-mean-plot-of-co-summer-climatology-in-northern-hemisphere">
-   Create zonal mean plot of CO summer climatology in Northern Hemisphere
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-prep">
-     Data prep
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#create-zonal-mean-plot">
-     Create zonal mean plot
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-import-packages">Install and import packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-access-and-preprocessing">Data access and preprocessing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-cams-global-reanalysis-data">Download CAMS global reanalysis data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-and-inspect-data">Read and inspect data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#representation-of-pressure-levels">Representation of pressure levels</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pressure-levels-in-logarithmic-scale">Pressure levels in logarithmic scale</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pressure-levels-to-altitude">Pressure levels to altitude</a></li>
 </ul>
-
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-xarray-dataset-into-data-array">Convert xarray Dataset into Data Array</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-conversion">Unit conversion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subset-and-aggregation">Subset and aggregation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-subset">Spatial subset</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#temporal-aggregation">Temporal aggregation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-aggregation">Spatial aggregation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-quantiles-of-climatology">Calculate quantiles of climatology</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-summer-climatology-of-co-in-northern-hemisphere">Plot summer climatology of CO in Northern Hemisphere</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-zonal-mean-plot-of-co-summer-climatology-in-northern-hemisphere">Create zonal mean plot of CO summer climatology in Northern Hemisphere</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-prep">Data prep</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-zonal-mean-plot">Create zonal mean plot</a></li>
+</ul>
+</li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Profile Plots and Zonal Means</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#install-and-import-packages">
-   Install and import packages
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-access-and-preprocessing">
-   Data access and preprocessing
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#download-cams-global-reanalysis-data">
-     Download CAMS global reanalysis data
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#read-and-inspect-data">
-     Read and inspect data
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#representation-of-pressure-levels">
-     Representation of pressure levels
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#pressure-levels-in-logarithmic-scale">
-       Pressure levels in logarithmic scale
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#pressure-levels-to-altitude">
-       Pressure levels to altitude
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#convert-xarray-dataset-into-data-array">
-     Convert xarray Dataset into Data Array
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#unit-conversion">
-     Unit conversion
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#subset-and-aggregation">
-     Subset and aggregation
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#spatial-subset">
-       Spatial subset
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#temporal-aggregation">
-       Temporal aggregation
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#spatial-aggregation">
-       Spatial aggregation
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#calculate-quantiles-of-climatology">
-     Calculate quantiles of climatology
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#plot-summer-climatology-of-co-in-northern-hemisphere">
-   Plot summer climatology of CO in Northern Hemisphere
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#create-zonal-mean-plot-of-co-summer-climatology-in-northern-hemisphere">
-   Create zonal mean plot of CO summer climatology in Northern Hemisphere
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-prep">
-     Data prep
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#create-zonal-mean-plot">
-     Create zonal mean plot
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
 
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            
-              <div>
+              
                 
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <p><img alt="logo" src="_images/LogoLine_horizon_CAMS.png" /></p>
-<div class="tex2jax_ignore mathjax_ignore section" id="profile-plots-and-zonal-means">
-<h1>Profile Plots and Zonal Means<a class="headerlink" href="#profile-plots-and-zonal-means" title="Permalink to this headline">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="profile-plots-and-zonal-means">
+<h1>Profile Plots and Zonal Means<a class="headerlink" href="#profile-plots-and-zonal-means" title="Permalink to this heading">#</a></h1>
 <p>This tutorial demonstrates how to visualise <a class="reference external" href="https://atmosphere.copernicus.eu/">Copernicus Atmosphere Monitoring Service (CAMS)</a> data of different atmospheric levels in the form of profile plots and zonal mean plots. The data used in this tutorial includes CO from the Northern Hemisphere during the summer (peak fire season) from 2003 to 2021.</p>
 <style>
 td, th {
@@ -519,8 +457,8 @@ td, th {
     <th><a href="https://colab.research.google.com/github/ecmwf-projects/copernicus-training-cams/blob/master/vis-profiles.ipynb">
         <img src = "https://colab.research.google.com/assets/colab-badge.svg" alt = "Colab"></th>
   </tr>
-</table><br><div class="section" id="install-and-import-packages">
-<h2>Install and import packages<a class="headerlink" href="#install-and-import-packages" title="Permalink to this headline">¶</a></h2>
+</table><br><section id="install-and-import-packages">
+<h2>Install and import packages<a class="headerlink" href="#install-and-import-packages" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install cdsapi
@@ -560,12 +498,12 @@ Requirement already satisfied: colorama in c:\users\cxcs\anaconda3\lib\site-pack
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="data-access-and-preprocessing">
-<h2>Data access and preprocessing<a class="headerlink" href="#data-access-and-preprocessing" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="download-cams-global-reanalysis-data">
-<h3>Download CAMS global reanalysis data<a class="headerlink" href="#download-cams-global-reanalysis-data" title="Permalink to this headline">¶</a></h3>
-<p>Copy your API key into the code cell below, replacing <code class="docutils literal notranslate"><span class="pre">#######</span></code> with your key. (Remember, to access data from the ADS, you will need first to register/login <a class="reference external" href="https://ads.atmosphere.copernicus.eu">https://ads.atmosphere.copernicus.eu</a> and obtain an API key from <a class="reference external" href="https://ads.atmosphere.copernicus.eu/api-how-to.)">https://ads.atmosphere.copernicus.eu/api-how-to.)</a></p>
+</section>
+<section id="data-access-and-preprocessing">
+<h2>Data access and preprocessing<a class="headerlink" href="#data-access-and-preprocessing" title="Permalink to this heading">#</a></h2>
+<section id="download-cams-global-reanalysis-data">
+<h3>Download CAMS global reanalysis data<a class="headerlink" href="#download-cams-global-reanalysis-data" title="Permalink to this heading">#</a></h3>
+<p>Copy your API key into the code cell below, replacing <code class="docutils literal notranslate"><span class="pre">#######</span></code> with your key. (Remember, to access data from the ADS, you will need first to register/login <a class="reference external" href="https://ads.atmosphere.copernicus.eu">https://ads.atmosphere.copernicus.eu</a> and obtain an API key from <a class="reference external" href="https://ads.atmosphere.copernicus.eu/api-how-to.">https://ads.atmosphere.copernicus.eu/api-how-to.</a>)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">URL</span> <span class="o">=</span> <span class="s1">&#39;https://ads.atmosphere.copernicus.eu/api/v2&#39;</span>
@@ -637,9 +575,9 @@ Requirement already satisfied: colorama in c:\users\cxcs\anaconda3\lib\site-pack
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="read-and-inspect-data">
-<h3>Read and inspect data<a class="headerlink" href="#read-and-inspect-data" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="read-and-inspect-data">
+<h3>Read and inspect data<a class="headerlink" href="#read-and-inspect-data" title="Permalink to this heading">#</a></h3>
 <p>Read the data into an Xarray dataset:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1043,12 +981,12 @@ Attributes:
        &#x27;2021-06-01T00:00:00.000000000&#x27;, &#x27;2021-07-01T00:00:00.000000000&#x27;,
        &#x27;2021-08-01T00:00:00.000000000&#x27;], dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-2c0185f0-cd2a-405a-84a2-455b507a5834' class='xr-section-summary-in' type='checkbox'  checked><label for='section-2c0185f0-cd2a-405a-84a2-455b507a5834' class='xr-section-summary' >Data variables: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>co</span></div><div class='xr-var-dims'>(time, level, latitude, longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-deec2a14-76db-4e02-bbd7-897f5700261b' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-deec2a14-76db-4e02-bbd7-897f5700261b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-2ae920d9-85b2-4c8f-a99e-8283963d6571' class='xr-var-data-in' type='checkbox'><label for='data-2ae920d9-85b2-4c8f-a99e-8283963d6571' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>kg kg**-1</dd><dt><span>long_name :</span></dt><dd>Carbon monoxide mass mixing ratio</dd><dt><span>standard_name :</span></dt><dd>mass_fraction_of_carbon_monoxide_in_air</dd></dl></div><div class='xr-var-data'><pre>[98906400 values with dtype=float32]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-af35ee19-40fd-4e05-a93d-6bc61d5d626e' class='xr-section-summary-in' type='checkbox'  checked><label for='section-af35ee19-40fd-4e05-a93d-6bc61d5d626e' class='xr-section-summary' >Attributes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>Conventions :</span></dt><dd>CF-1.6</dd><dt><span>history :</span></dt><dd>2022-09-11 11:16:31 GMT by grib_to_netcdf-2.25.1: /opt/ecmwf/mars-client/bin/grib_to_netcdf.bin -S param -o /cache/data9/adaptor.mars.internal-1662894988.4514306-17529-12-b1ed787e-7c7b-4d76-97a7-540ec28e5ca9.nc /cache/tmp/b1ed787e-7c7b-4d76-97a7-540ec28e5ca9-adaptor.mars.internal-1662894944.2277246-17529-30-tmp.grib</dd></dl></div></li></ul></div></div></div></div>
 </div>
-</div>
-<div class="section" id="representation-of-pressure-levels">
-<h3>Representation of pressure levels<a class="headerlink" href="#representation-of-pressure-levels" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="representation-of-pressure-levels">
+<h3>Representation of pressure levels<a class="headerlink" href="#representation-of-pressure-levels" title="Permalink to this heading">#</a></h3>
 <p>Our CO dataset represents 15 levels of the atmosphere, from 1000 (surface) to 100 hectopascals (hPa). This can be best visualised in a logarithmic scale, or if converted to altitude.</p>
-<div class="section" id="pressure-levels-in-logarithmic-scale">
-<h4>Pressure levels in logarithmic scale<a class="headerlink" href="#pressure-levels-in-logarithmic-scale" title="Permalink to this headline">¶</a></h4>
+<section id="pressure-levels-in-logarithmic-scale">
+<h4>Pressure levels in logarithmic scale<a class="headerlink" href="#pressure-levels-in-logarithmic-scale" title="Permalink to this heading">#</a></h4>
 <p>Here we create a new coordinate of our Data Array with the logarithm of the pressure levels, to facilitate visualisation in our plots.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1064,9 +1002,9 @@ Attributes:
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="pressure-levels-to-altitude">
-<h4>Pressure levels to altitude<a class="headerlink" href="#pressure-levels-to-altitude" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="pressure-levels-to-altitude">
+<h4>Pressure levels to altitude<a class="headerlink" href="#pressure-levels-to-altitude" title="Permalink to this heading">#</a></h4>
 <p>Here we create a new coordinate with altitude. The altitude in meters can be calculated with the international barometric formula:</p>
 <p>H = 44330 * [1 - (P/p0)^(1/5.255) ]</p>
 <p>Where H = altitude (m), P = measured pressure (Pa) from the sensor, and p0 = reference pressure at sea level (e.g. 1000 hPa)</p>
@@ -1094,10 +1032,10 @@ Attributes:
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="convert-xarray-dataset-into-data-array">
-<h3>Convert xarray Dataset into Data Array<a class="headerlink" href="#convert-xarray-dataset-into-data-array" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="convert-xarray-dataset-into-data-array">
+<h3>Convert xarray Dataset into Data Array<a class="headerlink" href="#convert-xarray-dataset-into-data-array" title="Permalink to this heading">#</a></h3>
 <p>To facilitate later processing, we will now convert this xarray Dataset into an Xarray Data Array object. This is an object which allows more options for processing data of only one variable, in this case CO.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1511,9 +1449,9 @@ Attributes:
         7.09325125,  5.47801243,  4.10639113,  2.90899143,  1.8429826 ,
         1.34999034,  0.87994689,  0.65281163,  0.43059381,  0.        ])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-b925c5b6-fba7-4da3-9679-335235c318c0' class='xr-section-summary-in' type='checkbox'  checked><label for='section-b925c5b6-fba7-4da3-9679-335235c318c0' class='xr-section-summary' >Attributes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>kg kg**-1</dd><dt><span>long_name :</span></dt><dd>Carbon monoxide mass mixing ratio</dd><dt><span>standard_name :</span></dt><dd>mass_fraction_of_carbon_monoxide_in_air</dd></dl></div></li></ul></div></div></div></div>
 </div>
-</div>
-<div class="section" id="unit-conversion">
-<h3>Unit conversion<a class="headerlink" href="#unit-conversion" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="unit-conversion">
+<h3>Unit conversion<a class="headerlink" href="#unit-conversion" title="Permalink to this heading">#</a></h3>
 <p>Most of the chemical species in the CAMS Global data, including our CO data, is archived as mass mixing ratios (MMR, kg of gas / kg of air).</p>
 <p>We will convert this to Volume Mixing Ratio (VMR, in units parts per billion, or ppbv)</p>
 <p>To convert data from MMR to VMR you only need the molar masses of dry air and of the atmospheric species. For CO the formula is: VMR = 28.9644 / 28.0101 * 1e9 * MMR. The 1e9 in the formulae gives parts per billion (ppbv). If we wanted parts per million (ppmv) we would use 1e6. See <a class="reference external" href="https://confluence.ecmwf.int/pages/viewpage.action?pageId=153391710">more details on unit conversions here</a>.</p>
@@ -1533,12 +1471,12 @@ Attributes:
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="subset-and-aggregation">
-<h3>Subset and aggregation<a class="headerlink" href="#subset-and-aggregation" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="subset-and-aggregation">
+<h3>Subset and aggregation<a class="headerlink" href="#subset-and-aggregation" title="Permalink to this heading">#</a></h3>
 <p>We would like to visualise CO profiles over the northern hemisphere, so we will take a subset including only northern latitudes. Also, to facilitate visualisation of CO vertical profiles, we are going to average over the temporal and spatial dimensions.</p>
-<div class="section" id="spatial-subset">
-<h4>Spatial subset<a class="headerlink" href="#spatial-subset" title="Permalink to this headline">¶</a></h4>
+<section id="spatial-subset">
+<h4>Spatial subset<a class="headerlink" href="#spatial-subset" title="Permalink to this heading">#</a></h4>
 <p>Here we subset the data to keep only northern latitudes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1547,9 +1485,9 @@ Attributes:
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="temporal-aggregation">
-<h4>Temporal aggregation<a class="headerlink" href="#temporal-aggregation" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="temporal-aggregation">
+<h4>Temporal aggregation<a class="headerlink" href="#temporal-aggregation" title="Permalink to this heading">#</a></h4>
 <p>The purpose of the temporal aggregation is to average June, July and August in each year, resulting in one summer mean value at each year of the dataset.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1558,9 +1496,9 @@ Attributes:
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="spatial-aggregation">
-<h4>Spatial aggregation<a class="headerlink" href="#spatial-aggregation" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="spatial-aggregation">
+<h4>Spatial aggregation<a class="headerlink" href="#spatial-aggregation" title="Permalink to this heading">#</a></h4>
 <p>To visualise the data in a profile plot, we will aggregate over the spatial dimensions. For the latitudinal dimension, we need to take into account the variation in area as a function of latitude, which we will do by taking the cosine of the latitude as a proxy.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1579,10 +1517,10 @@ Attributes:
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="calculate-quantiles-of-climatology">
-<h3>Calculate quantiles of climatology<a class="headerlink" href="#calculate-quantiles-of-climatology" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="calculate-quantiles-of-climatology">
+<h3>Calculate quantiles of climatology<a class="headerlink" href="#calculate-quantiles-of-climatology" title="Permalink to this heading">#</a></h3>
 <p>Here we calculate the 5th, 50th and 95th quantile of CO climatology from 2003 to 2021.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1593,10 +1531,10 @@ Attributes:
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="plot-summer-climatology-of-co-in-northern-hemisphere">
-<h2>Plot summer climatology of CO in Northern Hemisphere<a class="headerlink" href="#plot-summer-climatology-of-co-in-northern-hemisphere" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="plot-summer-climatology-of-co-in-northern-hemisphere">
+<h2>Plot summer climatology of CO in Northern Hemisphere<a class="headerlink" href="#plot-summer-climatology-of-co-in-northern-hemisphere" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
@@ -1618,15 +1556,15 @@ Attributes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/vis-profiles_47_0.png" src="_images/vis-profiles_47_0.png" />
+<img alt="_images/bdf2cd5e73a9ebc024de72305f82029f3935e3724912f4e2950dd9862081907b.png" src="_images/bdf2cd5e73a9ebc024de72305f82029f3935e3724912f4e2950dd9862081907b.png" />
 </div>
 </div>
 <p>Note the distribution of CO mainly in the lower part of the atmosphere, and the high values in 2021, due mainly to the significant wildfire activity that summer. See the <a class="reference external" href="https://www.ncei.noaa.gov/bams-state-of-climate">BAMS State of the Climate 2021 report</a> for more details.</p>
-</div>
-<div class="section" id="create-zonal-mean-plot-of-co-summer-climatology-in-northern-hemisphere">
-<h2>Create zonal mean plot of CO summer climatology in Northern Hemisphere<a class="headerlink" href="#create-zonal-mean-plot-of-co-summer-climatology-in-northern-hemisphere" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="data-prep">
-<h3>Data prep<a class="headerlink" href="#data-prep" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="create-zonal-mean-plot-of-co-summer-climatology-in-northern-hemisphere">
+<h2>Create zonal mean plot of CO summer climatology in Northern Hemisphere<a class="headerlink" href="#create-zonal-mean-plot-of-co-summer-climatology-in-northern-hemisphere" title="Permalink to this heading">#</a></h2>
+<section id="data-prep">
+<h3>Data prep<a class="headerlink" href="#data-prep" title="Permalink to this heading">#</a></h3>
 <p>We again aggregate over time (June, July and Aug of each year), and over space. This time however the spatial aggregation is only over the longitudinal dimension, as we want to visualise data over all latitudinal zones.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1642,9 +1580,9 @@ Attributes:
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="create-zonal-mean-plot">
-<h3>Create zonal mean plot<a class="headerlink" href="#create-zonal-mean-plot" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="create-zonal-mean-plot">
+<h3>Create zonal mean plot<a class="headerlink" href="#create-zonal-mean-plot" title="Permalink to this heading">#</a></h3>
 <p>Now we can plot our data. Before we do this however, we define the min, max and step of contours that we will use in a contour plot.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1683,13 +1621,13 @@ Attributes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/vis-profiles_55_0.png" src="_images/vis-profiles_55_0.png" />
+<img alt="_images/89185585c919f78fe0e9b751b74855f7c52e77b0bbc904fc5ccd102c37f9b4c7.png" src="_images/89185585c919f78fe0e9b751b74855f7c52e77b0bbc904fc5ccd102c37f9b4c7.png" />
 </div>
 </div>
 <p>Note the greater abundance of CO in the northern hemisphere, and in the lower part of the atmosphere.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1703,7 +1641,7 @@ Attributes:
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -1711,44 +1649,130 @@ Attributes:
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="vis-time-series.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Plot Time Series of CAMS Data</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="vis-time-series.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Plot Time Series of CAMS Data</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="proc-aq-index.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="proc-aq-index.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">European Air Quality Index Calculation</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-            
-        </div>
-    </div>
-    <footer class="footer">
-  <p>
-    
-      By the Copernicus Atmosphere Monitoring Service (CAMS), entrusted to ECMWF (European Centre for Medium-Range Weather Forecasts)<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
-
-
       </div>
-    </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+</div>
 
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-import-packages">Install and import packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-access-and-preprocessing">Data access and preprocessing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-cams-global-reanalysis-data">Download CAMS global reanalysis data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-and-inspect-data">Read and inspect data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#representation-of-pressure-levels">Representation of pressure levels</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pressure-levels-in-logarithmic-scale">Pressure levels in logarithmic scale</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pressure-levels-to-altitude">Pressure levels to altitude</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-xarray-dataset-into-data-array">Convert xarray Dataset into Data Array</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-conversion">Unit conversion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subset-and-aggregation">Subset and aggregation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-subset">Spatial subset</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#temporal-aggregation">Temporal aggregation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-aggregation">Spatial aggregation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-quantiles-of-climatology">Calculate quantiles of climatology</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-summer-climatology-of-co-in-northern-hemisphere">Plot summer climatology of CO in Northern Hemisphere</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-zonal-mean-plot-of-co-summer-climatology-in-northern-hemisphere">Create zonal mean plot of CO summer climatology in Northern Hemisphere</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-prep">Data prep</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-zonal-mean-plot">Create zonal mean plot</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By the Copernicus Atmosphere Monitoring Service (CAMS), entrusted to ECMWF (European Centre for Medium-Range Weather Forecasts)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
