@@ -6,7 +6,8 @@ root: intro
 parts:
  - caption: Data Access Tutorials
    chapters:
-   - file: da-ads-tutorial
+   - url: https://ads-beta.atmosphere.copernicus.eu/user-guide
+     title: ADS User Guide
    - file: da-read-write
      title: Import, Reduce, Export
  - caption: Data Visualisation Tutorials
