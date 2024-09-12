@@ -450,14 +450,33 @@ td, th {
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: cdsapi in c:\users\cxcs\anaconda3\lib\site-packages (0.5.1)
-Requirement already satisfied: requests&gt;=2.5.0 in c:\users\cxcs\anaconda3\lib\site-packages (from cdsapi) (2.26.0)
-Requirement already satisfied: tqdm in c:\users\cxcs\anaconda3\lib\site-packages (from cdsapi) (4.62.3)
-Requirement already satisfied: charset-normalizer~=2.0.0 in c:\users\cxcs\anaconda3\lib\site-packages (from requests&gt;=2.5.0-&gt;cdsapi) (2.0.4)
-Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in c:\users\cxcs\anaconda3\lib\site-packages (from requests&gt;=2.5.0-&gt;cdsapi) (1.26.7)
-Requirement already satisfied: certifi&gt;=2017.4.17 in c:\users\cxcs\anaconda3\lib\site-packages (from requests&gt;=2.5.0-&gt;cdsapi) (2021.10.8)
-Requirement already satisfied: idna&lt;4,&gt;=2.5 in c:\users\cxcs\anaconda3\lib\site-packages (from requests&gt;=2.5.0-&gt;cdsapi) (3.2)
-Requirement already satisfied: colorama in c:\users\cxcs\anaconda3\lib\site-packages (from tqdm-&gt;cdsapi) (0.4.4)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting cdsapi
+  Downloading cdsapi-0.7.3-py2.py3-none-any.whl.metadata (2.7 kB)
+Collecting cads-api-client&gt;=1.3.2 (from cdsapi)
+  Downloading cads_api_client-1.3.2-py3-none-any.whl.metadata (16 kB)
+Requirement already satisfied: requests&gt;=2.5.0 in /opt/conda/lib/python3.10/site-packages (from cdsapi) (2.32.3)
+Requirement already satisfied: tqdm in /opt/conda/lib/python3.10/site-packages (from cdsapi) (4.66.4)
+Requirement already satisfied: attrs in /opt/conda/lib/python3.10/site-packages (from cads-api-client&gt;=1.3.2-&gt;cdsapi) (23.2.0)
+Collecting multiurl (from cads-api-client&gt;=1.3.2-&gt;cdsapi)
+  Downloading multiurl-0.3.1.tar.gz (18 kB)
+  Preparing metadata (setup.py) ... ?25ldone
+?25hRequirement already satisfied: typing-extensions in /opt/conda/lib/python3.10/site-packages (from cads-api-client&gt;=1.3.2-&gt;cdsapi) (4.12.2)
+Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /opt/conda/lib/python3.10/site-packages (from requests&gt;=2.5.0-&gt;cdsapi) (3.3.2)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /opt/conda/lib/python3.10/site-packages (from requests&gt;=2.5.0-&gt;cdsapi) (3.7)
+Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /opt/conda/lib/python3.10/site-packages (from requests&gt;=2.5.0-&gt;cdsapi) (1.26.18)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /opt/conda/lib/python3.10/site-packages (from requests&gt;=2.5.0-&gt;cdsapi) (2024.7.4)
+Requirement already satisfied: pytz in /opt/conda/lib/python3.10/site-packages (from multiurl-&gt;cads-api-client&gt;=1.3.2-&gt;cdsapi) (2024.1)
+Requirement already satisfied: python-dateutil in /opt/conda/lib/python3.10/site-packages (from multiurl-&gt;cads-api-client&gt;=1.3.2-&gt;cdsapi) (2.9.0.post0)
+Requirement already satisfied: six&gt;=1.5 in /opt/conda/lib/python3.10/site-packages (from python-dateutil-&gt;multiurl-&gt;cads-api-client&gt;=1.3.2-&gt;cdsapi) (1.16.0)
+Downloading cdsapi-0.7.3-py2.py3-none-any.whl (12 kB)
+Downloading cads_api_client-1.3.2-py3-none-any.whl (21 kB)
+Building wheels for collected packages: multiurl
+  Building wheel for multiurl (setup.py) ... ?25ldone
+?25h  Created wheel for multiurl: filename=multiurl-0.3.1-py3-none-any.whl size=21131 sha256=7fe5ea390b68c962ccdcb708d93d76b35579cab2474fa795b43054bd913c8c8e
+  Stored in directory: /root/.cache/pip/wheels/9b/d9/5f/36a39fd10d15b5b2d362ad6dc8a1bd28a3b1e14e08357944bf
+Successfully built multiurl
+Installing collected packages: multiurl, cads-api-client, cdsapi
+Successfully installed cads-api-client-1.3.2 cdsapi-0.7.3 multiurl-0.3.1
 </pre></div>
 </div>
 </div>
@@ -490,13 +509,13 @@ Requirement already satisfied: colorama in c:\users\cxcs\anaconda3\lib\site-pack
 </section>
 <section id="access-data">
 <h2>Access data<a class="headerlink" href="#access-data" title="Permalink to this heading">#</a></h2>
-<p>Copy your API key into the code cell below, replacing <code class="docutils literal notranslate"><span class="pre">#######</span></code> with your key. (Remember, to access data from the ADS, you will need first to register/login <a class="reference external" href="https://ads.atmosphere.copernicus.eu">https://ads.atmosphere.copernicus.eu</a> and obtain an API key from <a class="reference external" href="https://ads.atmosphere.copernicus.eu/api-how-to.">https://ads.atmosphere.copernicus.eu/api-how-to.</a>)</p>
+<p>Copy your API key into the code cell below, replacing <code class="docutils literal notranslate"><span class="pre">#######</span></code> with your key. (Remember, to access data from the ADS, you will need first to register/login <a class="reference external" href="https://ads-beta.atmosphere.copernicus.eu/">https://ads-beta.atmosphere.copernicus.eu/</a> and obtain an API key from <a class="reference external" href="https://ads-beta.atmosphere.copernicus.eu/how-to-api.">https://ads-beta.atmosphere.copernicus.eu/how-to-api.</a>)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">URL</span> <span class="o">=</span> <span class="s1">&#39;https://ads.atmosphere.copernicus.eu/api/v2&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">URL</span> <span class="o">=</span> <span class="s1">&#39;https://ads-beta.atmosphere.copernicus.eu/api&#39;</span>
 
 <span class="c1"># Replace the hashtags with your key:</span>
-<span class="n">KEY</span> <span class="o">=</span> <span class="s1">&#39;########################################&#39;</span>
+<span class="n">KEY</span> <span class="o">=</span> <span class="s1">&#39;#################################&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -504,7 +523,7 @@ Requirement already satisfied: colorama in c:\users\cxcs\anaconda3\lib\site-pack
 <p>Here we specify a data directory into which we will download our data and all output files that we will generate:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DATADIR</span> <span class="o">=</span> <span class="s1">&#39;./&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DATADIR</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -516,34 +535,31 @@ Requirement already satisfied: colorama in c:\users\cxcs\anaconda3\lib\site-pack
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">cdsapi</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">URL</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">KEY</span><span class="p">)</span>
-<span class="n">c</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span>
-    <span class="s1">&#39;cams-global-atmospheric-composition-forecasts&#39;</span><span class="p">,</span>
-    <span class="p">{</span>
-        <span class="s1">&#39;variable&#39;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="s1">&#39;dust_aerosol_optical_depth_550nm&#39;</span><span class="p">,</span> <span class="s1">&#39;organic_matter_aerosol_optical_depth_550nm&#39;</span><span class="p">,</span> <span class="s1">&#39;total_aerosol_optical_depth_550nm&#39;</span><span class="p">,</span>
-        <span class="p">],</span>
-        <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="s1">&#39;2021-08-01/2021-08-01&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="s1">&#39;12:00&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;leadtime_hour&#39;</span><span class="p">:</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;forecast&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="s1">&#39;netcdf_zip&#39;</span><span class="p">,</span>
-    <span class="p">},</span>
-    <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">DATADIR</span><span class="si">}</span><span class="s1">/2021-08-01_AOD.zip&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="s2">&quot;cams-global-atmospheric-composition-forecasts&quot;</span>
+<span class="n">request</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;variable&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;dust_aerosol_optical_depth_550nm&#39;</span><span class="p">,</span> <span class="s1">&#39;organic_matter_aerosol_optical_depth_550nm&#39;</span><span class="p">,</span> <span class="s1">&#39;total_aerosol_optical_depth_550nm&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;2021-08-01/2021-08-01&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;12:00&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;leadtime_hour&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;forecast&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;data_format&#39;</span><span class="p">:</span> <span class="s1">&#39;netcdf_zip&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">cdsapi</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">URL</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">KEY</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">request</span><span class="p">)</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">DATADIR</span><span class="si">}</span><span class="s1">/2021-08-01_AOD.zip&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-08-23 23:13:56,731 INFO Welcome to the CDS
-2022-08-23 23:13:56,736 INFO Sending request to https://ads.atmosphere.copernicus.eu/api/v2/resources/cams-global-atmospheric-composition-forecasts
-2022-08-23 23:13:56,813 INFO Request is queued
-2022-08-23 23:13:57,880 INFO Request is running
-2022-08-23 23:14:01,797 INFO Request is completed
-2022-08-23 23:14:01,799 INFO Downloading https://download-0002-ads-clone.copernicus-climate.eu/cache-compute-0002/cache/data8/adaptor.mars_constrained.external-1661292784.7694805-11001-4-cbd2c200-e549-4301-b6c5-af2915739396.zip to ./DATA/2021-08-01_AOD.zip (2.3M)
-2022-08-23 23:14:02,601 INFO Download rate 2.9M/s                                                                      
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-09-12 13:40:19,868 INFO Request ID is 937c7244-9c6f-436a-a448-2f0440178173
+2024-09-12 13:40:20,050 INFO status has been updated to accepted
+2024-09-12 13:40:21,742 INFO status has been updated to running
+2024-09-12 13:40:24,203 INFO Creating download object as zip with files:
+[&#39;data_sfc.nc&#39;]
+2024-09-12 13:40:27,753 INFO status has been updated to successful
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Result(content_length=2442568,content_type=application/zip,location=https://download-0002-ads-clone.copernicus-climate.eu/cache-compute-0002/cache/data8/adaptor.mars_constrained.external-1661292784.7694805-11001-4-cbd2c200-e549-4301-b6c5-af2915739396.zip)
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;./2021-08-01_AOD.zip&#39;
 </pre></div>
 </div>
 </div>
@@ -565,7 +581,7 @@ Requirement already satisfied: colorama in c:\users\cxcs\anaconda3\lib\site-pack
 <p>For convenience, we create a variable with the name of our downloaded file:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fn</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">DATADIR</span><span class="si">}</span><span class="s1">/2021-08-01_AOD/data.nc&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fn</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">DATADIR</span><span class="si">}</span><span class="s1">/2021-08-01_AOD/data_sfc.nc&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -611,6 +627,8 @@ Requirement already satisfied: colorama in c:\users\cxcs\anaconda3\lib\site-pack
 }
 
 html[theme=dark],
+html[data-theme=dark],
+body[data-theme=dark],
 body.vscode-dark {
   --xr-font-color0: rgba(255, 255, 255, 1);
   --xr-font-color2: rgba(255, 255, 255, 0.54);
@@ -840,6 +858,11 @@ body.vscode-dark {
   grid-column: 4;
 }
 
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
 .xr-var-name,
 .xr-var-dims,
 .xr-var-dtype,
@@ -861,14 +884,16 @@ body.vscode-dark {
 }
 
 .xr-var-attrs,
-.xr-var-data {
+.xr-var-data,
+.xr-index-data {
   display: none;
   background-color: var(--xr-background-color) !important;
   padding-bottom: 5px !important;
 }
 
 .xr-var-attrs-in:checked ~ .xr-var-attrs,
-.xr-var-data-in:checked ~ .xr-var-data {
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
   display: block;
 }
 
@@ -878,13 +903,16 @@ body.vscode-dark {
 
 .xr-var-name span,
 .xr-var-data,
+.xr-index-name div,
+.xr-index-data,
 .xr-attrs {
   padding-left: 25px !important;
 }
 
 .xr-attrs,
 .xr-var-attrs,
-.xr-var-data {
+.xr-var-data,
+.xr-index-data {
   grid-column: 1 / -1;
 }
 
@@ -922,7 +950,8 @@ dl.xr-attrs {
 }
 
 .xr-icon-database,
-.xr-icon-file-text2 {
+.xr-icon-file-text2,
+.xr-no-icon {
   display: inline-block;
   vertical-align: middle;
   width: 1em;
@@ -931,19 +960,44 @@ dl.xr-attrs {
   stroke: currentColor;
   fill: currentColor;
 }
-</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt;
-Dimensions:    (longitude: 900, latitude: 451, time: 1)
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt; Size: 5MB
+Dimensions:                  (forecast_period: 1, forecast_reference_time: 1,
+                              latitude: 451, longitude: 900)
 Coordinates:
-  * longitude  (longitude) float32 0.0 0.4 0.8 1.2 ... 358.4 358.8 359.2 359.6
-  * latitude   (latitude) float32 90.0 89.6 89.2 88.8 ... -89.2 -89.6 -90.0
-  * time       (time) datetime64[ns] 2021-08-01T12:00:00
+  * forecast_period          (forecast_period) timedelta64[ns] 8B 00:00:00
+  * forecast_reference_time  (forecast_reference_time) datetime64[ns] 8B 2021...
+  * latitude                 (latitude) float64 4kB 90.0 89.6 ... -89.6 -90.0
+  * longitude                (longitude) float64 7kB 0.0 0.4 0.8 ... 359.2 359.6
+    valid_time               (forecast_reference_time, forecast_period) datetime64[ns] 8B ...
 Data variables:
-    omaod550   (time, latitude, longitude) float32 ...
-    duaod550   (time, latitude, longitude) float32 ...
-    aod550     (time, latitude, longitude) float32 ...
+    duaod550                 (forecast_period, forecast_reference_time, latitude, longitude) float32 2MB ...
+    omaod550                 (forecast_period, forecast_reference_time, latitude, longitude) float32 2MB ...
+    aod550                   (forecast_period, forecast_reference_time, latitude, longitude) float32 2MB ...
 Attributes:
-    Conventions:  CF-1.6
-    history:      2022-08-23 22:13:04 GMT by grib_to_netcdf-2.25.1: /opt/ecmw...</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-ce257e68-3d55-44a7-a774-d79278260f25' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-ce257e68-3d55-44a7-a774-d79278260f25' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>longitude</span>: 900</li><li><span class='xr-has-index'>latitude</span>: 451</li><li><span class='xr-has-index'>time</span>: 1</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-e215f887-a4af-471b-bb90-f32ff437c5a1' class='xr-section-summary-in' type='checkbox'  checked><label for='section-e215f887-a4af-471b-bb90-f32ff437c5a1' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>longitude</span></div><div class='xr-var-dims'>(longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>0.0 0.4 0.8 ... 358.8 359.2 359.6</div><input id='attrs-1a8108db-f344-48bf-beca-170ec555cb05' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-1a8108db-f344-48bf-beca-170ec555cb05' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-986eb445-dcb5-45b2-8eb2-068d9aee13d6' class='xr-var-data-in' type='checkbox'><label for='data-986eb445-dcb5-45b2-8eb2-068d9aee13d6' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>long_name :</span></dt><dd>longitude</dd></dl></div><div class='xr-var-data'><pre>array([  0. ,   0.4,   0.8, ..., 358.8, 359.2, 359.6], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>latitude</span></div><div class='xr-var-dims'>(latitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>90.0 89.6 89.2 ... -89.6 -90.0</div><input id='attrs-701e691d-830b-47bd-9623-568d0fe1ec49' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-701e691d-830b-47bd-9623-568d0fe1ec49' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-763edcea-b133-403a-b28c-d58555b074b5' class='xr-var-data-in' type='checkbox'><label for='data-763edcea-b133-403a-b28c-d58555b074b5' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>long_name :</span></dt><dd>latitude</dd></dl></div><div class='xr-var-data'><pre>array([ 90. ,  89.6,  89.2, ..., -89.2, -89.6, -90. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2021-08-01T12:00:00</div><input id='attrs-ce3a444e-1104-4307-ba9c-d615e960ca2a' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ce3a444e-1104-4307-ba9c-d615e960ca2a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b173dada-19b3-448d-bc03-e2f3de3cc258' class='xr-var-data-in' type='checkbox'><label for='data-b173dada-19b3-448d-bc03-e2f3de3cc258' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>time</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2021-08-01T12:00:00.000000000&#x27;], dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-00b003d0-5ee1-4aa1-adab-411c22309a30' class='xr-section-summary-in' type='checkbox'  checked><label for='section-00b003d0-5ee1-4aa1-adab-411c22309a30' class='xr-section-summary' >Data variables: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>omaod550</span></div><div class='xr-var-dims'>(time, latitude, longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-9e2378fe-e981-4983-a08f-1da216887c29' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-9e2378fe-e981-4983-a08f-1da216887c29' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7da38733-7fa3-450e-a952-6f01800aec91' class='xr-var-data-in' type='checkbox'><label for='data-7da38733-7fa3-450e-a952-6f01800aec91' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>~</dd><dt><span>long_name :</span></dt><dd>Organic Matter Aerosol Optical Depth at 550nm</dd></dl></div><div class='xr-var-data'><pre>[405900 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>duaod550</span></div><div class='xr-var-dims'>(time, latitude, longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-4af919cc-d768-4f1e-82b7-83a9316d7e8a' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-4af919cc-d768-4f1e-82b7-83a9316d7e8a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c5e38326-eb5e-429b-ba10-7a126ca9e754' class='xr-var-data-in' type='checkbox'><label for='data-c5e38326-eb5e-429b-ba10-7a126ca9e754' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>~</dd><dt><span>long_name :</span></dt><dd>Dust Aerosol Optical Depth at 550nm</dd></dl></div><div class='xr-var-data'><pre>[405900 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>aod550</span></div><div class='xr-var-dims'>(time, latitude, longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-71e4206b-4f0d-49ac-8413-d37635a6da77' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-71e4206b-4f0d-49ac-8413-d37635a6da77' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-82e069d2-a355-46ba-8783-0301bebd5ef6' class='xr-var-data-in' type='checkbox'><label for='data-82e069d2-a355-46ba-8783-0301bebd5ef6' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>~</dd><dt><span>long_name :</span></dt><dd>Total Aerosol Optical Depth at 550nm</dd></dl></div><div class='xr-var-data'><pre>[405900 values with dtype=float32]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-687a7c20-0db4-4dcf-8bca-0f12509e84a1' class='xr-section-summary-in' type='checkbox'  checked><label for='section-687a7c20-0db4-4dcf-8bca-0f12509e84a1' class='xr-section-summary' >Attributes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>Conventions :</span></dt><dd>CF-1.6</dd><dt><span>history :</span></dt><dd>2022-08-23 22:13:04 GMT by grib_to_netcdf-2.25.1: /opt/ecmwf/mars-client/bin/grib_to_netcdf.bin -S param -o /cache/tmp/cbd2c200-e549-4301-b6c5-af2915739396-adaptor.mars_constrained.external-1661292784.495658-11001-10-tmp.nc /cache/tmp/cbd2c200-e549-4301-b6c5-af2915739396-adaptor.mars_constrained.external-1661292784.456553-11001-9-tmp.grib</dd></dl></div></li></ul></div></div></div></div>
+    GRIB_centre:             ecmf
+    GRIB_centreDescription:  European Centre for Medium-Range Weather Forecasts
+    GRIB_subCentre:          0
+    Conventions:             CF-1.7
+    institution:             European Centre for Medium-Range Weather Forecasts
+    history:                 2024-09-12T13:40 GRIB to CDM+CF via cfgrib-0.9.1...</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-7468086b-4d0b-424e-bf0d-9392435fcd5a' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-7468086b-4d0b-424e-bf0d-9392435fcd5a' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>forecast_period</span>: 1</li><li><span class='xr-has-index'>forecast_reference_time</span>: 1</li><li><span class='xr-has-index'>latitude</span>: 451</li><li><span class='xr-has-index'>longitude</span>: 900</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-c87038d5-834f-416d-98e9-a8e090bc3ce1' class='xr-section-summary-in' type='checkbox'  checked><label for='section-c87038d5-834f-416d-98e9-a8e090bc3ce1' class='xr-section-summary' >Coordinates: <span>(5)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>forecast_period</span></div><div class='xr-var-dims'>(forecast_period)</div><div class='xr-var-dtype'>timedelta64[ns]</div><div class='xr-var-preview xr-preview'>00:00:00</div><input id='attrs-2f984a57-ceec-41c3-85b7-906b9e5a6f73' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-2f984a57-ceec-41c3-85b7-906b9e5a6f73' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7a346215-0f85-4a13-bb28-f5ab001044cd' class='xr-var-data-in' type='checkbox'><label for='data-7a346215-0f85-4a13-bb28-f5ab001044cd' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>time since forecast_reference_time</dd><dt><span>standard_name :</span></dt><dd>forecast_period</dd></dl></div><div class='xr-var-data'><pre>array([0], dtype=&#x27;timedelta64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>forecast_reference_time</span></div><div class='xr-var-dims'>(forecast_reference_time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2021-08-01T12:00:00</div><input id='attrs-180e09e2-83dd-4851-92e4-4d0b47822240' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-180e09e2-83dd-4851-92e4-4d0b47822240' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-08b4f2b7-ebde-4f46-9464-b418d0079981' class='xr-var-data-in' type='checkbox'><label for='data-08b4f2b7-ebde-4f46-9464-b418d0079981' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>initial time of forecast</dd><dt><span>standard_name :</span></dt><dd>forecast_reference_time</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2021-08-01T12:00:00.000000000&#x27;], dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>latitude</span></div><div class='xr-var-dims'>(latitude)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>90.0 89.6 89.2 ... -89.6 -90.0</div><input id='attrs-4d021c1c-bdb9-403b-b58a-bbf1ccda2446' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-4d021c1c-bdb9-403b-b58a-bbf1ccda2446' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ea3b1933-ee40-4cab-b3e8-b5dcced93ad0' class='xr-var-data-in' type='checkbox'><label for='data-ea3b1933-ee40-4cab-b3e8-b5dcced93ad0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>stored_direction :</span></dt><dd>decreasing</dd></dl></div><div class='xr-var-data'><pre>array([ 90. ,  89.6,  89.2, ..., -89.2, -89.6, -90. ])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>longitude</span></div><div class='xr-var-dims'>(longitude)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.0 0.4 0.8 ... 358.8 359.2 359.6</div><input id='attrs-7a382589-d46d-4ef3-96f2-13cafa9be32d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-7a382589-d46d-4ef3-96f2-13cafa9be32d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c217d16a-de1d-42c2-91a3-788f404ecb0a' class='xr-var-data-in' type='checkbox'><label for='data-c217d16a-de1d-42c2-91a3-788f404ecb0a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>longitude</dd></dl></div><div class='xr-var-data'><pre>array([  0. ,   0.4,   0.8, ..., 358.8, 359.2, 359.6])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>valid_time</span></div><div class='xr-var-dims'>(forecast_reference_time, forecast_period)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-1a64611e-1c73-46d9-8a46-0d0f092aa438' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-1a64611e-1c73-46d9-8a46-0d0f092aa438' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5bbe15ee-d09f-4b61-b03c-4c0630a2655f' class='xr-var-data-in' type='checkbox'><label for='data-5bbe15ee-d09f-4b61-b03c-4c0630a2655f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>long_name :</span></dt><dd>time</dd></dl></div><div class='xr-var-data'><pre>[1 values with dtype=datetime64[ns]]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-6f9a9f40-5f26-4c83-9465-ce592e85f1b0' class='xr-section-summary-in' type='checkbox'  checked><label for='section-6f9a9f40-5f26-4c83-9465-ce592e85f1b0' class='xr-section-summary' >Data variables: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>duaod550</span></div><div class='xr-var-dims'>(forecast_period, forecast_reference_time, latitude, longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-4a0aa037-8fc8-4fad-aee1-39a58aba21e4' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-4a0aa037-8fc8-4fad-aee1-39a58aba21e4' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-071ded85-7976-4d7b-b91a-afc1280e1f7a' class='xr-var-data-in' type='checkbox'><label for='data-071ded85-7976-4d7b-b91a-afc1280e1f7a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>GRIB_paramId :</span></dt><dd>210209</dd><dt><span>GRIB_dataType :</span></dt><dd>fc</dd><dt><span>GRIB_numberOfPoints :</span></dt><dd>405900</dd><dt><span>GRIB_typeOfLevel :</span></dt><dd>surface</dd><dt><span>GRIB_stepUnits :</span></dt><dd>1</dd><dt><span>GRIB_stepType :</span></dt><dd>instant</dd><dt><span>GRIB_gridType :</span></dt><dd>regular_ll</dd><dt><span>GRIB_uvRelativeToGrid :</span></dt><dd>0</dd><dt><span>GRIB_NV :</span></dt><dd>0</dd><dt><span>GRIB_Nx :</span></dt><dd>900</dd><dt><span>GRIB_Ny :</span></dt><dd>451</dd><dt><span>GRIB_cfName :</span></dt><dd>unknown</dd><dt><span>GRIB_cfVarName :</span></dt><dd>duaod550</dd><dt><span>GRIB_gridDefinitionDescription :</span></dt><dd>Latitude/Longitude Grid</dd><dt><span>GRIB_iDirectionIncrementInDegrees :</span></dt><dd>0.4</dd><dt><span>GRIB_iScansNegatively :</span></dt><dd>0</dd><dt><span>GRIB_jDirectionIncrementInDegrees :</span></dt><dd>0.4</dd><dt><span>GRIB_jPointsAreConsecutive :</span></dt><dd>0</dd><dt><span>GRIB_jScansPositively :</span></dt><dd>0</dd><dt><span>GRIB_latitudeOfFirstGridPointInDegrees :</span></dt><dd>90.0</dd><dt><span>GRIB_latitudeOfLastGridPointInDegrees :</span></dt><dd>-90.0</dd><dt><span>GRIB_longitudeOfFirstGridPointInDegrees :</span></dt><dd>0.0</dd><dt><span>GRIB_longitudeOfLastGridPointInDegrees :</span></dt><dd>359.6</dd><dt><span>GRIB_missingValue :</span></dt><dd>3.4028234663852886e+38</dd><dt><span>GRIB_name :</span></dt><dd>Dust Aerosol Optical Depth at 550nm</dd><dt><span>GRIB_shortName :</span></dt><dd>duaod550</dd><dt><span>GRIB_totalNumber :</span></dt><dd>0</dd><dt><span>GRIB_units :</span></dt><dd>~</dd><dt><span>long_name :</span></dt><dd>Dust Aerosol Optical Depth at 550nm</dd><dt><span>units :</span></dt><dd>~</dd><dt><span>standard_name :</span></dt><dd>unknown</dd><dt><span>GRIB_number :</span></dt><dd>0</dd><dt><span>GRIB_surface :</span></dt><dd>0.0</dd></dl></div><div class='xr-var-data'><pre>[405900 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>omaod550</span></div><div class='xr-var-dims'>(forecast_period, forecast_reference_time, latitude, longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-3163064e-19fc-4683-8921-65a1bbfa4778' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-3163064e-19fc-4683-8921-65a1bbfa4778' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ddc66a65-8a0e-4a8f-84e7-80a94eb186af' class='xr-var-data-in' type='checkbox'><label for='data-ddc66a65-8a0e-4a8f-84e7-80a94eb186af' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>GRIB_paramId :</span></dt><dd>210210</dd><dt><span>GRIB_dataType :</span></dt><dd>fc</dd><dt><span>GRIB_numberOfPoints :</span></dt><dd>405900</dd><dt><span>GRIB_typeOfLevel :</span></dt><dd>surface</dd><dt><span>GRIB_stepUnits :</span></dt><dd>1</dd><dt><span>GRIB_stepType :</span></dt><dd>instant</dd><dt><span>GRIB_gridType :</span></dt><dd>regular_ll</dd><dt><span>GRIB_uvRelativeToGrid :</span></dt><dd>0</dd><dt><span>GRIB_NV :</span></dt><dd>0</dd><dt><span>GRIB_Nx :</span></dt><dd>900</dd><dt><span>GRIB_Ny :</span></dt><dd>451</dd><dt><span>GRIB_cfName :</span></dt><dd>unknown</dd><dt><span>GRIB_cfVarName :</span></dt><dd>omaod550</dd><dt><span>GRIB_gridDefinitionDescription :</span></dt><dd>Latitude/Longitude Grid</dd><dt><span>GRIB_iDirectionIncrementInDegrees :</span></dt><dd>0.4</dd><dt><span>GRIB_iScansNegatively :</span></dt><dd>0</dd><dt><span>GRIB_jDirectionIncrementInDegrees :</span></dt><dd>0.4</dd><dt><span>GRIB_jPointsAreConsecutive :</span></dt><dd>0</dd><dt><span>GRIB_jScansPositively :</span></dt><dd>0</dd><dt><span>GRIB_latitudeOfFirstGridPointInDegrees :</span></dt><dd>90.0</dd><dt><span>GRIB_latitudeOfLastGridPointInDegrees :</span></dt><dd>-90.0</dd><dt><span>GRIB_longitudeOfFirstGridPointInDegrees :</span></dt><dd>0.0</dd><dt><span>GRIB_longitudeOfLastGridPointInDegrees :</span></dt><dd>359.6</dd><dt><span>GRIB_missingValue :</span></dt><dd>3.4028234663852886e+38</dd><dt><span>GRIB_name :</span></dt><dd>Organic Matter Aerosol Optical Depth at 550nm</dd><dt><span>GRIB_shortName :</span></dt><dd>omaod550</dd><dt><span>GRIB_totalNumber :</span></dt><dd>0</dd><dt><span>GRIB_units :</span></dt><dd>~</dd><dt><span>long_name :</span></dt><dd>Organic Matter Aerosol Optical Depth at 550nm</dd><dt><span>units :</span></dt><dd>~</dd><dt><span>standard_name :</span></dt><dd>unknown</dd><dt><span>GRIB_number :</span></dt><dd>0</dd><dt><span>GRIB_surface :</span></dt><dd>0.0</dd></dl></div><div class='xr-var-data'><pre>[405900 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>aod550</span></div><div class='xr-var-dims'>(forecast_period, forecast_reference_time, latitude, longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-e0511045-4a45-4c11-b4ce-5ad0aedc95f7' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-e0511045-4a45-4c11-b4ce-5ad0aedc95f7' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-49da4aad-60c3-42a1-b9dd-2a68be3bdaa0' class='xr-var-data-in' type='checkbox'><label for='data-49da4aad-60c3-42a1-b9dd-2a68be3bdaa0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>GRIB_paramId :</span></dt><dd>210207</dd><dt><span>GRIB_dataType :</span></dt><dd>fc</dd><dt><span>GRIB_numberOfPoints :</span></dt><dd>405900</dd><dt><span>GRIB_typeOfLevel :</span></dt><dd>surface</dd><dt><span>GRIB_stepUnits :</span></dt><dd>1</dd><dt><span>GRIB_stepType :</span></dt><dd>instant</dd><dt><span>GRIB_gridType :</span></dt><dd>regular_ll</dd><dt><span>GRIB_uvRelativeToGrid :</span></dt><dd>0</dd><dt><span>GRIB_NV :</span></dt><dd>0</dd><dt><span>GRIB_Nx :</span></dt><dd>900</dd><dt><span>GRIB_Ny :</span></dt><dd>451</dd><dt><span>GRIB_cfName :</span></dt><dd>unknown</dd><dt><span>GRIB_cfVarName :</span></dt><dd>aod550</dd><dt><span>GRIB_gridDefinitionDescription :</span></dt><dd>Latitude/Longitude Grid</dd><dt><span>GRIB_iDirectionIncrementInDegrees :</span></dt><dd>0.4</dd><dt><span>GRIB_iScansNegatively :</span></dt><dd>0</dd><dt><span>GRIB_jDirectionIncrementInDegrees :</span></dt><dd>0.4</dd><dt><span>GRIB_jPointsAreConsecutive :</span></dt><dd>0</dd><dt><span>GRIB_jScansPositively :</span></dt><dd>0</dd><dt><span>GRIB_latitudeOfFirstGridPointInDegrees :</span></dt><dd>90.0</dd><dt><span>GRIB_latitudeOfLastGridPointInDegrees :</span></dt><dd>-90.0</dd><dt><span>GRIB_longitudeOfFirstGridPointInDegrees :</span></dt><dd>0.0</dd><dt><span>GRIB_longitudeOfLastGridPointInDegrees :</span></dt><dd>359.6</dd><dt><span>GRIB_missingValue :</span></dt><dd>3.4028234663852886e+38</dd><dt><span>GRIB_name :</span></dt><dd>Total Aerosol Optical Depth at 550nm</dd><dt><span>GRIB_shortName :</span></dt><dd>aod550</dd><dt><span>GRIB_totalNumber :</span></dt><dd>0</dd><dt><span>GRIB_units :</span></dt><dd>~</dd><dt><span>long_name :</span></dt><dd>Total Aerosol Optical Depth at 550nm</dd><dt><span>units :</span></dt><dd>~</dd><dt><span>standard_name :</span></dt><dd>unknown</dd><dt><span>GRIB_number :</span></dt><dd>0</dd><dt><span>GRIB_surface :</span></dt><dd>0.0</dd></dl></div><div class='xr-var-data'><pre>[405900 values with dtype=float32]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-34c8e2aa-0260-4791-96cf-423ae0d4b43d' class='xr-section-summary-in' type='checkbox'  ><label for='section-34c8e2aa-0260-4791-96cf-423ae0d4b43d' class='xr-section-summary' >Indexes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>forecast_period</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-17660cd4-48bf-4c20-9566-85db79553aef' class='xr-index-data-in' type='checkbox'/><label for='index-17660cd4-48bf-4c20-9566-85db79553aef' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(TimedeltaIndex([&#x27;0 days&#x27;], dtype=&#x27;timedelta64[ns]&#x27;, name=&#x27;forecast_period&#x27;, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>forecast_reference_time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-e0b75837-e96f-4ee0-8f23-5041acef8c59' class='xr-index-data-in' type='checkbox'/><label for='index-e0b75837-e96f-4ee0-8f23-5041acef8c59' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;2021-08-01 12:00:00&#x27;], dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;forecast_reference_time&#x27;, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>latitude</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-158d849a-8593-49f6-9b65-beb51111868c' class='xr-index-data-in' type='checkbox'/><label for='index-158d849a-8593-49f6-9b65-beb51111868c' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([              90.0,               89.6,  89.19999999999999,
+        88.79999999999998,  88.39999999999998,  87.99999999999997,
+        87.59999999999997,  87.19999999999996,  86.79999999999995,
+        86.39999999999995,
+       ...
+       -86.40000000000036, -86.80000000000037, -87.20000000000037,
+       -87.60000000000038, -88.00000000000038, -88.40000000000039,
+        -88.8000000000004,  -89.2000000000004,  -89.6000000000004,
+                    -90.0],
+      dtype=&#x27;float64&#x27;, name=&#x27;latitude&#x27;, length=451))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>longitude</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-4630a808-d4df-4c74-b290-737cca78f0de' class='xr-index-data-in' type='checkbox'/><label for='index-4630a808-d4df-4c74-b290-737cca78f0de' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([               0.0,                0.4,                0.8,
+       1.2000000000000002,                1.6,                2.0,
+                      2.4,                2.8, 3.1999999999999997,
+       3.5999999999999996,
+       ...
+        355.9999999999969, 356.39999999999685,  356.7999999999968,
+        357.1999999999968,  357.5999999999968, 357.99999999999676,
+       358.39999999999674,  358.7999999999967,  359.1999999999967,
+                    359.6],
+      dtype=&#x27;float64&#x27;, name=&#x27;longitude&#x27;, length=900))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-2cef8fe2-da1d-492a-8e50-b97d83ed7040' class='xr-section-summary-in' type='checkbox'  checked><label for='section-2cef8fe2-da1d-492a-8e50-b97d83ed7040' class='xr-section-summary' >Attributes: <span>(6)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>GRIB_centre :</span></dt><dd>ecmf</dd><dt><span>GRIB_centreDescription :</span></dt><dd>European Centre for Medium-Range Weather Forecasts</dd><dt><span>GRIB_subCentre :</span></dt><dd>0</dd><dt><span>Conventions :</span></dt><dd>CF-1.7</dd><dt><span>institution :</span></dt><dd>European Centre for Medium-Range Weather Forecasts</dd><dt><span>history :</span></dt><dd>2024-09-12T13:40 GRIB to CDM+CF via cfgrib-0.9.14.0/ecCodes-2.36.0 with {&quot;source&quot;: &quot;data.grib&quot;, &quot;filter_by_keys&quot;: {&quot;typeOfLevel&quot;: &quot;surface&quot;}, &quot;encode_cf&quot;: [&quot;parameter&quot;, &quot;time&quot;, &quot;geography&quot;, &quot;vertical&quot;]}</dd></dl></div></li></ul></div></div></div></div>
 </div>
 </section>
 <section id="plot-data">
@@ -989,6 +1043,8 @@ Attributes:
 }
 
 html[theme=dark],
+html[data-theme=dark],
+body[data-theme=dark],
 body.vscode-dark {
   --xr-font-color0: rgba(255, 255, 255, 1);
   --xr-font-color2: rgba(255, 255, 255, 0.54);
@@ -1218,6 +1274,11 @@ body.vscode-dark {
   grid-column: 4;
 }
 
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
 .xr-var-name,
 .xr-var-dims,
 .xr-var-dtype,
@@ -1239,14 +1300,16 @@ body.vscode-dark {
 }
 
 .xr-var-attrs,
-.xr-var-data {
+.xr-var-data,
+.xr-index-data {
   display: none;
   background-color: var(--xr-background-color) !important;
   padding-bottom: 5px !important;
 }
 
 .xr-var-attrs-in:checked ~ .xr-var-attrs,
-.xr-var-data-in:checked ~ .xr-var-data {
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
   display: block;
 }
 
@@ -1256,13 +1319,16 @@ body.vscode-dark {
 
 .xr-var-name span,
 .xr-var-data,
+.xr-index-name div,
+.xr-index-data,
 .xr-attrs {
   padding-left: 25px !important;
 }
 
 .xr-attrs,
 .xr-var-attrs,
-.xr-var-data {
+.xr-var-data,
+.xr-index-data {
   grid-column: 1 / -1;
 }
 
@@ -1300,7 +1366,8 @@ dl.xr-attrs {
 }
 
 .xr-icon-database,
-.xr-icon-file-text2 {
+.xr-icon-file-text2,
+.xr-no-icon {
   display: inline-block;
   vertical-align: middle;
   width: 1em;
@@ -1309,15 +1376,47 @@ dl.xr-attrs {
   stroke: currentColor;
   fill: currentColor;
 }
-</style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray &#x27;aod550&#x27; (time: 1, latitude: 451, longitude: 900)&gt;
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray &#x27;aod550&#x27; (forecast_period: 1, forecast_reference_time: 1,
+                            latitude: 451, longitude: 900)&gt; Size: 2MB
 [405900 values with dtype=float32]
 Coordinates:
-  * longitude  (longitude) float32 0.0 0.4 0.8 1.2 ... 358.4 358.8 359.2 359.6
-  * latitude   (latitude) float32 90.0 89.6 89.2 88.8 ... -89.2 -89.6 -90.0
-  * time       (time) datetime64[ns] 2021-08-01T12:00:00
-Attributes:
-    units:      ~
-    long_name:  Total Aerosol Optical Depth at 550nm</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'aod550'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 1</li><li><span class='xr-has-index'>latitude</span>: 451</li><li><span class='xr-has-index'>longitude</span>: 900</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-202ae3b4-31d7-41a0-9f90-3dd50313b9f7' class='xr-array-in' type='checkbox' checked><label for='section-202ae3b4-31d7-41a0-9f90-3dd50313b9f7' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>...</span></div><div class='xr-array-data'><pre>[405900 values with dtype=float32]</pre></div></div></li><li class='xr-section-item'><input id='section-1b3ac928-bd3c-42f3-8bfe-7228a717aa1d' class='xr-section-summary-in' type='checkbox'  checked><label for='section-1b3ac928-bd3c-42f3-8bfe-7228a717aa1d' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>longitude</span></div><div class='xr-var-dims'>(longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>0.0 0.4 0.8 ... 358.8 359.2 359.6</div><input id='attrs-301488b4-bfed-42af-8e1e-6fc6648e312f' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-301488b4-bfed-42af-8e1e-6fc6648e312f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-47f7a84c-f4a4-4914-a9c8-57e4e58f7462' class='xr-var-data-in' type='checkbox'><label for='data-47f7a84c-f4a4-4914-a9c8-57e4e58f7462' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>long_name :</span></dt><dd>longitude</dd></dl></div><div class='xr-var-data'><pre>array([  0. ,   0.4,   0.8, ..., 358.8, 359.2, 359.6], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>latitude</span></div><div class='xr-var-dims'>(latitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>90.0 89.6 89.2 ... -89.6 -90.0</div><input id='attrs-0c8ee4ed-668f-4267-82dc-3a72de6921d3' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0c8ee4ed-668f-4267-82dc-3a72de6921d3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7353d116-90db-4b73-9e43-5512d58bd8f4' class='xr-var-data-in' type='checkbox'><label for='data-7353d116-90db-4b73-9e43-5512d58bd8f4' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>long_name :</span></dt><dd>latitude</dd></dl></div><div class='xr-var-data'><pre>array([ 90. ,  89.6,  89.2, ..., -89.2, -89.6, -90. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2021-08-01T12:00:00</div><input id='attrs-fd2e9d81-e717-420b-ab47-48fe461386b8' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-fd2e9d81-e717-420b-ab47-48fe461386b8' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d90363af-b63c-4b9e-9a9f-3ea81361b18d' class='xr-var-data-in' type='checkbox'><label for='data-d90363af-b63c-4b9e-9a9f-3ea81361b18d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>time</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2021-08-01T12:00:00.000000000&#x27;], dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-8f83c25c-85b8-4c67-8ed9-60051e69b081' class='xr-section-summary-in' type='checkbox'  checked><label for='section-8f83c25c-85b8-4c67-8ed9-60051e69b081' class='xr-section-summary' >Attributes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>~</dd><dt><span>long_name :</span></dt><dd>Total Aerosol Optical Depth at 550nm</dd></dl></div></li></ul></div></div></div></div>
+  * forecast_period          (forecast_period) timedelta64[ns] 8B 00:00:00
+  * forecast_reference_time  (forecast_reference_time) datetime64[ns] 8B 2021...
+  * latitude                 (latitude) float64 4kB 90.0 89.6 ... -89.6 -90.0
+  * longitude                (longitude) float64 7kB 0.0 0.4 0.8 ... 359.2 359.6
+    valid_time               (forecast_reference_time, forecast_period) datetime64[ns] 8B ...
+Attributes: (12/33)
+    GRIB_paramId:                             210207
+    GRIB_dataType:                            fc
+    GRIB_numberOfPoints:                      405900
+    GRIB_typeOfLevel:                         surface
+    GRIB_stepUnits:                           1
+    GRIB_stepType:                            instant
+    ...                                       ...
+    GRIB_units:                               ~
+    long_name:                                Total Aerosol Optical Depth at ...
+    units:                                    ~
+    standard_name:                            unknown
+    GRIB_number:                              0
+    GRIB_surface:                             0.0</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'aod550'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>forecast_period</span>: 1</li><li><span class='xr-has-index'>forecast_reference_time</span>: 1</li><li><span class='xr-has-index'>latitude</span>: 451</li><li><span class='xr-has-index'>longitude</span>: 900</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-e75187fc-48be-432a-9cc4-beaf90246a6c' class='xr-array-in' type='checkbox' checked><label for='section-e75187fc-48be-432a-9cc4-beaf90246a6c' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>...</span></div><div class='xr-array-data'><pre>[405900 values with dtype=float32]</pre></div></div></li><li class='xr-section-item'><input id='section-9d274cdf-1068-48ca-a21b-2e0c374c3704' class='xr-section-summary-in' type='checkbox'  checked><label for='section-9d274cdf-1068-48ca-a21b-2e0c374c3704' class='xr-section-summary' >Coordinates: <span>(5)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>forecast_period</span></div><div class='xr-var-dims'>(forecast_period)</div><div class='xr-var-dtype'>timedelta64[ns]</div><div class='xr-var-preview xr-preview'>00:00:00</div><input id='attrs-481cfcb9-d030-43b0-a875-f4db263af2bf' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-481cfcb9-d030-43b0-a875-f4db263af2bf' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-759e762b-8ffb-40a4-b39b-31c4a90480e4' class='xr-var-data-in' type='checkbox'><label for='data-759e762b-8ffb-40a4-b39b-31c4a90480e4' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>time since forecast_reference_time</dd><dt><span>standard_name :</span></dt><dd>forecast_period</dd></dl></div><div class='xr-var-data'><pre>array([0], dtype=&#x27;timedelta64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>forecast_reference_time</span></div><div class='xr-var-dims'>(forecast_reference_time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2021-08-01T12:00:00</div><input id='attrs-5865fd00-22df-46da-aa2f-5c51f589f6a5' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-5865fd00-22df-46da-aa2f-5c51f589f6a5' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1d185fc5-841b-4fc3-a83d-a78146550b2a' class='xr-var-data-in' type='checkbox'><label for='data-1d185fc5-841b-4fc3-a83d-a78146550b2a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>initial time of forecast</dd><dt><span>standard_name :</span></dt><dd>forecast_reference_time</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2021-08-01T12:00:00.000000000&#x27;], dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>latitude</span></div><div class='xr-var-dims'>(latitude)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>90.0 89.6 89.2 ... -89.6 -90.0</div><input id='attrs-38ca7a48-5339-4ed3-80e9-5b0445638478' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-38ca7a48-5339-4ed3-80e9-5b0445638478' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b4d63d4e-fe95-4255-8675-7f6f8549cab1' class='xr-var-data-in' type='checkbox'><label for='data-b4d63d4e-fe95-4255-8675-7f6f8549cab1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>stored_direction :</span></dt><dd>decreasing</dd></dl></div><div class='xr-var-data'><pre>array([ 90. ,  89.6,  89.2, ..., -89.2, -89.6, -90. ])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>longitude</span></div><div class='xr-var-dims'>(longitude)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.0 0.4 0.8 ... 358.8 359.2 359.6</div><input id='attrs-46de1ad8-f17a-4c79-8c08-eaa4d2dd161d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-46de1ad8-f17a-4c79-8c08-eaa4d2dd161d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-660d05c2-1ab8-4959-baf0-a14e30f44fb0' class='xr-var-data-in' type='checkbox'><label for='data-660d05c2-1ab8-4959-baf0-a14e30f44fb0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>longitude</dd></dl></div><div class='xr-var-data'><pre>array([  0. ,   0.4,   0.8, ..., 358.8, 359.2, 359.6])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>valid_time</span></div><div class='xr-var-dims'>(forecast_reference_time, forecast_period)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-a4b9a333-4458-495a-9a64-81b252eef882' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-a4b9a333-4458-495a-9a64-81b252eef882' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-572ecb56-fb5a-4592-a229-dfa1de6de3be' class='xr-var-data-in' type='checkbox'><label for='data-572ecb56-fb5a-4592-a229-dfa1de6de3be' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>long_name :</span></dt><dd>time</dd></dl></div><div class='xr-var-data'><pre>[1 values with dtype=datetime64[ns]]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-f9eb528a-e8c1-4a4f-989b-02bcdbae198d' class='xr-section-summary-in' type='checkbox'  ><label for='section-f9eb528a-e8c1-4a4f-989b-02bcdbae198d' class='xr-section-summary' >Indexes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>forecast_period</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-18714f1a-bacf-446c-8bc0-de1219a8adb0' class='xr-index-data-in' type='checkbox'/><label for='index-18714f1a-bacf-446c-8bc0-de1219a8adb0' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(TimedeltaIndex([&#x27;0 days&#x27;], dtype=&#x27;timedelta64[ns]&#x27;, name=&#x27;forecast_period&#x27;, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>forecast_reference_time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-6ee40bc2-a5e9-44aa-a695-6d83344afce8' class='xr-index-data-in' type='checkbox'/><label for='index-6ee40bc2-a5e9-44aa-a695-6d83344afce8' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;2021-08-01 12:00:00&#x27;], dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;forecast_reference_time&#x27;, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>latitude</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-a44caf5a-077f-4257-9732-80a420765101' class='xr-index-data-in' type='checkbox'/><label for='index-a44caf5a-077f-4257-9732-80a420765101' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([              90.0,               89.6,  89.19999999999999,
+        88.79999999999998,  88.39999999999998,  87.99999999999997,
+        87.59999999999997,  87.19999999999996,  86.79999999999995,
+        86.39999999999995,
+       ...
+       -86.40000000000036, -86.80000000000037, -87.20000000000037,
+       -87.60000000000038, -88.00000000000038, -88.40000000000039,
+        -88.8000000000004,  -89.2000000000004,  -89.6000000000004,
+                    -90.0],
+      dtype=&#x27;float64&#x27;, name=&#x27;latitude&#x27;, length=451))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>longitude</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-3710e015-9865-47ac-acad-f4b4b7f7f17a' class='xr-index-data-in' type='checkbox'/><label for='index-3710e015-9865-47ac-acad-f4b4b7f7f17a' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([               0.0,                0.4,                0.8,
+       1.2000000000000002,                1.6,                2.0,
+                      2.4,                2.8, 3.1999999999999997,
+       3.5999999999999996,
+       ...
+        355.9999999999969, 356.39999999999685,  356.7999999999968,
+        357.1999999999968,  357.5999999999968, 357.99999999999676,
+       358.39999999999674,  358.7999999999967,  359.1999999999967,
+                    359.6],
+      dtype=&#x27;float64&#x27;, name=&#x27;longitude&#x27;, length=900))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-93549104-ff44-4754-a422-c76023dca5c2' class='xr-section-summary-in' type='checkbox'  ><label for='section-93549104-ff44-4754-a422-c76023dca5c2' class='xr-section-summary' >Attributes: <span>(33)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>GRIB_paramId :</span></dt><dd>210207</dd><dt><span>GRIB_dataType :</span></dt><dd>fc</dd><dt><span>GRIB_numberOfPoints :</span></dt><dd>405900</dd><dt><span>GRIB_typeOfLevel :</span></dt><dd>surface</dd><dt><span>GRIB_stepUnits :</span></dt><dd>1</dd><dt><span>GRIB_stepType :</span></dt><dd>instant</dd><dt><span>GRIB_gridType :</span></dt><dd>regular_ll</dd><dt><span>GRIB_uvRelativeToGrid :</span></dt><dd>0</dd><dt><span>GRIB_NV :</span></dt><dd>0</dd><dt><span>GRIB_Nx :</span></dt><dd>900</dd><dt><span>GRIB_Ny :</span></dt><dd>451</dd><dt><span>GRIB_cfName :</span></dt><dd>unknown</dd><dt><span>GRIB_cfVarName :</span></dt><dd>aod550</dd><dt><span>GRIB_gridDefinitionDescription :</span></dt><dd>Latitude/Longitude Grid</dd><dt><span>GRIB_iDirectionIncrementInDegrees :</span></dt><dd>0.4</dd><dt><span>GRIB_iScansNegatively :</span></dt><dd>0</dd><dt><span>GRIB_jDirectionIncrementInDegrees :</span></dt><dd>0.4</dd><dt><span>GRIB_jPointsAreConsecutive :</span></dt><dd>0</dd><dt><span>GRIB_jScansPositively :</span></dt><dd>0</dd><dt><span>GRIB_latitudeOfFirstGridPointInDegrees :</span></dt><dd>90.0</dd><dt><span>GRIB_latitudeOfLastGridPointInDegrees :</span></dt><dd>-90.0</dd><dt><span>GRIB_longitudeOfFirstGridPointInDegrees :</span></dt><dd>0.0</dd><dt><span>GRIB_longitudeOfLastGridPointInDegrees :</span></dt><dd>359.6</dd><dt><span>GRIB_missingValue :</span></dt><dd>3.4028234663852886e+38</dd><dt><span>GRIB_name :</span></dt><dd>Total Aerosol Optical Depth at 550nm</dd><dt><span>GRIB_shortName :</span></dt><dd>aod550</dd><dt><span>GRIB_totalNumber :</span></dt><dd>0</dd><dt><span>GRIB_units :</span></dt><dd>~</dd><dt><span>long_name :</span></dt><dd>Total Aerosol Optical Depth at 550nm</dd><dt><span>units :</span></dt><dd>~</dd><dt><span>standard_name :</span></dt><dd>unknown</dd><dt><span>GRIB_number :</span></dt><dd>0</dd><dt><span>GRIB_surface :</span></dt><dd>0.0</dd></dl></div></li></ul></div></div></div></div>
 </div>
 <section id="simple-plot-using-xarray">
 <h3>Simple plot using xarray<a class="headerlink" href="#simple-plot-using-xarray" title="Permalink to this heading">#</a></h3>
@@ -1329,10 +1428,10 @@ Attributes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x12065458400&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7e12eb1d66b0&gt;
 </pre></div>
 </div>
-<img alt="_images/95b291d7864f7d36b55608ef6c540cf7a15b79e989c7a3133405ab0118aa4727.png" src="_images/95b291d7864f7d36b55608ef6c540cf7a15b79e989c7a3133405ab0118aa4727.png" />
+<img alt="_images/f7d3ee96d89d2c1d3664455e355da9ab4fed77fd204e04f07f32e92005fba6ce.png" src="_images/f7d3ee96d89d2c1d3664455e355da9ab4fed77fd204e04f07f32e92005fba6ce.png" />
 </div>
 </div>
 <p>This figure would be easier to interpret with some modifications. These may include adjusting the colourscale, or adding annotations such as coastlines. While xarray’s plotting functionality can be further customised, it is essentially a thin wrapper around the popular <a class="reference external" href="https://matplotlib.org/">matplotlib</a> library. The example below shows how to generate a more customised visualisation using both matplotlib (for visualisations) and <a class="reference external" href="https://pypi.org/project/Cartopy/">cartopy</a> (for geospatial data processing).</p>
@@ -1354,7 +1453,7 @@ Attributes:
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;AOD at 550nm, 2021-08-01T12:00&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span> 
 
 <span class="c1"># Plot the data</span>
-<span class="n">im</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">da</span><span class="o">.</span><span class="n">longitude</span><span class="p">,</span> <span class="n">da</span><span class="o">.</span><span class="n">latitude</span><span class="p">,</span> <span class="n">da</span><span class="p">[</span><span class="mi">0</span><span class="p">,:,:],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;YlOrRd&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> 
+<span class="n">im</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">da</span><span class="o">.</span><span class="n">longitude</span><span class="p">,</span> <span class="n">da</span><span class="o">.</span><span class="n">latitude</span><span class="p">,</span> <span class="n">da</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,:,:],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;YlOrRd&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> 
 
 <span class="c1"># Add coastlines</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span> 
@@ -1372,7 +1471,11 @@ Attributes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/60e0a05daeefef0410c662f6b46c1a1c1e53e45f0ce32221e03313823bb38270.png" src="_images/60e0a05daeefef0410c662f6b46c1a1c1e53e45f0ce32221e03313823bb38270.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/conda/lib/python3.10/site-packages/cartopy/io/__init__.py:241: DownloadWarning: Downloading: https://naturalearth.s3.amazonaws.com/110m_physical/ne_110m_coastline.zip
+  warnings.warn(f&#39;Downloading: {url}&#39;, DownloadWarning)
+</pre></div>
+</div>
+<img alt="_images/2bf2f8ad9bda5e887f9a70893998bc7cd91f882120a4f61c3e1f11d0d794740a.png" src="_images/2bf2f8ad9bda5e887f9a70893998bc7cd91f882120a4f61c3e1f11d0d794740a.png" />
 </div>
 </div>
 <p>The colours used in the above figure are from one of many <a class="reference external" href="https://matplotlib.org/stable/tutorials/colors/colormaps.html">built-in colourmaps</a> used in matplotlib. We can also create our own colourmap. The code below shows how to create the same colourmap as used in many CAMS products, such as the <a class="reference external" href="https://atmosphere.copernicus.eu/charts/cams/aerosol-forecasts">CAMS aerosol forecasts</a>.</p>
@@ -1427,7 +1530,7 @@ Attributes:
 <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">gridlines</span><span class="p">(</span><span class="n">draw_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span> 
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;AOD at 550nm, 2021-08-01T12:00&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span> 
-<span class="n">im</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">da</span><span class="o">.</span><span class="n">longitude</span><span class="p">,</span> <span class="n">da</span><span class="o">.</span><span class="n">latitude</span><span class="p">,</span> <span class="n">da</span><span class="p">[</span><span class="mi">0</span><span class="p">,:,:],</span> <span class="n">cmap</span><span class="o">=</span><span class="n">camscmp</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> 
+<span class="n">im</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">da</span><span class="o">.</span><span class="n">longitude</span><span class="p">,</span> <span class="n">da</span><span class="o">.</span><span class="n">latitude</span><span class="p">,</span> <span class="n">da</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,:,:],</span> <span class="n">cmap</span><span class="o">=</span><span class="n">camscmp</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> 
 <span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span> 
 <span class="n">cbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">fraction</span><span class="o">=</span><span class="mf">0.025</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
 <span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;AOD at 550nm&#39;</span><span class="p">)</span> 
@@ -1436,7 +1539,7 @@ Attributes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/0894d3d37a80ca80083101f87daa5d3689df4c530525cd658130d2c23d039561.png" src="_images/0894d3d37a80ca80083101f87daa5d3689df4c530525cd658130d2c23d039561.png" />
+<img alt="_images/5f13dbc453fdd74b1f0dce8978e464f73dfe583b4f0799afb973f473d5319b6f.png" src="_images/5f13dbc453fdd74b1f0dce8978e464f73dfe583b4f0799afb973f473d5319b6f.png" />
 </div>
 </div>
 </section>
@@ -1453,7 +1556,7 @@ Attributes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;omaod550&#39;, &#39;duaod550&#39;, &#39;aod550&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;duaod550&#39;, &#39;omaod550&#39;, &#39;aod550&#39;]
 </pre></div>
 </div>
 </div>
@@ -1479,7 +1582,7 @@ Attributes:
     <span class="n">da</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="n">variables</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
     <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">gridlines</span><span class="p">(</span><span class="n">draw_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span> <span class="c1"># Add lat/lon grid</span>
     <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">variables</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span> <span class="c1"># Set figure title</span>
-    <span class="n">im</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">da</span><span class="o">.</span><span class="n">longitude</span><span class="p">,</span> <span class="n">da</span><span class="o">.</span><span class="n">latitude</span><span class="p">,</span> <span class="n">da</span><span class="p">[</span><span class="mi">0</span><span class="p">,:,:],</span>
+    <span class="n">im</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">da</span><span class="o">.</span><span class="n">longitude</span><span class="p">,</span> <span class="n">da</span><span class="o">.</span><span class="n">latitude</span><span class="p">,</span> <span class="n">da</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,:,:],</span>
                             <span class="n">transform</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span> <span class="n">cmap</span><span class="o">=</span><span class="n">camscmp</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
     <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">coastlines</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span> <span class="c1"># Add coastlines</span>
     <span class="n">cbar</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">fraction</span><span class="o">=</span><span class="mf">0.046</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.04</span><span class="p">)</span> <span class="c1"># Specify the colourbar</span>
@@ -1491,7 +1594,7 @@ Attributes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/aa5805abfec882ecb9957b0098bee04e1207f5fedae6673775126328c55fa02d.png" src="_images/aa5805abfec882ecb9957b0098bee04e1207f5fedae6673775126328c55fa02d.png" />
+<img alt="_images/213347411246442f761b567bb7fc481e7972165d0539484e282caae00973e7d7.png" src="_images/213347411246442f761b567bb7fc481e7972165d0539484e282caae00973e7d7.png" />
 </div>
 </div>
 <p>We can see that the high values of AOD seem to be mainly due to organic matter in North America and Siberia, which saw many wildfire activity in this period, while further south we can see a dust contribution.</p>
