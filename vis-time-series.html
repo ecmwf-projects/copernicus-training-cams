@@ -453,14 +453,33 @@ td, th {
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: cdsapi in c:\users\cxcs\anaconda3\lib\site-packages (0.5.1)
-Requirement already satisfied: tqdm in c:\users\cxcs\anaconda3\lib\site-packages (from cdsapi) (4.62.3)
-Requirement already satisfied: requests&gt;=2.5.0 in c:\users\cxcs\anaconda3\lib\site-packages (from cdsapi) (2.26.0)
-Requirement already satisfied: charset-normalizer~=2.0.0 in c:\users\cxcs\anaconda3\lib\site-packages (from requests&gt;=2.5.0-&gt;cdsapi) (2.0.4)
-Requirement already satisfied: idna&lt;4,&gt;=2.5 in c:\users\cxcs\anaconda3\lib\site-packages (from requests&gt;=2.5.0-&gt;cdsapi) (3.2)
-Requirement already satisfied: certifi&gt;=2017.4.17 in c:\users\cxcs\anaconda3\lib\site-packages (from requests&gt;=2.5.0-&gt;cdsapi) (2021.10.8)
-Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in c:\users\cxcs\anaconda3\lib\site-packages (from requests&gt;=2.5.0-&gt;cdsapi) (1.26.7)
-Requirement already satisfied: colorama in c:\users\cxcs\anaconda3\lib\site-packages (from tqdm-&gt;cdsapi) (0.4.4)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting cdsapi
+  Downloading cdsapi-0.7.3-py2.py3-none-any.whl.metadata (2.7 kB)
+Collecting cads-api-client&gt;=1.3.2 (from cdsapi)
+  Downloading cads_api_client-1.3.2-py3-none-any.whl.metadata (16 kB)
+Requirement already satisfied: requests&gt;=2.5.0 in /opt/conda/lib/python3.10/site-packages (from cdsapi) (2.32.3)
+Requirement already satisfied: tqdm in /opt/conda/lib/python3.10/site-packages (from cdsapi) (4.66.4)
+Requirement already satisfied: attrs in /opt/conda/lib/python3.10/site-packages (from cads-api-client&gt;=1.3.2-&gt;cdsapi) (23.2.0)
+Collecting multiurl (from cads-api-client&gt;=1.3.2-&gt;cdsapi)
+  Downloading multiurl-0.3.1.tar.gz (18 kB)
+  Preparing metadata (setup.py) ... ?25ldone
+?25hRequirement already satisfied: typing-extensions in /opt/conda/lib/python3.10/site-packages (from cads-api-client&gt;=1.3.2-&gt;cdsapi) (4.12.2)
+Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /opt/conda/lib/python3.10/site-packages (from requests&gt;=2.5.0-&gt;cdsapi) (3.3.2)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /opt/conda/lib/python3.10/site-packages (from requests&gt;=2.5.0-&gt;cdsapi) (3.7)
+Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /opt/conda/lib/python3.10/site-packages (from requests&gt;=2.5.0-&gt;cdsapi) (1.26.18)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /opt/conda/lib/python3.10/site-packages (from requests&gt;=2.5.0-&gt;cdsapi) (2024.7.4)
+Requirement already satisfied: pytz in /opt/conda/lib/python3.10/site-packages (from multiurl-&gt;cads-api-client&gt;=1.3.2-&gt;cdsapi) (2024.1)
+Requirement already satisfied: python-dateutil in /opt/conda/lib/python3.10/site-packages (from multiurl-&gt;cads-api-client&gt;=1.3.2-&gt;cdsapi) (2.9.0.post0)
+Requirement already satisfied: six&gt;=1.5 in /opt/conda/lib/python3.10/site-packages (from python-dateutil-&gt;multiurl-&gt;cads-api-client&gt;=1.3.2-&gt;cdsapi) (1.16.0)
+Downloading cdsapi-0.7.3-py2.py3-none-any.whl (12 kB)
+Downloading cads_api_client-1.3.2-py3-none-any.whl (21 kB)
+Building wheels for collected packages: multiurl
+  Building wheel for multiurl (setup.py) ... ?25ldone
+?25h  Created wheel for multiurl: filename=multiurl-0.3.1-py3-none-any.whl size=21131 sha256=e991cde0fdeb44bc030bb16b724ae4d08a5a78c6194f4b8356a76a10667e452d
+  Stored in directory: /root/.cache/pip/wheels/9b/d9/5f/36a39fd10d15b5b2d362ad6dc8a1bd28a3b1e14e08357944bf
+Successfully built multiurl
+Installing collected packages: multiurl, cads-api-client, cdsapi
+Successfully installed cads-api-client-1.3.2 cdsapi-0.7.3 multiurl-0.3.1
 </pre></div>
 </div>
 </div>
@@ -490,13 +509,13 @@ Requirement already satisfied: colorama in c:\users\cxcs\anaconda3\lib\site-pack
 <h2>Data access and preprocessing<a class="headerlink" href="#data-access-and-preprocessing" title="Permalink to this heading">#</a></h2>
 <section id="download-cams-global-reanalysis-data">
 <h3>Download CAMS global reanalysis data<a class="headerlink" href="#download-cams-global-reanalysis-data" title="Permalink to this heading">#</a></h3>
-<p>Copy your API key into the code cell below, replacing <code class="docutils literal notranslate"><span class="pre">#######</span></code> with your key. (Remember, to access data from the ADS, you will need first to register/login <a class="reference external" href="https://ads.atmosphere.copernicus.eu">https://ads.atmosphere.copernicus.eu</a> and obtain an API key from <a class="reference external" href="https://ads.atmosphere.copernicus.eu/api-how-to.">https://ads.atmosphere.copernicus.eu/api-how-to.</a>)</p>
+<p>Copy your API key into the code cell below, replacing <code class="docutils literal notranslate"><span class="pre">#######</span></code> with your key. (Remember, to access data from the ADS, you will need first to register/login <a class="reference external" href="https://ads-beta.atmosphere.copernicus.eu/">https://ads-beta.atmosphere.copernicus.eu/</a> and obtain an API key from <a class="reference external" href="https://ads-beta.atmosphere.copernicus.eu/how-to-api.">https://ads-beta.atmosphere.copernicus.eu/how-to-api.</a>)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">URL</span> <span class="o">=</span> <span class="s1">&#39;https://ads.atmosphere.copernicus.eu/api/v2&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">URL</span> <span class="o">=</span> <span class="s1">&#39;https://ads-beta.atmosphere.copernicus.eu/api&#39;</span>
 
 <span class="c1"># Replace the hashtags with your key:</span>
-<span class="n">KEY</span> <span class="o">=</span> <span class="s1">&#39;##########################################&#39;</span>
+<span class="n">KEY</span> <span class="o">=</span> <span class="s1">&#39;##################################&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -504,7 +523,7 @@ Requirement already satisfied: colorama in c:\users\cxcs\anaconda3\lib\site-pack
 <p>Here we specify a data directory into which we will download our data and all output files that we will generate:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DATADIR</span> <span class="o">=</span> <span class="s1">&#39;./&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DATADIR</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -516,42 +535,36 @@ Requirement already satisfied: colorama in c:\users\cxcs\anaconda3\lib\site-pack
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">cdsapi</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">URL</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">KEY</span><span class="p">)</span>
-<span class="n">c</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span>
-    <span class="s1">&#39;cams-global-ghg-reanalysis-egg4-monthly&#39;</span><span class="p">,</span>
-    <span class="p">{</span>
-        <span class="s1">&#39;variable&#39;</span><span class="p">:</span> <span class="s1">&#39;co2_column_mean_molar_fraction&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="s1">&#39;2003&#39;</span><span class="p">,</span> <span class="s1">&#39;2004&#39;</span><span class="p">,</span> <span class="s1">&#39;2005&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;2006&#39;</span><span class="p">,</span> <span class="s1">&#39;2007&#39;</span><span class="p">,</span> <span class="s1">&#39;2008&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;2009&#39;</span><span class="p">,</span> <span class="s1">&#39;2010&#39;</span><span class="p">,</span> <span class="s1">&#39;2011&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;2012&#39;</span><span class="p">,</span> <span class="s1">&#39;2013&#39;</span><span class="p">,</span> <span class="s1">&#39;2014&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;2015&#39;</span><span class="p">,</span> <span class="s1">&#39;2016&#39;</span><span class="p">,</span> <span class="s1">&#39;2017&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;2018&#39;</span><span class="p">,</span> <span class="s1">&#39;2019&#39;</span><span class="p">,</span> <span class="s1">&#39;2020&#39;</span><span class="p">,</span>
-        <span class="p">],</span>
-        <span class="s1">&#39;month&#39;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="s1">&#39;01&#39;</span><span class="p">,</span> <span class="s1">&#39;02&#39;</span><span class="p">,</span> <span class="s1">&#39;03&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;04&#39;</span><span class="p">,</span> <span class="s1">&#39;05&#39;</span><span class="p">,</span> <span class="s1">&#39;06&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;07&#39;</span><span class="p">,</span> <span class="s1">&#39;08&#39;</span><span class="p">,</span> <span class="s1">&#39;09&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;10&#39;</span><span class="p">,</span> <span class="s1">&#39;11&#39;</span><span class="p">,</span> <span class="s1">&#39;12&#39;</span><span class="p">,</span>
-        <span class="p">],</span>
-        <span class="s1">&#39;product_type&#39;</span><span class="p">:</span> <span class="s1">&#39;monthly_mean&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="s1">&#39;netcdf&#39;</span><span class="p">,</span>
-    <span class="p">},</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="s2">&quot;cams-global-ghg-reanalysis-egg4-monthly&quot;</span>
+<span class="n">request</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;variable&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;co2_column_mean_molar_fraction&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;2003&#39;</span><span class="p">,</span> <span class="s1">&#39;2004&#39;</span><span class="p">,</span> <span class="s1">&#39;2005&#39;</span><span class="p">,</span> <span class="s1">&#39;2006&#39;</span><span class="p">,</span> 
+             <span class="s1">&#39;2007&#39;</span><span class="p">,</span> <span class="s1">&#39;2008&#39;</span><span class="p">,</span> <span class="s1">&#39;2009&#39;</span><span class="p">,</span> <span class="s1">&#39;2010&#39;</span><span class="p">,</span> 
+             <span class="s1">&#39;2011&#39;</span><span class="p">,</span> <span class="s1">&#39;2012&#39;</span><span class="p">,</span> <span class="s1">&#39;2013&#39;</span><span class="p">,</span> <span class="s1">&#39;2014&#39;</span><span class="p">,</span> 
+             <span class="s1">&#39;2015&#39;</span><span class="p">,</span> <span class="s1">&#39;2016&#39;</span><span class="p">,</span> <span class="s1">&#39;2017&#39;</span><span class="p">,</span> <span class="s1">&#39;2018&#39;</span><span class="p">,</span> 
+             <span class="s1">&#39;2019&#39;</span><span class="p">,</span> <span class="s1">&#39;2020&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;month&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;01&#39;</span><span class="p">,</span> <span class="s1">&#39;02&#39;</span><span class="p">,</span> <span class="s1">&#39;03&#39;</span><span class="p">,</span> <span class="s1">&#39;04&#39;</span><span class="p">,</span> <span class="s1">&#39;05&#39;</span><span class="p">,</span> <span class="s1">&#39;06&#39;</span><span class="p">,</span> 
+              <span class="s1">&#39;07&#39;</span><span class="p">,</span> <span class="s1">&#39;08&#39;</span><span class="p">,</span> <span class="s1">&#39;09&#39;</span><span class="p">,</span> <span class="s1">&#39;10&#39;</span><span class="p">,</span> <span class="s1">&#39;11&#39;</span><span class="p">,</span> <span class="s1">&#39;12&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;product_type&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;monthly_mean&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;data_format&#39;</span><span class="p">:</span> <span class="s1">&#39;netcdf&#39;</span>
+<span class="p">}</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">cdsapi</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">URL</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">KEY</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">request</span><span class="p">)</span><span class="o">.</span><span class="n">download</span><span class="p">(</span>
     <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">DATADIR</span><span class="si">}</span><span class="s1">/CO2_2003-2020.nc&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-07-30 16:13:36,334 INFO Welcome to the CDS
-2022-07-30 16:13:36,344 INFO Sending request to https://ads.atmosphere.copernicus.eu/api/v2/resources/cams-global-reanalysis-eac4-monthly
-2022-07-30 16:13:36,441 INFO Request is queued
-2022-07-30 16:17:54,959 INFO Request is completed
-2022-07-30 16:17:54,969 INFO Downloading https://download-0005-ads-clone.copernicus-climate.eu/cache-compute-0005/cache/data1/adaptor.mars.internal-1659194176.4934468-21743-12-595d03f1-83d2-4740-ba73-9430b38e6f93.nc to ./DATA/CO_NHemis_Aug2003-2021.nc (52.6M)
-2022-07-30 16:18:03,412 INFO Download rate 6.2M/s                                                                      
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-09-12 14:14:30,224 INFO Request ID is f2070345-f2f8-46ea-9638-96715107bffd
+2024-09-12 14:14:30,375 INFO status has been updated to accepted
+2024-09-12 14:14:32,030 INFO status has been updated to running
+2024-09-12 14:14:50,916 INFO Creating download object as as_source with files:
+[&#39;data_allhours_sfc.nc&#39;]
+2024-09-12 14:14:50,917 INFO status has been updated to successful
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Result(content_length=55179884,content_type=application/x-netcdf,location=https://download-0005-ads-clone.copernicus-climate.eu/cache-compute-0005/cache/data1/adaptor.mars.internal-1659194176.4934468-21743-12-595d03f1-83d2-4740-ba73-9430b38e6f93.nc)
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;./CO2_2003-2020.nc&#39;
 </pre></div>
 </div>
 </div>
@@ -600,6 +613,8 @@ Requirement already satisfied: colorama in c:\users\cxcs\anaconda3\lib\site-pack
 }
 
 html[theme=dark],
+html[data-theme=dark],
+body[data-theme=dark],
 body.vscode-dark {
   --xr-font-color0: rgba(255, 255, 255, 1);
   --xr-font-color2: rgba(255, 255, 255, 0.54);
@@ -829,6 +844,11 @@ body.vscode-dark {
   grid-column: 4;
 }
 
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
 .xr-var-name,
 .xr-var-dims,
 .xr-var-dtype,
@@ -850,14 +870,16 @@ body.vscode-dark {
 }
 
 .xr-var-attrs,
-.xr-var-data {
+.xr-var-data,
+.xr-index-data {
   display: none;
   background-color: var(--xr-background-color) !important;
   padding-bottom: 5px !important;
 }
 
 .xr-var-attrs-in:checked ~ .xr-var-attrs,
-.xr-var-data-in:checked ~ .xr-var-data {
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
   display: block;
 }
 
@@ -867,13 +889,16 @@ body.vscode-dark {
 
 .xr-var-name span,
 .xr-var-data,
+.xr-index-name div,
+.xr-index-data,
 .xr-attrs {
   padding-left: 25px !important;
 }
 
 .xr-attrs,
 .xr-var-attrs,
-.xr-var-data {
+.xr-var-data,
+.xr-index-data {
   grid-column: 1 / -1;
 }
 
@@ -911,7 +936,8 @@ dl.xr-attrs {
 }
 
 .xr-icon-database,
-.xr-icon-file-text2 {
+.xr-icon-file-text2,
+.xr-no-icon {
   display: inline-block;
   vertical-align: middle;
   width: 1em;
@@ -920,20 +946,41 @@ dl.xr-attrs {
   stroke: currentColor;
   fill: currentColor;
 }
-</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt;
-Dimensions:    (longitude: 480, latitude: 241, time: 216)
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt; Size: 100MB
+Dimensions:     (valid_time: 216, latitude: 241, longitude: 480)
 Coordinates:
-  * longitude  (longitude) float32 0.0 0.75 1.5 2.25 ... 357.0 357.8 358.5 359.2
-  * latitude   (latitude) float32 90.0 89.25 88.5 87.75 ... -88.5 -89.25 -90.0
-  * time       (time) datetime64[ns] 2003-01-01 2003-02-01 ... 2020-12-01
+  * valid_time  (valid_time) datetime64[ns] 2kB 2003-01-01 ... 2020-12-01
+  * latitude    (latitude) float64 2kB 90.0 89.25 88.5 ... -88.5 -89.25 -90.0
+  * longitude   (longitude) float64 4kB 0.0 0.75 1.5 2.25 ... 357.8 358.5 359.2
 Data variables:
-    tcco2      (time, latitude, longitude) float32 ...
+    tcco2       (valid_time, latitude, longitude) float32 100MB ...
 Attributes:
-    Conventions:  CF-1.6
-    history:      2022-08-15 14:54:50 GMT by grib_to_netcdf-2.25.1: /opt/ecmw...</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-8aa689a3-a9a2-439f-9257-9d3eaa7aef60' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-8aa689a3-a9a2-439f-9257-9d3eaa7aef60' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>longitude</span>: 480</li><li><span class='xr-has-index'>latitude</span>: 241</li><li><span class='xr-has-index'>time</span>: 216</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-e97db02c-68ba-4257-ad27-1ff633521492' class='xr-section-summary-in' type='checkbox'  checked><label for='section-e97db02c-68ba-4257-ad27-1ff633521492' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>longitude</span></div><div class='xr-var-dims'>(longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>0.0 0.75 1.5 ... 357.8 358.5 359.2</div><input id='attrs-21eb8db8-bba2-41c6-861b-44a62815ac71' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-21eb8db8-bba2-41c6-861b-44a62815ac71' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7308e6e4-ec0e-40f9-8adb-7a0898b39f10' class='xr-var-data-in' type='checkbox'><label for='data-7308e6e4-ec0e-40f9-8adb-7a0898b39f10' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>long_name :</span></dt><dd>longitude</dd></dl></div><div class='xr-var-data'><pre>array([  0.  ,   0.75,   1.5 , ..., 357.75, 358.5 , 359.25], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>latitude</span></div><div class='xr-var-dims'>(latitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>90.0 89.25 88.5 ... -89.25 -90.0</div><input id='attrs-999b435a-664a-405b-a57e-fe93be2d3d72' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-999b435a-664a-405b-a57e-fe93be2d3d72' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1bf3d2a0-08f1-49a7-acbf-70157e435350' class='xr-var-data-in' type='checkbox'><label for='data-1bf3d2a0-08f1-49a7-acbf-70157e435350' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>long_name :</span></dt><dd>latitude</dd></dl></div><div class='xr-var-data'><pre>array([ 90.  ,  89.25,  88.5 , ..., -88.5 , -89.25, -90.  ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2003-01-01 ... 2020-12-01</div><input id='attrs-9f5c5ea8-2a9e-4a15-b1ab-76b440791a88' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-9f5c5ea8-2a9e-4a15-b1ab-76b440791a88' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-dbf7dbdf-9d3d-4d46-9d12-84909eef83b4' class='xr-var-data-in' type='checkbox'><label for='data-dbf7dbdf-9d3d-4d46-9d12-84909eef83b4' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>time</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2003-01-01T00:00:00.000000000&#x27;, &#x27;2003-02-01T00:00:00.000000000&#x27;,
+    GRIB_centre:             ecmf
+    GRIB_centreDescription:  European Centre for Medium-Range Weather Forecasts
+    GRIB_subCentre:          0
+    Conventions:             CF-1.7
+    institution:             European Centre for Medium-Range Weather Forecasts
+    history:                 2024-09-12T14:14 GRIB to CDM+CF via cfgrib-0.9.1...</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-4f25bb63-213c-4558-bd37-480036344825' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-4f25bb63-213c-4558-bd37-480036344825' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>valid_time</span>: 216</li><li><span class='xr-has-index'>latitude</span>: 241</li><li><span class='xr-has-index'>longitude</span>: 480</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-9ff38a5a-a777-45cf-a75a-a60aac55077a' class='xr-section-summary-in' type='checkbox'  checked><label for='section-9ff38a5a-a777-45cf-a75a-a60aac55077a' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>valid_time</span></div><div class='xr-var-dims'>(valid_time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2003-01-01 ... 2020-12-01</div><input id='attrs-d0b3f28c-434c-4c74-bf8e-1bc60b32c4a0' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-d0b3f28c-434c-4c74-bf8e-1bc60b32c4a0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7be9747c-72c3-4e30-8ef2-e3d07333826f' class='xr-var-data-in' type='checkbox'><label for='data-7be9747c-72c3-4e30-8ef2-e3d07333826f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>time</dd><dt><span>standard_name :</span></dt><dd>time</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2003-01-01T00:00:00.000000000&#x27;, &#x27;2003-02-01T00:00:00.000000000&#x27;,
        &#x27;2003-03-01T00:00:00.000000000&#x27;, ..., &#x27;2020-10-01T00:00:00.000000000&#x27;,
        &#x27;2020-11-01T00:00:00.000000000&#x27;, &#x27;2020-12-01T00:00:00.000000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-fe8edae6-7eeb-44d3-a1c8-fc83a1a75216' class='xr-section-summary-in' type='checkbox'  checked><label for='section-fe8edae6-7eeb-44d3-a1c8-fc83a1a75216' class='xr-section-summary' >Data variables: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>tcco2</span></div><div class='xr-var-dims'>(time, latitude, longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-ab176582-180b-4cff-a867-58ee2ccf86b2' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ab176582-180b-4cff-a867-58ee2ccf86b2' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b6859e3b-4d1f-4aa7-9baa-d7f472a1bc57' class='xr-var-data-in' type='checkbox'><label for='data-b6859e3b-4d1f-4aa7-9baa-d7f472a1bc57' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>ppm</dd><dt><span>long_name :</span></dt><dd>CO2 column-mean molar fraction</dd></dl></div><div class='xr-var-data'><pre>[24986880 values with dtype=float32]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-3dc52718-ceb1-4641-a9a7-f599b2943c98' class='xr-section-summary-in' type='checkbox'  checked><label for='section-3dc52718-ceb1-4641-a9a7-f599b2943c98' class='xr-section-summary' >Attributes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>Conventions :</span></dt><dd>CF-1.6</dd><dt><span>history :</span></dt><dd>2022-08-15 14:54:50 GMT by grib_to_netcdf-2.25.1: /opt/ecmwf/mars-client/bin/grib_to_netcdf.bin -S param -o /cache/data2/adaptor.mars.external-1660575289.69172-21349-15-655b4b75-5665-4e1f-8c05-7cd24eaa6d04.nc /cache/tmp/655b4b75-5665-4e1f-8c05-7cd24eaa6d04-adaptor.mars.external-1660570759.3874679-21349-24-tmp.grib</dd></dl></div></li></ul></div></div></div></div>
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>latitude</span></div><div class='xr-var-dims'>(latitude)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>90.0 89.25 88.5 ... -89.25 -90.0</div><input id='attrs-bf767c1f-1ae8-42fc-ac8b-4f42e73dc72a' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-bf767c1f-1ae8-42fc-ac8b-4f42e73dc72a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-60cd78af-c47d-48a2-aaad-e41d2b642f3f' class='xr-var-data-in' type='checkbox'><label for='data-60cd78af-c47d-48a2-aaad-e41d2b642f3f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>stored_direction :</span></dt><dd>decreasing</dd></dl></div><div class='xr-var-data'><pre>array([ 90.  ,  89.25,  88.5 , ..., -88.5 , -89.25, -90.  ])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>longitude</span></div><div class='xr-var-dims'>(longitude)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.0 0.75 1.5 ... 357.8 358.5 359.2</div><input id='attrs-0b761dd0-d2b1-4f48-b8a4-90ee8f3d7539' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0b761dd0-d2b1-4f48-b8a4-90ee8f3d7539' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-90668eeb-c67c-4ed0-873e-9877fd34d391' class='xr-var-data-in' type='checkbox'><label for='data-90668eeb-c67c-4ed0-873e-9877fd34d391' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>longitude</dd></dl></div><div class='xr-var-data'><pre>array([  0.  ,   0.75,   1.5 , ..., 357.75, 358.5 , 359.25])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-5bd3b535-1960-4466-b996-f9f40c8327c4' class='xr-section-summary-in' type='checkbox'  checked><label for='section-5bd3b535-1960-4466-b996-f9f40c8327c4' class='xr-section-summary' >Data variables: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>tcco2</span></div><div class='xr-var-dims'>(valid_time, latitude, longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-0fee7fc4-bad2-4788-85a6-71dd75364c58' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0fee7fc4-bad2-4788-85a6-71dd75364c58' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-cbf30d1b-0a21-409f-bcd3-46e57e1ab3ae' class='xr-var-data-in' type='checkbox'><label for='data-cbf30d1b-0a21-409f-bcd3-46e57e1ab3ae' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>GRIB_paramId :</span></dt><dd>210064</dd><dt><span>GRIB_dataType :</span></dt><dd>fc</dd><dt><span>GRIB_numberOfPoints :</span></dt><dd>115680</dd><dt><span>GRIB_typeOfLevel :</span></dt><dd>surface</dd><dt><span>GRIB_stepUnits :</span></dt><dd>1</dd><dt><span>GRIB_stepType :</span></dt><dd>avgfc</dd><dt><span>GRIB_gridType :</span></dt><dd>regular_ll</dd><dt><span>GRIB_uvRelativeToGrid :</span></dt><dd>0</dd><dt><span>GRIB_NV :</span></dt><dd>0</dd><dt><span>GRIB_Nx :</span></dt><dd>480</dd><dt><span>GRIB_Ny :</span></dt><dd>241</dd><dt><span>GRIB_cfName :</span></dt><dd>unknown</dd><dt><span>GRIB_cfVarName :</span></dt><dd>tcco2</dd><dt><span>GRIB_gridDefinitionDescription :</span></dt><dd>Latitude/Longitude Grid</dd><dt><span>GRIB_iDirectionIncrementInDegrees :</span></dt><dd>0.75</dd><dt><span>GRIB_iScansNegatively :</span></dt><dd>0</dd><dt><span>GRIB_jDirectionIncrementInDegrees :</span></dt><dd>0.75</dd><dt><span>GRIB_jPointsAreConsecutive :</span></dt><dd>0</dd><dt><span>GRIB_jScansPositively :</span></dt><dd>0</dd><dt><span>GRIB_latitudeOfFirstGridPointInDegrees :</span></dt><dd>90.0</dd><dt><span>GRIB_latitudeOfLastGridPointInDegrees :</span></dt><dd>-90.0</dd><dt><span>GRIB_longitudeOfFirstGridPointInDegrees :</span></dt><dd>0.0</dd><dt><span>GRIB_longitudeOfLastGridPointInDegrees :</span></dt><dd>359.25</dd><dt><span>GRIB_missingValue :</span></dt><dd>3.4028234663852886e+38</dd><dt><span>GRIB_name :</span></dt><dd>CO2 column-mean molar fraction</dd><dt><span>GRIB_shortName :</span></dt><dd>tcco2</dd><dt><span>GRIB_totalNumber :</span></dt><dd>0</dd><dt><span>GRIB_units :</span></dt><dd>ppm</dd><dt><span>long_name :</span></dt><dd>CO2 column-mean molar fraction</dd><dt><span>units :</span></dt><dd>ppm</dd><dt><span>standard_name :</span></dt><dd>unknown</dd><dt><span>GRIB_number :</span></dt><dd>0</dd><dt><span>GRIB_surface :</span></dt><dd>0.0</dd></dl></div><div class='xr-var-data'><pre>[24986880 values with dtype=float32]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-018279df-1583-41a4-a8aa-c84cd2502684' class='xr-section-summary-in' type='checkbox'  ><label for='section-018279df-1583-41a4-a8aa-c84cd2502684' class='xr-section-summary' >Indexes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>valid_time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-b64399be-3fda-4e55-8e9b-b92030f0ff99' class='xr-index-data-in' type='checkbox'/><label for='index-b64399be-3fda-4e55-8e9b-b92030f0ff99' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;2003-01-01&#x27;, &#x27;2003-02-01&#x27;, &#x27;2003-03-01&#x27;, &#x27;2003-04-01&#x27;,
+               &#x27;2003-05-01&#x27;, &#x27;2003-06-01&#x27;, &#x27;2003-07-01&#x27;, &#x27;2003-08-01&#x27;,
+               &#x27;2003-09-01&#x27;, &#x27;2003-10-01&#x27;,
+               ...
+               &#x27;2020-03-01&#x27;, &#x27;2020-04-01&#x27;, &#x27;2020-05-01&#x27;, &#x27;2020-06-01&#x27;,
+               &#x27;2020-07-01&#x27;, &#x27;2020-08-01&#x27;, &#x27;2020-09-01&#x27;, &#x27;2020-10-01&#x27;,
+               &#x27;2020-11-01&#x27;, &#x27;2020-12-01&#x27;],
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;valid_time&#x27;, length=216, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>latitude</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-b7469846-a55a-44ed-8816-e80da1a58841' class='xr-index-data-in' type='checkbox'/><label for='index-b7469846-a55a-44ed-8816-e80da1a58841' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([  90.0,  89.25,   88.5,  87.75,   87.0,  86.25,   85.5,  84.75,   84.0,
+        83.25,
+       ...
+       -83.25,  -84.0, -84.75,  -85.5, -86.25,  -87.0, -87.75,  -88.5, -89.25,
+        -90.0],
+      dtype=&#x27;float64&#x27;, name=&#x27;latitude&#x27;, length=241))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>longitude</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-10abb7f6-f68e-48ed-8bcf-90d6b4bf42d5' class='xr-index-data-in' type='checkbox'/><label for='index-10abb7f6-f68e-48ed-8bcf-90d6b4bf42d5' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([   0.0,   0.75,    1.5,   2.25,    3.0,   3.75,    4.5,   5.25,    6.0,
+         6.75,
+       ...
+        352.5, 353.25,  354.0, 354.75,  355.5, 356.25,  357.0, 357.75,  358.5,
+       359.25],
+      dtype=&#x27;float64&#x27;, name=&#x27;longitude&#x27;, length=480))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-6bbaa3e3-08ca-4428-aaba-f913f69ec8ae' class='xr-section-summary-in' type='checkbox'  checked><label for='section-6bbaa3e3-08ca-4428-aaba-f913f69ec8ae' class='xr-section-summary' >Attributes: <span>(6)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>GRIB_centre :</span></dt><dd>ecmf</dd><dt><span>GRIB_centreDescription :</span></dt><dd>European Centre for Medium-Range Weather Forecasts</dd><dt><span>GRIB_subCentre :</span></dt><dd>0</dd><dt><span>Conventions :</span></dt><dd>CF-1.7</dd><dt><span>institution :</span></dt><dd>European Centre for Medium-Range Weather Forecasts</dd><dt><span>history :</span></dt><dd>2024-09-12T14:14 GRIB to CDM+CF via cfgrib-0.9.14.0/ecCodes-2.36.0 with {&quot;source&quot;: &quot;data.grib&quot;, &quot;filter_by_keys&quot;: {&quot;marsStream&quot;: &quot;moda&quot;, &quot;typeOfLevel&quot;: &quot;surface&quot;}, &quot;encode_cf&quot;: [&quot;parameter&quot;, &quot;time&quot;, &quot;geography&quot;, &quot;vertical&quot;]}</dd></dl></div></li></ul></div></div></div></div>
 </div>
 </section>
 <section id="spatial-aggregation">
@@ -984,10 +1031,10 @@ Attributes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1eb60b4a3a0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x790bc8eeabf0&gt;]
 </pre></div>
 </div>
-<img alt="_images/68a491225b1340d315d90a6d869584a9c60ac64e130654b99f72e18df177ec47.png" src="_images/68a491225b1340d315d90a6d869584a9c60ac64e130654b99f72e18df177ec47.png" />
+<img alt="_images/46bc0d2a8631af1bd2920c9c33b4089c0b527122bf8bd37b9b611495507e5a35.png" src="_images/46bc0d2a8631af1bd2920c9c33b4089c0b527122bf8bd37b9b611495507e5a35.png" />
 </div>
 </div>
 <p>In this plot of monthly averaged CO2 we can see the seasonal variation and yearly increase in global CO2 over the last decades.</p>
@@ -1003,14 +1050,14 @@ Attributes:
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;CO2 column-mean molar fraction (ppm)&#39;</span><span class="p">)</span> <span class="c1"># Set Y axis title</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">)</span> <span class="c1"># Set X axis title</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span> <span class="c1"># Include gridlines</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">co</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">co</span><span class="p">)</span> <span class="c1"># Plot the data</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">co</span><span class="o">.</span><span class="n">valid_time</span><span class="p">,</span> <span class="n">co</span><span class="p">)</span> <span class="c1"># Plot the data</span>
 
 <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">DATADIR</span><span class="si">}</span><span class="s1">/CAMS_CO2_reanalysis.png&#39;</span><span class="p">)</span> <span class="c1"># Save the figure</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/1cb57bac4cdfe10f490717a469c6823b20f0ee46b881992ef2b76e4fcf798ca9.png" src="_images/1cb57bac4cdfe10f490717a469c6823b20f0ee46b881992ef2b76e4fcf798ca9.png" />
+<img alt="_images/2b66f6d2eff7e2a6105d555f636f6f7a4bd547ac2b0613799d49802e144e2356.png" src="_images/2b66f6d2eff7e2a6105d555f636f6f7a4bd547ac2b0613799d49802e144e2356.png" />
 </div>
 </div>
 </section>

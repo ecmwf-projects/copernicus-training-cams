@@ -466,14 +466,33 @@ td, th {
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: cdsapi in c:\users\cxcs\anaconda3\lib\site-packages (0.5.1)
-Requirement already satisfied: tqdm in c:\users\cxcs\anaconda3\lib\site-packages (from cdsapi) (4.62.3)
-Requirement already satisfied: requests&gt;=2.5.0 in c:\users\cxcs\anaconda3\lib\site-packages (from cdsapi) (2.26.0)
-Requirement already satisfied: charset-normalizer~=2.0.0 in c:\users\cxcs\anaconda3\lib\site-packages (from requests&gt;=2.5.0-&gt;cdsapi) (2.0.4)
-Requirement already satisfied: idna&lt;4,&gt;=2.5 in c:\users\cxcs\anaconda3\lib\site-packages (from requests&gt;=2.5.0-&gt;cdsapi) (3.2)
-Requirement already satisfied: certifi&gt;=2017.4.17 in c:\users\cxcs\anaconda3\lib\site-packages (from requests&gt;=2.5.0-&gt;cdsapi) (2021.10.8)
-Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in c:\users\cxcs\anaconda3\lib\site-packages (from requests&gt;=2.5.0-&gt;cdsapi) (1.26.7)
-Requirement already satisfied: colorama in c:\users\cxcs\anaconda3\lib\site-packages (from tqdm-&gt;cdsapi) (0.4.4)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting cdsapi
+  Downloading cdsapi-0.7.3-py2.py3-none-any.whl.metadata (2.7 kB)
+Collecting cads-api-client&gt;=1.3.2 (from cdsapi)
+  Downloading cads_api_client-1.3.2-py3-none-any.whl.metadata (16 kB)
+Requirement already satisfied: requests&gt;=2.5.0 in /opt/conda/lib/python3.10/site-packages (from cdsapi) (2.32.3)
+Requirement already satisfied: tqdm in /opt/conda/lib/python3.10/site-packages (from cdsapi) (4.66.4)
+Requirement already satisfied: attrs in /opt/conda/lib/python3.10/site-packages (from cads-api-client&gt;=1.3.2-&gt;cdsapi) (23.2.0)
+Collecting multiurl (from cads-api-client&gt;=1.3.2-&gt;cdsapi)
+  Downloading multiurl-0.3.1.tar.gz (18 kB)
+  Preparing metadata (setup.py) ... ?25ldone
+?25hRequirement already satisfied: typing-extensions in /opt/conda/lib/python3.10/site-packages (from cads-api-client&gt;=1.3.2-&gt;cdsapi) (4.12.2)
+Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /opt/conda/lib/python3.10/site-packages (from requests&gt;=2.5.0-&gt;cdsapi) (3.3.2)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /opt/conda/lib/python3.10/site-packages (from requests&gt;=2.5.0-&gt;cdsapi) (3.7)
+Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /opt/conda/lib/python3.10/site-packages (from requests&gt;=2.5.0-&gt;cdsapi) (1.26.18)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /opt/conda/lib/python3.10/site-packages (from requests&gt;=2.5.0-&gt;cdsapi) (2024.7.4)
+Requirement already satisfied: pytz in /opt/conda/lib/python3.10/site-packages (from multiurl-&gt;cads-api-client&gt;=1.3.2-&gt;cdsapi) (2024.1)
+Requirement already satisfied: python-dateutil in /opt/conda/lib/python3.10/site-packages (from multiurl-&gt;cads-api-client&gt;=1.3.2-&gt;cdsapi) (2.9.0.post0)
+Requirement already satisfied: six&gt;=1.5 in /opt/conda/lib/python3.10/site-packages (from python-dateutil-&gt;multiurl-&gt;cads-api-client&gt;=1.3.2-&gt;cdsapi) (1.16.0)
+Downloading cdsapi-0.7.3-py2.py3-none-any.whl (12 kB)
+Downloading cads_api_client-1.3.2-py3-none-any.whl (21 kB)
+Building wheels for collected packages: multiurl
+  Building wheel for multiurl (setup.py) ... ?25ldone
+?25h  Created wheel for multiurl: filename=multiurl-0.3.1-py3-none-any.whl size=21131 sha256=d75ba73598e5a546c7a32732f664d79682fb4d4adc59c7462b52fb92493f358c
+  Stored in directory: /root/.cache/pip/wheels/9b/d9/5f/36a39fd10d15b5b2d362ad6dc8a1bd28a3b1e14e08357944bf
+Successfully built multiurl
+Installing collected packages: multiurl, cads-api-client, cdsapi
+Successfully installed cads-api-client-1.3.2 cdsapi-0.7.3 multiurl-0.3.1
 </pre></div>
 </div>
 </div>
@@ -503,13 +522,13 @@ Requirement already satisfied: colorama in c:\users\cxcs\anaconda3\lib\site-pack
 <h2>Data access and preprocessing<a class="headerlink" href="#data-access-and-preprocessing" title="Permalink to this heading">#</a></h2>
 <section id="download-cams-global-reanalysis-data">
 <h3>Download CAMS global reanalysis data<a class="headerlink" href="#download-cams-global-reanalysis-data" title="Permalink to this heading">#</a></h3>
-<p>Copy your API key into the code cell below, replacing <code class="docutils literal notranslate"><span class="pre">#######</span></code> with your key. (Remember, to access data from the ADS, you will need first to register/login <a class="reference external" href="https://ads.atmosphere.copernicus.eu">https://ads.atmosphere.copernicus.eu</a> and obtain an API key from <a class="reference external" href="https://ads.atmosphere.copernicus.eu/api-how-to.">https://ads.atmosphere.copernicus.eu/api-how-to.</a>)</p>
+<p>Copy your API key into the code cell below, replacing <code class="docutils literal notranslate"><span class="pre">#######</span></code> with your key. (Remember, to access data from the ADS, you will need first to register/login <a class="reference external" href="https://ads-beta.atmosphere.copernicus.eu/">https://ads-beta.atmosphere.copernicus.eu/</a> and obtain an API key from <a class="reference external" href="https://ads-beta.atmosphere.copernicus.eu/how-to-api.">https://ads-beta.atmosphere.copernicus.eu/how-to-api.</a>)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">URL</span> <span class="o">=</span> <span class="s1">&#39;https://ads.atmosphere.copernicus.eu/api/v2&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">URL</span> <span class="o">=</span> <span class="s1">&#39;https://ads-beta.atmosphere.copernicus.eu/api&#39;</span>
 
 <span class="c1"># Replace the hashtags with your key:</span>
-<span class="n">KEY</span> <span class="o">=</span> <span class="s1">&#39;##########################################&#39;</span>
+<span class="n">KEY</span> <span class="o">=</span> <span class="s1">&#39;#################################&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -529,48 +548,40 @@ Requirement already satisfied: colorama in c:\users\cxcs\anaconda3\lib\site-pack
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">cdsapi</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">URL</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">KEY</span><span class="p">)</span>
-<span class="n">c</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span>
-    <span class="s1">&#39;cams-global-reanalysis-eac4-monthly&#39;</span><span class="p">,</span>
-    <span class="p">{</span>
-        <span class="s1">&#39;variable&#39;</span><span class="p">:</span> <span class="s1">&#39;carbon_monoxide&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;pressure_level&#39;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="s1">&#39;100&#39;</span><span class="p">,</span> <span class="s1">&#39;150&#39;</span><span class="p">,</span> <span class="s1">&#39;200&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;250&#39;</span><span class="p">,</span> <span class="s1">&#39;300&#39;</span><span class="p">,</span> <span class="s1">&#39;400&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;500&#39;</span><span class="p">,</span> <span class="s1">&#39;600&#39;</span><span class="p">,</span> <span class="s1">&#39;700&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;800&#39;</span><span class="p">,</span> <span class="s1">&#39;850&#39;</span><span class="p">,</span> <span class="s1">&#39;900&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;925&#39;</span><span class="p">,</span> <span class="s1">&#39;950&#39;</span><span class="p">,</span> <span class="s1">&#39;1000&#39;</span><span class="p">,</span>
-        <span class="p">],</span>
-        <span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="s1">&#39;2003&#39;</span><span class="p">,</span> <span class="s1">&#39;2004&#39;</span><span class="p">,</span> <span class="s1">&#39;2005&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;2006&#39;</span><span class="p">,</span> <span class="s1">&#39;2007&#39;</span><span class="p">,</span> <span class="s1">&#39;2008&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;2009&#39;</span><span class="p">,</span> <span class="s1">&#39;2010&#39;</span><span class="p">,</span> <span class="s1">&#39;2011&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;2012&#39;</span><span class="p">,</span> <span class="s1">&#39;2013&#39;</span><span class="p">,</span> <span class="s1">&#39;2014&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;2015&#39;</span><span class="p">,</span> <span class="s1">&#39;2016&#39;</span><span class="p">,</span> <span class="s1">&#39;2017&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;2018&#39;</span><span class="p">,</span> <span class="s1">&#39;2019&#39;</span><span class="p">,</span> <span class="s1">&#39;2020&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;2021&#39;</span><span class="p">,</span>
-        <span class="p">],</span>
-        <span class="s1">&#39;month&#39;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="s1">&#39;06&#39;</span><span class="p">,</span> <span class="s1">&#39;07&#39;</span><span class="p">,</span> <span class="s1">&#39;08&#39;</span><span class="p">,</span>
-        <span class="p">],</span>
-        <span class="s1">&#39;product_type&#39;</span><span class="p">:</span> <span class="s1">&#39;monthly_mean&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="s1">&#39;netcdf&#39;</span><span class="p">,</span>
-    <span class="p">},</span>
-    <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">DATADIR</span><span class="si">}</span><span class="s1">/CO_NHemis_JJA_2003-2021.nc&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="s2">&quot;cams-global-reanalysis-eac4-monthly&quot;</span>
+<span class="n">request</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;variable&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;carbon_monoxide&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;pressure_level&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;100&#39;</span><span class="p">,</span> <span class="s1">&#39;150&#39;</span><span class="p">,</span> <span class="s1">&#39;200&#39;</span><span class="p">,</span> <span class="s1">&#39;250&#39;</span><span class="p">,</span> 
+                       <span class="s1">&#39;300&#39;</span><span class="p">,</span> <span class="s1">&#39;400&#39;</span><span class="p">,</span> <span class="s1">&#39;500&#39;</span><span class="p">,</span> <span class="s1">&#39;600&#39;</span><span class="p">,</span> 
+                       <span class="s1">&#39;700&#39;</span><span class="p">,</span> <span class="s1">&#39;800&#39;</span><span class="p">,</span> <span class="s1">&#39;850&#39;</span><span class="p">,</span> <span class="s1">&#39;900&#39;</span><span class="p">,</span> 
+                       <span class="s1">&#39;925&#39;</span><span class="p">,</span> <span class="s1">&#39;950&#39;</span><span class="p">,</span> <span class="s1">&#39;1000&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;2003&#39;</span><span class="p">,</span> <span class="s1">&#39;2004&#39;</span><span class="p">,</span> <span class="s1">&#39;2005&#39;</span><span class="p">,</span> <span class="s1">&#39;2006&#39;</span><span class="p">,</span> 
+             <span class="s1">&#39;2007&#39;</span><span class="p">,</span> <span class="s1">&#39;2008&#39;</span><span class="p">,</span> <span class="s1">&#39;2009&#39;</span><span class="p">,</span> <span class="s1">&#39;2010&#39;</span><span class="p">,</span> 
+             <span class="s1">&#39;2011&#39;</span><span class="p">,</span> <span class="s1">&#39;2012&#39;</span><span class="p">,</span> <span class="s1">&#39;2013&#39;</span><span class="p">,</span> <span class="s1">&#39;2014&#39;</span><span class="p">,</span> 
+             <span class="s1">&#39;2015&#39;</span><span class="p">,</span> <span class="s1">&#39;2016&#39;</span><span class="p">,</span> <span class="s1">&#39;2017&#39;</span><span class="p">,</span> <span class="s1">&#39;2018&#39;</span><span class="p">,</span> 
+             <span class="s1">&#39;2019&#39;</span><span class="p">,</span> <span class="s1">&#39;2020&#39;</span><span class="p">,</span> <span class="s1">&#39;2021&#39;</span><span class="p">,</span> <span class="s1">&#39;2022&#39;</span><span class="p">,</span> 
+             <span class="s1">&#39;2023&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;month&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;06&#39;</span><span class="p">,</span> <span class="s1">&#39;07&#39;</span><span class="p">,</span> <span class="s1">&#39;08&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;product_type&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;monthly_mean&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;data_format&#39;</span><span class="p">:</span> <span class="s1">&#39;netcdf&#39;</span>
+<span class="p">}</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">cdsapi</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">URL</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">KEY</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">request</span><span class="p">)</span><span class="o">.</span><span class="n">download</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">DATADIR</span><span class="si">}</span><span class="s1">/CO_NHemis_JJA_2003-2023.nc&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-11 12:16:55,355 INFO Welcome to the CDS
-2022-09-11 12:16:55,358 INFO Sending request to https://ads.atmosphere.copernicus.eu/api/v2/resources/cams-global-reanalysis-eac4-monthly
-2022-09-11 12:16:55,428 INFO Request is queued
-2022-09-11 12:16:56,494 INFO Request is running
-2022-09-11 12:17:45,252 INFO Request is completed
-2022-09-11 12:17:45,253 INFO Downloading https://download-0005-ads-clone.copernicus-climate.eu/cache-compute-0005/cache/data9/adaptor.mars.internal-1662894988.4514306-17529-12-b1ed787e-7c7b-4d76-97a7-540ec28e5ca9.nc to ./CO_NHemis_JJA_2003-2021.nc (188.7M)
-2022-09-11 12:18:02,626 INFO Download rate 10.9M/s                                                                     
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-09-12 14:27:56,029 INFO Request ID is d917161b-fe2e-4e8c-9cf7-7ffb41e0855e
+2024-09-12 14:27:56,215 INFO status has been updated to accepted
+2024-09-12 14:27:58,031 INFO status has been updated to running
+2024-09-12 14:29:50,536 INFO Creating download object as as_source with files:
+[&#39;data_allhours_plev.nc&#39;]
+2024-09-12 14:29:50,538 INFO status has been updated to successful
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Result(content_length=197817276,content_type=application/x-netcdf,location=https://download-0005-ads-clone.copernicus-climate.eu/cache-compute-0005/cache/data9/adaptor.mars.internal-1662894988.4514306-17529-12-b1ed787e-7c7b-4d76-97a7-540ec28e5ca9.nc)
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;./CO_NHemis_JJA_2003-2023.nc&#39;
 </pre></div>
 </div>
 </div>
@@ -581,7 +592,7 @@ Requirement already satisfied: colorama in c:\users\cxcs\anaconda3\lib\site-pack
 <p>Read the data into an Xarray dataset:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fn</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">DATADIR</span><span class="si">}</span><span class="s1">/CO_NHemis_JJA_2003-2021.nc&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fn</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">DATADIR</span><span class="si">}</span><span class="s1">/CO_NHemis_JJA_2003-2023.nc&#39;</span>
 <span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span>
 <span class="n">ds</span>
 </pre></div>
@@ -619,6 +630,8 @@ Requirement already satisfied: colorama in c:\users\cxcs\anaconda3\lib\site-pack
 }
 
 html[theme=dark],
+html[data-theme=dark],
+body[data-theme=dark],
 body.vscode-dark {
   --xr-font-color0: rgba(255, 255, 255, 1);
   --xr-font-color2: rgba(255, 255, 255, 0.54);
@@ -848,6 +861,11 @@ body.vscode-dark {
   grid-column: 4;
 }
 
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
 .xr-var-name,
 .xr-var-dims,
 .xr-var-dtype,
@@ -869,14 +887,16 @@ body.vscode-dark {
 }
 
 .xr-var-attrs,
-.xr-var-data {
+.xr-var-data,
+.xr-index-data {
   display: none;
   background-color: var(--xr-background-color) !important;
   padding-bottom: 5px !important;
 }
 
 .xr-var-attrs-in:checked ~ .xr-var-attrs,
-.xr-var-data-in:checked ~ .xr-var-data {
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
   display: block;
 }
 
@@ -886,13 +906,16 @@ body.vscode-dark {
 
 .xr-var-name span,
 .xr-var-data,
+.xr-index-name div,
+.xr-index-data,
 .xr-attrs {
   padding-left: 25px !important;
 }
 
 .xr-attrs,
 .xr-var-attrs,
-.xr-var-data {
+.xr-var-data,
+.xr-index-data {
   grid-column: 1 / -1;
 }
 
@@ -930,7 +953,8 @@ dl.xr-attrs {
 }
 
 .xr-icon-database,
-.xr-icon-file-text2 {
+.xr-icon-file-text2,
+.xr-no-icon {
   display: inline-block;
   vertical-align: middle;
   width: 1em;
@@ -939,19 +963,23 @@ dl.xr-attrs {
   stroke: currentColor;
   fill: currentColor;
 }
-</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt;
-Dimensions:    (longitude: 480, latitude: 241, level: 15, time: 57)
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt; Size: 437MB
+Dimensions:         (valid_time: 63, pressure_level: 15, latitude: 241,
+                     longitude: 480)
 Coordinates:
-  * longitude  (longitude) float32 0.0 0.75 1.5 2.25 ... 357.0 357.8 358.5 359.2
-  * latitude   (latitude) float32 90.0 89.25 88.5 87.75 ... -88.5 -89.25 -90.0
-  * level      (level) int32 100 150 200 250 300 400 ... 850 900 925 950 1000
-  * time       (time) datetime64[ns] 2003-06-01 2003-07-01 ... 2021-08-01
+  * valid_time      (valid_time) datetime64[ns] 504B 2003-06-01 ... 2023-08-01
+  * pressure_level  (pressure_level) float64 120B 1e+03 950.0 ... 150.0 100.0
+  * latitude        (latitude) float64 2kB 90.0 89.25 88.5 ... -89.25 -90.0
+  * longitude       (longitude) float64 4kB 0.0 0.75 1.5 ... 357.8 358.5 359.2
 Data variables:
-    co         (time, level, latitude, longitude) float32 ...
+    co              (valid_time, pressure_level, latitude, longitude) float32 437MB ...
 Attributes:
-    Conventions:  CF-1.6
-    history:      2022-09-11 11:16:31 GMT by grib_to_netcdf-2.25.1: /opt/ecmw...</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-f391814a-d6b7-4a65-be12-ea140879970c' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-f391814a-d6b7-4a65-be12-ea140879970c' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>longitude</span>: 480</li><li><span class='xr-has-index'>latitude</span>: 241</li><li><span class='xr-has-index'>level</span>: 15</li><li><span class='xr-has-index'>time</span>: 57</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-7f75d89b-970c-480c-b494-19d4191059fa' class='xr-section-summary-in' type='checkbox'  checked><label for='section-7f75d89b-970c-480c-b494-19d4191059fa' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>longitude</span></div><div class='xr-var-dims'>(longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>0.0 0.75 1.5 ... 357.8 358.5 359.2</div><input id='attrs-077b3a5f-2bdb-4e97-bd9a-e25eab4defef' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-077b3a5f-2bdb-4e97-bd9a-e25eab4defef' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-14685eed-dda9-40e3-ba2a-d27f08c54969' class='xr-var-data-in' type='checkbox'><label for='data-14685eed-dda9-40e3-ba2a-d27f08c54969' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>long_name :</span></dt><dd>longitude</dd></dl></div><div class='xr-var-data'><pre>array([  0.  ,   0.75,   1.5 , ..., 357.75, 358.5 , 359.25], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>latitude</span></div><div class='xr-var-dims'>(latitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>90.0 89.25 88.5 ... -89.25 -90.0</div><input id='attrs-5da58de1-21fc-4b6d-bba5-6ac9bba06c46' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-5da58de1-21fc-4b6d-bba5-6ac9bba06c46' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-89b18b3a-0cd0-4d98-872c-65cd82190d0a' class='xr-var-data-in' type='checkbox'><label for='data-89b18b3a-0cd0-4d98-872c-65cd82190d0a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>long_name :</span></dt><dd>latitude</dd></dl></div><div class='xr-var-data'><pre>array([ 90.  ,  89.25,  88.5 , ..., -88.5 , -89.25, -90.  ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>level</span></div><div class='xr-var-dims'>(level)</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>100 150 200 250 ... 925 950 1000</div><input id='attrs-f50aa204-d6d0-4fdf-bf3c-12a586fba904' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f50aa204-d6d0-4fdf-bf3c-12a586fba904' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-2d0d108a-cc1d-4418-b76b-758e022e9e5a' class='xr-var-data-in' type='checkbox'><label for='data-2d0d108a-cc1d-4418-b76b-758e022e9e5a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>millibars</dd><dt><span>long_name :</span></dt><dd>pressure_level</dd></dl></div><div class='xr-var-data'><pre>array([ 100,  150,  200,  250,  300,  400,  500,  600,  700,  800,  850,  900,
-        925,  950, 1000])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2003-06-01 ... 2021-08-01</div><input id='attrs-2800661a-4fe8-4f05-af30-da8cb27e0746' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-2800661a-4fe8-4f05-af30-da8cb27e0746' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b8432eb9-071f-4a17-9d40-10d207765f9d' class='xr-var-data-in' type='checkbox'><label for='data-b8432eb9-071f-4a17-9d40-10d207765f9d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>time</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2003-06-01T00:00:00.000000000&#x27;, &#x27;2003-07-01T00:00:00.000000000&#x27;,
+    GRIB_centre:             ecmf
+    GRIB_centreDescription:  European Centre for Medium-Range Weather Forecasts
+    GRIB_subCentre:          0
+    Conventions:             CF-1.7
+    institution:             European Centre for Medium-Range Weather Forecasts
+    history:                 2024-09-12T14:29 GRIB to CDM+CF via cfgrib-0.9.1...</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-de7dc49c-ebc5-4890-a7ff-b3268a96503b' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-de7dc49c-ebc5-4890-a7ff-b3268a96503b' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>valid_time</span>: 63</li><li><span class='xr-has-index'>pressure_level</span>: 15</li><li><span class='xr-has-index'>latitude</span>: 241</li><li><span class='xr-has-index'>longitude</span>: 480</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-c3f75c66-659e-40e3-97a8-292bc595b801' class='xr-section-summary-in' type='checkbox'  checked><label for='section-c3f75c66-659e-40e3-97a8-292bc595b801' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>valid_time</span></div><div class='xr-var-dims'>(valid_time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2003-06-01 ... 2023-08-01</div><input id='attrs-b60f86c9-e025-46dd-98f0-13e4f09ecb33' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b60f86c9-e025-46dd-98f0-13e4f09ecb33' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-037cf6d0-f38c-4e24-8462-c29981c5f1a0' class='xr-var-data-in' type='checkbox'><label for='data-037cf6d0-f38c-4e24-8462-c29981c5f1a0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>time</dd><dt><span>standard_name :</span></dt><dd>time</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2003-06-01T00:00:00.000000000&#x27;, &#x27;2003-07-01T00:00:00.000000000&#x27;,
        &#x27;2003-08-01T00:00:00.000000000&#x27;, &#x27;2004-06-01T00:00:00.000000000&#x27;,
        &#x27;2004-07-01T00:00:00.000000000&#x27;, &#x27;2004-08-01T00:00:00.000000000&#x27;,
        &#x27;2005-06-01T00:00:00.000000000&#x27;, &#x27;2005-07-01T00:00:00.000000000&#x27;,
@@ -979,7 +1007,39 @@ Attributes:
        &#x27;2019-08-01T00:00:00.000000000&#x27;, &#x27;2020-06-01T00:00:00.000000000&#x27;,
        &#x27;2020-07-01T00:00:00.000000000&#x27;, &#x27;2020-08-01T00:00:00.000000000&#x27;,
        &#x27;2021-06-01T00:00:00.000000000&#x27;, &#x27;2021-07-01T00:00:00.000000000&#x27;,
-       &#x27;2021-08-01T00:00:00.000000000&#x27;], dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-2c0185f0-cd2a-405a-84a2-455b507a5834' class='xr-section-summary-in' type='checkbox'  checked><label for='section-2c0185f0-cd2a-405a-84a2-455b507a5834' class='xr-section-summary' >Data variables: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>co</span></div><div class='xr-var-dims'>(time, level, latitude, longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-deec2a14-76db-4e02-bbd7-897f5700261b' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-deec2a14-76db-4e02-bbd7-897f5700261b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-2ae920d9-85b2-4c8f-a99e-8283963d6571' class='xr-var-data-in' type='checkbox'><label for='data-2ae920d9-85b2-4c8f-a99e-8283963d6571' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>kg kg**-1</dd><dt><span>long_name :</span></dt><dd>Carbon monoxide mass mixing ratio</dd><dt><span>standard_name :</span></dt><dd>mass_fraction_of_carbon_monoxide_in_air</dd></dl></div><div class='xr-var-data'><pre>[98906400 values with dtype=float32]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-af35ee19-40fd-4e05-a93d-6bc61d5d626e' class='xr-section-summary-in' type='checkbox'  checked><label for='section-af35ee19-40fd-4e05-a93d-6bc61d5d626e' class='xr-section-summary' >Attributes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>Conventions :</span></dt><dd>CF-1.6</dd><dt><span>history :</span></dt><dd>2022-09-11 11:16:31 GMT by grib_to_netcdf-2.25.1: /opt/ecmwf/mars-client/bin/grib_to_netcdf.bin -S param -o /cache/data9/adaptor.mars.internal-1662894988.4514306-17529-12-b1ed787e-7c7b-4d76-97a7-540ec28e5ca9.nc /cache/tmp/b1ed787e-7c7b-4d76-97a7-540ec28e5ca9-adaptor.mars.internal-1662894944.2277246-17529-30-tmp.grib</dd></dl></div></li></ul></div></div></div></div>
+       &#x27;2021-08-01T00:00:00.000000000&#x27;, &#x27;2022-06-01T00:00:00.000000000&#x27;,
+       &#x27;2022-07-01T00:00:00.000000000&#x27;, &#x27;2022-08-01T00:00:00.000000000&#x27;,
+       &#x27;2023-06-01T00:00:00.000000000&#x27;, &#x27;2023-07-01T00:00:00.000000000&#x27;,
+       &#x27;2023-08-01T00:00:00.000000000&#x27;], dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>pressure_level</span></div><div class='xr-var-dims'>(pressure_level)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1e+03 950.0 925.0 ... 150.0 100.0</div><input id='attrs-ac4ae894-ad51-4cec-8193-54ca7792dcb7' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ac4ae894-ad51-4cec-8193-54ca7792dcb7' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d837ce4a-3547-41dd-b9c2-ae031276b554' class='xr-var-data-in' type='checkbox'><label for='data-d837ce4a-3547-41dd-b9c2-ae031276b554' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>pressure</dd><dt><span>units :</span></dt><dd>hPa</dd><dt><span>positive :</span></dt><dd>down</dd><dt><span>stored_direction :</span></dt><dd>decreasing</dd><dt><span>standard_name :</span></dt><dd>air_pressure</dd></dl></div><div class='xr-var-data'><pre>array([1000.,  950.,  925.,  900.,  850.,  800.,  700.,  600.,  500.,  400.,
+        300.,  250.,  200.,  150.,  100.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>latitude</span></div><div class='xr-var-dims'>(latitude)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>90.0 89.25 88.5 ... -89.25 -90.0</div><input id='attrs-b501cae2-cdb6-44e0-ab2f-52bb7a63fcf7' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b501cae2-cdb6-44e0-ab2f-52bb7a63fcf7' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c882c4b9-d258-4b8e-9fdd-57523c9c4be0' class='xr-var-data-in' type='checkbox'><label for='data-c882c4b9-d258-4b8e-9fdd-57523c9c4be0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>stored_direction :</span></dt><dd>decreasing</dd></dl></div><div class='xr-var-data'><pre>array([ 90.  ,  89.25,  88.5 , ..., -88.5 , -89.25, -90.  ])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>longitude</span></div><div class='xr-var-dims'>(longitude)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.0 0.75 1.5 ... 357.8 358.5 359.2</div><input id='attrs-910a483a-62c1-479c-94ef-0664eeccaf11' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-910a483a-62c1-479c-94ef-0664eeccaf11' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7908557d-7cea-4e96-a2bf-7f4dd6ed8dd0' class='xr-var-data-in' type='checkbox'><label for='data-7908557d-7cea-4e96-a2bf-7f4dd6ed8dd0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>longitude</dd></dl></div><div class='xr-var-data'><pre>array([  0.  ,   0.75,   1.5 , ..., 357.75, 358.5 , 359.25])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-6b5be82f-0ce7-4001-96c7-bb43d75e6246' class='xr-section-summary-in' type='checkbox'  checked><label for='section-6b5be82f-0ce7-4001-96c7-bb43d75e6246' class='xr-section-summary' >Data variables: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>co</span></div><div class='xr-var-dims'>(valid_time, pressure_level, latitude, longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-30535980-be2d-4a36-84a8-e7ee3de708ef' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-30535980-be2d-4a36-84a8-e7ee3de708ef' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c03457e4-7db0-4556-b581-7801014b3a4e' class='xr-var-data-in' type='checkbox'><label for='data-c03457e4-7db0-4556-b581-7801014b3a4e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>GRIB_paramId :</span></dt><dd>210123</dd><dt><span>GRIB_dataType :</span></dt><dd>an</dd><dt><span>GRIB_numberOfPoints :</span></dt><dd>115680</dd><dt><span>GRIB_typeOfLevel :</span></dt><dd>isobaricInhPa</dd><dt><span>GRIB_stepUnits :</span></dt><dd>1</dd><dt><span>GRIB_stepType :</span></dt><dd>avgua</dd><dt><span>GRIB_gridType :</span></dt><dd>regular_ll</dd><dt><span>GRIB_uvRelativeToGrid :</span></dt><dd>0</dd><dt><span>GRIB_NV :</span></dt><dd>0</dd><dt><span>GRIB_Nx :</span></dt><dd>480</dd><dt><span>GRIB_Ny :</span></dt><dd>241</dd><dt><span>GRIB_cfName :</span></dt><dd>mass_fraction_of_carbon_monoxide_in_air</dd><dt><span>GRIB_cfVarName :</span></dt><dd>co</dd><dt><span>GRIB_gridDefinitionDescription :</span></dt><dd>Latitude/Longitude Grid</dd><dt><span>GRIB_iDirectionIncrementInDegrees :</span></dt><dd>0.75</dd><dt><span>GRIB_iScansNegatively :</span></dt><dd>0</dd><dt><span>GRIB_jDirectionIncrementInDegrees :</span></dt><dd>0.75</dd><dt><span>GRIB_jPointsAreConsecutive :</span></dt><dd>0</dd><dt><span>GRIB_jScansPositively :</span></dt><dd>0</dd><dt><span>GRIB_latitudeOfFirstGridPointInDegrees :</span></dt><dd>90.0</dd><dt><span>GRIB_latitudeOfLastGridPointInDegrees :</span></dt><dd>-90.0</dd><dt><span>GRIB_longitudeOfFirstGridPointInDegrees :</span></dt><dd>0.0</dd><dt><span>GRIB_longitudeOfLastGridPointInDegrees :</span></dt><dd>359.25</dd><dt><span>GRIB_missingValue :</span></dt><dd>3.4028234663852886e+38</dd><dt><span>GRIB_name :</span></dt><dd>Carbon monoxide mass mixing ratio</dd><dt><span>GRIB_shortName :</span></dt><dd>co</dd><dt><span>GRIB_totalNumber :</span></dt><dd>0</dd><dt><span>GRIB_units :</span></dt><dd>kg kg**-1</dd><dt><span>long_name :</span></dt><dd>Carbon monoxide mass mixing ratio</dd><dt><span>units :</span></dt><dd>kg kg**-1</dd><dt><span>standard_name :</span></dt><dd>mass_fraction_of_carbon_monoxide_in_air</dd><dt><span>GRIB_number :</span></dt><dd>0</dd></dl></div><div class='xr-var-data'><pre>[109317600 values with dtype=float32]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-17fac36b-5580-4583-bb28-e2497a32c3f2' class='xr-section-summary-in' type='checkbox'  ><label for='section-17fac36b-5580-4583-bb28-e2497a32c3f2' class='xr-section-summary' >Indexes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>valid_time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-f8407c7c-8a92-4dc6-b0bd-709601520ee5' class='xr-index-data-in' type='checkbox'/><label for='index-f8407c7c-8a92-4dc6-b0bd-709601520ee5' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;2003-06-01&#x27;, &#x27;2003-07-01&#x27;, &#x27;2003-08-01&#x27;, &#x27;2004-06-01&#x27;,
+               &#x27;2004-07-01&#x27;, &#x27;2004-08-01&#x27;, &#x27;2005-06-01&#x27;, &#x27;2005-07-01&#x27;,
+               &#x27;2005-08-01&#x27;, &#x27;2006-06-01&#x27;, &#x27;2006-07-01&#x27;, &#x27;2006-08-01&#x27;,
+               &#x27;2007-06-01&#x27;, &#x27;2007-07-01&#x27;, &#x27;2007-08-01&#x27;, &#x27;2008-06-01&#x27;,
+               &#x27;2008-07-01&#x27;, &#x27;2008-08-01&#x27;, &#x27;2009-06-01&#x27;, &#x27;2009-07-01&#x27;,
+               &#x27;2009-08-01&#x27;, &#x27;2010-06-01&#x27;, &#x27;2010-07-01&#x27;, &#x27;2010-08-01&#x27;,
+               &#x27;2011-06-01&#x27;, &#x27;2011-07-01&#x27;, &#x27;2011-08-01&#x27;, &#x27;2012-06-01&#x27;,
+               &#x27;2012-07-01&#x27;, &#x27;2012-08-01&#x27;, &#x27;2013-06-01&#x27;, &#x27;2013-07-01&#x27;,
+               &#x27;2013-08-01&#x27;, &#x27;2014-06-01&#x27;, &#x27;2014-07-01&#x27;, &#x27;2014-08-01&#x27;,
+               &#x27;2015-06-01&#x27;, &#x27;2015-07-01&#x27;, &#x27;2015-08-01&#x27;, &#x27;2016-06-01&#x27;,
+               &#x27;2016-07-01&#x27;, &#x27;2016-08-01&#x27;, &#x27;2017-06-01&#x27;, &#x27;2017-07-01&#x27;,
+               &#x27;2017-08-01&#x27;, &#x27;2018-06-01&#x27;, &#x27;2018-07-01&#x27;, &#x27;2018-08-01&#x27;,
+               &#x27;2019-06-01&#x27;, &#x27;2019-07-01&#x27;, &#x27;2019-08-01&#x27;, &#x27;2020-06-01&#x27;,
+               &#x27;2020-07-01&#x27;, &#x27;2020-08-01&#x27;, &#x27;2021-06-01&#x27;, &#x27;2021-07-01&#x27;,
+               &#x27;2021-08-01&#x27;, &#x27;2022-06-01&#x27;, &#x27;2022-07-01&#x27;, &#x27;2022-08-01&#x27;,
+               &#x27;2023-06-01&#x27;, &#x27;2023-07-01&#x27;, &#x27;2023-08-01&#x27;],
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;valid_time&#x27;, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>pressure_level</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-58566252-48fd-4e62-be17-2287390bfe73' class='xr-index-data-in' type='checkbox'/><label for='index-58566252-48fd-4e62-be17-2287390bfe73' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([1000.0,  950.0,  925.0,  900.0,  850.0,  800.0,  700.0,  600.0,  500.0,
+        400.0,  300.0,  250.0,  200.0,  150.0,  100.0],
+      dtype=&#x27;float64&#x27;, name=&#x27;pressure_level&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>latitude</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-ec12ea98-63ef-41f9-b870-6aeb3788012b' class='xr-index-data-in' type='checkbox'/><label for='index-ec12ea98-63ef-41f9-b870-6aeb3788012b' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([  90.0,  89.25,   88.5,  87.75,   87.0,  86.25,   85.5,  84.75,   84.0,
+        83.25,
+       ...
+       -83.25,  -84.0, -84.75,  -85.5, -86.25,  -87.0, -87.75,  -88.5, -89.25,
+        -90.0],
+      dtype=&#x27;float64&#x27;, name=&#x27;latitude&#x27;, length=241))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>longitude</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-0f35bf05-e916-40cb-b550-42f749124332' class='xr-index-data-in' type='checkbox'/><label for='index-0f35bf05-e916-40cb-b550-42f749124332' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([   0.0,   0.75,    1.5,   2.25,    3.0,   3.75,    4.5,   5.25,    6.0,
+         6.75,
+       ...
+        352.5, 353.25,  354.0, 354.75,  355.5, 356.25,  357.0, 357.75,  358.5,
+       359.25],
+      dtype=&#x27;float64&#x27;, name=&#x27;longitude&#x27;, length=480))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-cc2a2f62-0d7d-4159-9ee7-0d5d5aa019c9' class='xr-section-summary-in' type='checkbox'  checked><label for='section-cc2a2f62-0d7d-4159-9ee7-0d5d5aa019c9' class='xr-section-summary' >Attributes: <span>(6)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>GRIB_centre :</span></dt><dd>ecmf</dd><dt><span>GRIB_centreDescription :</span></dt><dd>European Centre for Medium-Range Weather Forecasts</dd><dt><span>GRIB_subCentre :</span></dt><dd>0</dd><dt><span>Conventions :</span></dt><dd>CF-1.7</dd><dt><span>institution :</span></dt><dd>European Centre for Medium-Range Weather Forecasts</dd><dt><span>history :</span></dt><dd>2024-09-12T14:29 GRIB to CDM+CF via cfgrib-0.9.14.0/ecCodes-2.36.0 with {&quot;source&quot;: &quot;data.grib&quot;, &quot;filter_by_keys&quot;: {&quot;marsStream&quot;: &quot;moda&quot;, &quot;typeOfLevel&quot;: &quot;isobaricInhPa&quot;}, &quot;encode_cf&quot;: [&quot;parameter&quot;, &quot;time&quot;, &quot;geography&quot;, &quot;vertical&quot;]}</dd></dl></div></li></ul></div></div></div></div>
 </div>
 </section>
 <section id="representation-of-pressure-levels">
@@ -990,7 +1050,7 @@ Attributes:
 <p>Here we create a new coordinate of our Data Array with the logarithm of the pressure levels, to facilitate visualisation in our plots.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="p">[</span><span class="s1">&#39;level_log10&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">ds</span><span class="p">[</span><span class="s1">&#39;level&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="p">[</span><span class="s1">&#39;level_log10&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">ds</span><span class="p">[</span><span class="s1">&#39;pressure_level&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1011,7 +1071,7 @@ Attributes:
 <p>Here we shall assume that the reference pressure at sea level is 1000 hPa.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">44330.</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">((</span><span class="n">ds</span><span class="p">[</span><span class="s1">&#39;level&#39;</span><span class="p">]</span><span class="o">/</span><span class="mf">1000.</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mf">5.255</span><span class="p">)))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">44330.</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">((</span><span class="n">ds</span><span class="p">[</span><span class="s1">&#39;pressure_level&#39;</span><span class="p">]</span><span class="o">/</span><span class="mf">1000.</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mf">5.255</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
@@ -1082,6 +1142,8 @@ Attributes:
 }
 
 html[theme=dark],
+html[data-theme=dark],
+body[data-theme=dark],
 body.vscode-dark {
   --xr-font-color0: rgba(255, 255, 255, 1);
   --xr-font-color2: rgba(255, 255, 255, 0.54);
@@ -1311,6 +1373,11 @@ body.vscode-dark {
   grid-column: 4;
 }
 
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
 .xr-var-name,
 .xr-var-dims,
 .xr-var-dtype,
@@ -1332,14 +1399,16 @@ body.vscode-dark {
 }
 
 .xr-var-attrs,
-.xr-var-data {
+.xr-var-data,
+.xr-index-data {
   display: none;
   background-color: var(--xr-background-color) !important;
   padding-bottom: 5px !important;
 }
 
 .xr-var-attrs-in:checked ~ .xr-var-attrs,
-.xr-var-data-in:checked ~ .xr-var-data {
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
   display: block;
 }
 
@@ -1349,13 +1418,16 @@ body.vscode-dark {
 
 .xr-var-name span,
 .xr-var-data,
+.xr-index-name div,
+.xr-index-data,
 .xr-attrs {
   padding-left: 25px !important;
 }
 
 .xr-attrs,
 .xr-var-attrs,
-.xr-var-data {
+.xr-var-data,
+.xr-index-data {
   grid-column: 1 / -1;
 }
 
@@ -1393,7 +1465,8 @@ dl.xr-attrs {
 }
 
 .xr-icon-database,
-.xr-icon-file-text2 {
+.xr-icon-file-text2,
+.xr-no-icon {
   display: inline-block;
   vertical-align: middle;
   width: 1em;
@@ -1402,20 +1475,30 @@ dl.xr-attrs {
   stroke: currentColor;
   fill: currentColor;
 }
-</style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray &#x27;co&#x27; (time: 57, level: 15, latitude: 241, longitude: 480)&gt;
-[98906400 values with dtype=float32]
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray &#x27;co&#x27; (valid_time: 63, pressure_level: 15, latitude: 241,
+                        longitude: 480)&gt; Size: 437MB
+[109317600 values with dtype=float32]
 Coordinates:
-  * longitude    (longitude) float32 0.0 0.75 1.5 2.25 ... 357.8 358.5 359.2
-  * latitude     (latitude) float32 90.0 89.25 88.5 87.75 ... -88.5 -89.25 -90.0
-  * level        (level) int32 100 150 200 250 300 400 ... 850 900 925 950 1000
-  * time         (time) datetime64[ns] 2003-06-01 2003-07-01 ... 2021-08-01
-    level_log10  (level) float64 2.0 2.176 2.301 2.398 ... 2.954 2.966 2.978 3.0
-    height       (level) float64 15.73 13.43 11.69 10.28 ... 0.6528 0.4306 0.0
-Attributes:
-    units:          kg kg**-1
-    long_name:      Carbon monoxide mass mixing ratio
-    standard_name:  mass_fraction_of_carbon_monoxide_in_air</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'co'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 57</li><li><span class='xr-has-index'>level</span>: 15</li><li><span class='xr-has-index'>latitude</span>: 241</li><li><span class='xr-has-index'>longitude</span>: 480</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-a5721bcd-10e4-42c1-ac7f-9b9ba43fff86' class='xr-array-in' type='checkbox' checked><label for='section-a5721bcd-10e4-42c1-ac7f-9b9ba43fff86' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>...</span></div><div class='xr-array-data'><pre>[98906400 values with dtype=float32]</pre></div></div></li><li class='xr-section-item'><input id='section-a23b4cc3-aedf-4467-af4d-25138f791b65' class='xr-section-summary-in' type='checkbox'  checked><label for='section-a23b4cc3-aedf-4467-af4d-25138f791b65' class='xr-section-summary' >Coordinates: <span>(6)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>longitude</span></div><div class='xr-var-dims'>(longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>0.0 0.75 1.5 ... 357.8 358.5 359.2</div><input id='attrs-a53301c3-4ed9-43ef-a7bd-cb1d0e41eb8b' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-a53301c3-4ed9-43ef-a7bd-cb1d0e41eb8b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3cfae018-c823-4729-a352-8f30ec598e9d' class='xr-var-data-in' type='checkbox'><label for='data-3cfae018-c823-4729-a352-8f30ec598e9d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>long_name :</span></dt><dd>longitude</dd></dl></div><div class='xr-var-data'><pre>array([  0.  ,   0.75,   1.5 , ..., 357.75, 358.5 , 359.25], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>latitude</span></div><div class='xr-var-dims'>(latitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>90.0 89.25 88.5 ... -89.25 -90.0</div><input id='attrs-c3a7447f-d046-4010-907d-2b191f151b02' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c3a7447f-d046-4010-907d-2b191f151b02' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-34e094e2-1c1c-4474-a045-427ba090dd2d' class='xr-var-data-in' type='checkbox'><label for='data-34e094e2-1c1c-4474-a045-427ba090dd2d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>long_name :</span></dt><dd>latitude</dd></dl></div><div class='xr-var-data'><pre>array([ 90.  ,  89.25,  88.5 , ..., -88.5 , -89.25, -90.  ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>level</span></div><div class='xr-var-dims'>(level)</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>100 150 200 250 ... 925 950 1000</div><input id='attrs-5b7763a9-e3c3-4325-9ede-1adcbb83fd5b' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-5b7763a9-e3c3-4325-9ede-1adcbb83fd5b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6f0ef28c-b363-4d98-b0ea-000f8e57f90b' class='xr-var-data-in' type='checkbox'><label for='data-6f0ef28c-b363-4d98-b0ea-000f8e57f90b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>millibars</dd><dt><span>long_name :</span></dt><dd>pressure_level</dd></dl></div><div class='xr-var-data'><pre>array([ 100,  150,  200,  250,  300,  400,  500,  600,  700,  800,  850,  900,
-        925,  950, 1000])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2003-06-01 ... 2021-08-01</div><input id='attrs-96942b78-b290-416c-b6be-ac4e8cdf602d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-96942b78-b290-416c-b6be-ac4e8cdf602d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ae223fb5-9276-4f40-a70b-9e9207839ad6' class='xr-var-data-in' type='checkbox'><label for='data-ae223fb5-9276-4f40-a70b-9e9207839ad6' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>time</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2003-06-01T00:00:00.000000000&#x27;, &#x27;2003-07-01T00:00:00.000000000&#x27;,
+  * valid_time      (valid_time) datetime64[ns] 504B 2003-06-01 ... 2023-08-01
+  * pressure_level  (pressure_level) float64 120B 1e+03 950.0 ... 150.0 100.0
+  * latitude        (latitude) float64 2kB 90.0 89.25 88.5 ... -89.25 -90.0
+  * longitude       (longitude) float64 4kB 0.0 0.75 1.5 ... 357.8 358.5 359.2
+    level_log10     (pressure_level) float64 120B 3.0 2.978 2.966 ... 2.176 2.0
+    height          (pressure_level) float64 120B 0.0 0.4306 ... 13.43 15.73
+Attributes: (12/32)
+    GRIB_paramId:                             210123
+    GRIB_dataType:                            an
+    GRIB_numberOfPoints:                      115680
+    GRIB_typeOfLevel:                         isobaricInhPa
+    GRIB_stepUnits:                           1
+    GRIB_stepType:                            avgua
+    ...                                       ...
+    GRIB_totalNumber:                         0
+    GRIB_units:                               kg kg**-1
+    long_name:                                Carbon monoxide mass mixing ratio
+    units:                                    kg kg**-1
+    standard_name:                            mass_fraction_of_carbon_monoxid...
+    GRIB_number:                              0</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'co'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>valid_time</span>: 63</li><li><span class='xr-has-index'>pressure_level</span>: 15</li><li><span class='xr-has-index'>latitude</span>: 241</li><li><span class='xr-has-index'>longitude</span>: 480</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-04787bbd-f7bb-4854-89d2-e956614004b0' class='xr-array-in' type='checkbox' checked><label for='section-04787bbd-f7bb-4854-89d2-e956614004b0' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>...</span></div><div class='xr-array-data'><pre>[109317600 values with dtype=float32]</pre></div></div></li><li class='xr-section-item'><input id='section-c8d358bc-180d-48f4-a11a-d49c89f6090d' class='xr-section-summary-in' type='checkbox'  checked><label for='section-c8d358bc-180d-48f4-a11a-d49c89f6090d' class='xr-section-summary' >Coordinates: <span>(6)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>valid_time</span></div><div class='xr-var-dims'>(valid_time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2003-06-01 ... 2023-08-01</div><input id='attrs-8f3aec81-241e-48f6-8d81-d6ed1703c481' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-8f3aec81-241e-48f6-8d81-d6ed1703c481' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-853c3804-e58c-43c0-ba16-c32003d4898e' class='xr-var-data-in' type='checkbox'><label for='data-853c3804-e58c-43c0-ba16-c32003d4898e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>time</dd><dt><span>standard_name :</span></dt><dd>time</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2003-06-01T00:00:00.000000000&#x27;, &#x27;2003-07-01T00:00:00.000000000&#x27;,
        &#x27;2003-08-01T00:00:00.000000000&#x27;, &#x27;2004-06-01T00:00:00.000000000&#x27;,
        &#x27;2004-07-01T00:00:00.000000000&#x27;, &#x27;2004-08-01T00:00:00.000000000&#x27;,
        &#x27;2005-06-01T00:00:00.000000000&#x27;, &#x27;2005-07-01T00:00:00.000000000&#x27;,
@@ -1443,11 +1526,43 @@ Attributes:
        &#x27;2019-08-01T00:00:00.000000000&#x27;, &#x27;2020-06-01T00:00:00.000000000&#x27;,
        &#x27;2020-07-01T00:00:00.000000000&#x27;, &#x27;2020-08-01T00:00:00.000000000&#x27;,
        &#x27;2021-06-01T00:00:00.000000000&#x27;, &#x27;2021-07-01T00:00:00.000000000&#x27;,
-       &#x27;2021-08-01T00:00:00.000000000&#x27;], dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>level_log10</span></div><div class='xr-var-dims'>(level)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>2.0 2.176 2.301 ... 2.966 2.978 3.0</div><input id='attrs-db43d978-3869-4b8e-a231-29611557016e' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-db43d978-3869-4b8e-a231-29611557016e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3d0ad837-bd8b-4431-bb77-bdd1798a31d1' class='xr-var-data-in' type='checkbox'><label for='data-3d0ad837-bd8b-4431-bb77-bdd1798a31d1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>millibars</dd><dt><span>long_name :</span></dt><dd>pressure_level</dd></dl></div><div class='xr-var-data'><pre>array([2.        , 2.17609126, 2.30103   , 2.39794001, 2.47712125,
-       2.60205999, 2.69897   , 2.77815125, 2.84509804, 2.90308999,
-       2.92941893, 2.95424251, 2.96614173, 2.97772361, 3.        ])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>height</span></div><div class='xr-var-dims'>(level)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>15.73 13.43 11.69 ... 0.4306 0.0</div><input id='attrs-f1883f79-bba1-475c-8f52-ef0f202b1cc3' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-f1883f79-bba1-475c-8f52-ef0f202b1cc3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4cdedd88-a535-4975-ad8c-48c9a4392000' class='xr-var-data-in' type='checkbox'><label for='data-4cdedd88-a535-4975-ad8c-48c9a4392000' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([15.72758036, 13.43330308, 11.69472593, 10.27908779,  9.07696251,
-        7.09325125,  5.47801243,  4.10639113,  2.90899143,  1.8429826 ,
-        1.34999034,  0.87994689,  0.65281163,  0.43059381,  0.        ])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-b925c5b6-fba7-4da3-9679-335235c318c0' class='xr-section-summary-in' type='checkbox'  checked><label for='section-b925c5b6-fba7-4da3-9679-335235c318c0' class='xr-section-summary' >Attributes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>kg kg**-1</dd><dt><span>long_name :</span></dt><dd>Carbon monoxide mass mixing ratio</dd><dt><span>standard_name :</span></dt><dd>mass_fraction_of_carbon_monoxide_in_air</dd></dl></div></li></ul></div></div></div></div>
+       &#x27;2021-08-01T00:00:00.000000000&#x27;, &#x27;2022-06-01T00:00:00.000000000&#x27;,
+       &#x27;2022-07-01T00:00:00.000000000&#x27;, &#x27;2022-08-01T00:00:00.000000000&#x27;,
+       &#x27;2023-06-01T00:00:00.000000000&#x27;, &#x27;2023-07-01T00:00:00.000000000&#x27;,
+       &#x27;2023-08-01T00:00:00.000000000&#x27;], dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>pressure_level</span></div><div class='xr-var-dims'>(pressure_level)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1e+03 950.0 925.0 ... 150.0 100.0</div><input id='attrs-af632a8d-9ffd-4393-a014-573f863e2d93' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-af632a8d-9ffd-4393-a014-573f863e2d93' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-538c4927-a066-44a3-9eb8-f3524c7b2a0e' class='xr-var-data-in' type='checkbox'><label for='data-538c4927-a066-44a3-9eb8-f3524c7b2a0e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>pressure</dd><dt><span>units :</span></dt><dd>hPa</dd><dt><span>positive :</span></dt><dd>down</dd><dt><span>stored_direction :</span></dt><dd>decreasing</dd><dt><span>standard_name :</span></dt><dd>air_pressure</dd></dl></div><div class='xr-var-data'><pre>array([1000.,  950.,  925.,  900.,  850.,  800.,  700.,  600.,  500.,  400.,
+        300.,  250.,  200.,  150.,  100.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>latitude</span></div><div class='xr-var-dims'>(latitude)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>90.0 89.25 88.5 ... -89.25 -90.0</div><input id='attrs-6db05e4c-cf14-4bd6-ad32-3ba8bb168d5b' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-6db05e4c-cf14-4bd6-ad32-3ba8bb168d5b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9acb09b9-7f36-486d-8ac7-4f3d8b949dc9' class='xr-var-data-in' type='checkbox'><label for='data-9acb09b9-7f36-486d-8ac7-4f3d8b949dc9' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>stored_direction :</span></dt><dd>decreasing</dd></dl></div><div class='xr-var-data'><pre>array([ 90.  ,  89.25,  88.5 , ..., -88.5 , -89.25, -90.  ])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>longitude</span></div><div class='xr-var-dims'>(longitude)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.0 0.75 1.5 ... 357.8 358.5 359.2</div><input id='attrs-1c920797-7364-4601-9526-ba4a00ac310c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-1c920797-7364-4601-9526-ba4a00ac310c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5b068356-f145-42ba-bfc4-434b3f0870ed' class='xr-var-data-in' type='checkbox'><label for='data-5b068356-f145-42ba-bfc4-434b3f0870ed' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>longitude</dd></dl></div><div class='xr-var-data'><pre>array([  0.  ,   0.75,   1.5 , ..., 357.75, 358.5 , 359.25])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>level_log10</span></div><div class='xr-var-dims'>(pressure_level)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>3.0 2.978 2.966 ... 2.301 2.176 2.0</div><input id='attrs-e5f94aef-b02b-48d2-a56b-edb7ae892f46' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-e5f94aef-b02b-48d2-a56b-edb7ae892f46' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3ba9cb6d-d714-4667-a3fa-dd095bbb7a6d' class='xr-var-data-in' type='checkbox'><label for='data-3ba9cb6d-d714-4667-a3fa-dd095bbb7a6d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>pressure</dd><dt><span>units :</span></dt><dd>hPa</dd><dt><span>positive :</span></dt><dd>down</dd><dt><span>stored_direction :</span></dt><dd>decreasing</dd><dt><span>standard_name :</span></dt><dd>air_pressure</dd></dl></div><div class='xr-var-data'><pre>array([3.        , 2.97772361, 2.96614173, 2.95424251, 2.92941893,
+       2.90308999, 2.84509804, 2.77815125, 2.69897   , 2.60205999,
+       2.47712125, 2.39794001, 2.30103   , 2.17609126, 2.        ])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>height</span></div><div class='xr-var-dims'>(pressure_level)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.0 0.4306 0.6528 ... 13.43 15.73</div><input id='attrs-ca5d80f6-d9aa-47e1-96c2-27b7879a0a78' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-ca5d80f6-d9aa-47e1-96c2-27b7879a0a78' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-dae2d3ce-aab3-4b82-ba80-6c2b226cdd9e' class='xr-var-data-in' type='checkbox'><label for='data-dae2d3ce-aab3-4b82-ba80-6c2b226cdd9e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ 0.        ,  0.43059381,  0.65281163,  0.87994689,  1.34999034,
+        1.8429826 ,  2.90899143,  4.10639113,  5.47801243,  7.09325125,
+        9.07696251, 10.27908779, 11.69472593, 13.43330308, 15.72758036])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-a8c8714a-29f1-442f-b3d1-9d88d8e235cc' class='xr-section-summary-in' type='checkbox'  ><label for='section-a8c8714a-29f1-442f-b3d1-9d88d8e235cc' class='xr-section-summary' >Indexes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>valid_time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-6ff5b087-aff4-451a-92c9-f1e2154e0d66' class='xr-index-data-in' type='checkbox'/><label for='index-6ff5b087-aff4-451a-92c9-f1e2154e0d66' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;2003-06-01&#x27;, &#x27;2003-07-01&#x27;, &#x27;2003-08-01&#x27;, &#x27;2004-06-01&#x27;,
+               &#x27;2004-07-01&#x27;, &#x27;2004-08-01&#x27;, &#x27;2005-06-01&#x27;, &#x27;2005-07-01&#x27;,
+               &#x27;2005-08-01&#x27;, &#x27;2006-06-01&#x27;, &#x27;2006-07-01&#x27;, &#x27;2006-08-01&#x27;,
+               &#x27;2007-06-01&#x27;, &#x27;2007-07-01&#x27;, &#x27;2007-08-01&#x27;, &#x27;2008-06-01&#x27;,
+               &#x27;2008-07-01&#x27;, &#x27;2008-08-01&#x27;, &#x27;2009-06-01&#x27;, &#x27;2009-07-01&#x27;,
+               &#x27;2009-08-01&#x27;, &#x27;2010-06-01&#x27;, &#x27;2010-07-01&#x27;, &#x27;2010-08-01&#x27;,
+               &#x27;2011-06-01&#x27;, &#x27;2011-07-01&#x27;, &#x27;2011-08-01&#x27;, &#x27;2012-06-01&#x27;,
+               &#x27;2012-07-01&#x27;, &#x27;2012-08-01&#x27;, &#x27;2013-06-01&#x27;, &#x27;2013-07-01&#x27;,
+               &#x27;2013-08-01&#x27;, &#x27;2014-06-01&#x27;, &#x27;2014-07-01&#x27;, &#x27;2014-08-01&#x27;,
+               &#x27;2015-06-01&#x27;, &#x27;2015-07-01&#x27;, &#x27;2015-08-01&#x27;, &#x27;2016-06-01&#x27;,
+               &#x27;2016-07-01&#x27;, &#x27;2016-08-01&#x27;, &#x27;2017-06-01&#x27;, &#x27;2017-07-01&#x27;,
+               &#x27;2017-08-01&#x27;, &#x27;2018-06-01&#x27;, &#x27;2018-07-01&#x27;, &#x27;2018-08-01&#x27;,
+               &#x27;2019-06-01&#x27;, &#x27;2019-07-01&#x27;, &#x27;2019-08-01&#x27;, &#x27;2020-06-01&#x27;,
+               &#x27;2020-07-01&#x27;, &#x27;2020-08-01&#x27;, &#x27;2021-06-01&#x27;, &#x27;2021-07-01&#x27;,
+               &#x27;2021-08-01&#x27;, &#x27;2022-06-01&#x27;, &#x27;2022-07-01&#x27;, &#x27;2022-08-01&#x27;,
+               &#x27;2023-06-01&#x27;, &#x27;2023-07-01&#x27;, &#x27;2023-08-01&#x27;],
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;valid_time&#x27;, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>pressure_level</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-73c888a6-92bf-4b8b-a46e-f468da93712a' class='xr-index-data-in' type='checkbox'/><label for='index-73c888a6-92bf-4b8b-a46e-f468da93712a' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([1000.0,  950.0,  925.0,  900.0,  850.0,  800.0,  700.0,  600.0,  500.0,
+        400.0,  300.0,  250.0,  200.0,  150.0,  100.0],
+      dtype=&#x27;float64&#x27;, name=&#x27;pressure_level&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>latitude</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-4dfc492d-6c6a-4e74-86fd-83ceff809bfe' class='xr-index-data-in' type='checkbox'/><label for='index-4dfc492d-6c6a-4e74-86fd-83ceff809bfe' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([  90.0,  89.25,   88.5,  87.75,   87.0,  86.25,   85.5,  84.75,   84.0,
+        83.25,
+       ...
+       -83.25,  -84.0, -84.75,  -85.5, -86.25,  -87.0, -87.75,  -88.5, -89.25,
+        -90.0],
+      dtype=&#x27;float64&#x27;, name=&#x27;latitude&#x27;, length=241))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>longitude</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-15c58a9b-1edc-459b-9a11-aa50b67019d3' class='xr-index-data-in' type='checkbox'/><label for='index-15c58a9b-1edc-459b-9a11-aa50b67019d3' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([   0.0,   0.75,    1.5,   2.25,    3.0,   3.75,    4.5,   5.25,    6.0,
+         6.75,
+       ...
+        352.5, 353.25,  354.0, 354.75,  355.5, 356.25,  357.0, 357.75,  358.5,
+       359.25],
+      dtype=&#x27;float64&#x27;, name=&#x27;longitude&#x27;, length=480))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-e76d8793-75a2-43bf-a8de-129308e29ce1' class='xr-section-summary-in' type='checkbox'  ><label for='section-e76d8793-75a2-43bf-a8de-129308e29ce1' class='xr-section-summary' >Attributes: <span>(32)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>GRIB_paramId :</span></dt><dd>210123</dd><dt><span>GRIB_dataType :</span></dt><dd>an</dd><dt><span>GRIB_numberOfPoints :</span></dt><dd>115680</dd><dt><span>GRIB_typeOfLevel :</span></dt><dd>isobaricInhPa</dd><dt><span>GRIB_stepUnits :</span></dt><dd>1</dd><dt><span>GRIB_stepType :</span></dt><dd>avgua</dd><dt><span>GRIB_gridType :</span></dt><dd>regular_ll</dd><dt><span>GRIB_uvRelativeToGrid :</span></dt><dd>0</dd><dt><span>GRIB_NV :</span></dt><dd>0</dd><dt><span>GRIB_Nx :</span></dt><dd>480</dd><dt><span>GRIB_Ny :</span></dt><dd>241</dd><dt><span>GRIB_cfName :</span></dt><dd>mass_fraction_of_carbon_monoxide_in_air</dd><dt><span>GRIB_cfVarName :</span></dt><dd>co</dd><dt><span>GRIB_gridDefinitionDescription :</span></dt><dd>Latitude/Longitude Grid</dd><dt><span>GRIB_iDirectionIncrementInDegrees :</span></dt><dd>0.75</dd><dt><span>GRIB_iScansNegatively :</span></dt><dd>0</dd><dt><span>GRIB_jDirectionIncrementInDegrees :</span></dt><dd>0.75</dd><dt><span>GRIB_jPointsAreConsecutive :</span></dt><dd>0</dd><dt><span>GRIB_jScansPositively :</span></dt><dd>0</dd><dt><span>GRIB_latitudeOfFirstGridPointInDegrees :</span></dt><dd>90.0</dd><dt><span>GRIB_latitudeOfLastGridPointInDegrees :</span></dt><dd>-90.0</dd><dt><span>GRIB_longitudeOfFirstGridPointInDegrees :</span></dt><dd>0.0</dd><dt><span>GRIB_longitudeOfLastGridPointInDegrees :</span></dt><dd>359.25</dd><dt><span>GRIB_missingValue :</span></dt><dd>3.4028234663852886e+38</dd><dt><span>GRIB_name :</span></dt><dd>Carbon monoxide mass mixing ratio</dd><dt><span>GRIB_shortName :</span></dt><dd>co</dd><dt><span>GRIB_totalNumber :</span></dt><dd>0</dd><dt><span>GRIB_units :</span></dt><dd>kg kg**-1</dd><dt><span>long_name :</span></dt><dd>Carbon monoxide mass mixing ratio</dd><dt><span>units :</span></dt><dd>kg kg**-1</dd><dt><span>standard_name :</span></dt><dd>mass_fraction_of_carbon_monoxide_in_air</dd><dt><span>GRIB_number :</span></dt><dd>0</dd></dl></div></li></ul></div></div></div></div>
 </div>
 </section>
 <section id="unit-conversion">
@@ -1491,7 +1606,7 @@ Attributes:
 <p>The purpose of the temporal aggregation is to average June, July and August in each year, resulting in one summer mean value at each year of the dataset.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">summer</span> <span class="o">=</span> <span class="n">da_north</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.year&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">keep_attrs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">summer</span> <span class="o">=</span> <span class="n">da_north</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;valid_time.year&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">keep_attrs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1521,7 +1636,7 @@ Attributes:
 </section>
 <section id="calculate-quantiles-of-climatology">
 <h3>Calculate quantiles of climatology<a class="headerlink" href="#calculate-quantiles-of-climatology" title="Permalink to this heading">#</a></h3>
-<p>Here we calculate the 5th, 50th and 95th quantile of CO climatology from 2003 to 2021.</p>
+<p>Here we calculate the 5th, 50th and 95th quantile of CO climatology from 2003 to 2023.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">co95</span> <span class="o">=</span> <span class="n">co</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.95</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="s1">&#39;year&#39;</span><span class="p">)</span>
@@ -1542,24 +1657,24 @@ Attributes:
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;CO in JJA in Northern Hemisphere&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Height [Kilometers]&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;CO [ppbv]&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">co50</span><span class="p">,</span> <span class="n">co50</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;2003-2021 median&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">fill_betweenx</span><span class="p">(</span><span class="n">co50</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="n">co05</span><span class="p">,</span> <span class="n">co95</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;2003-2021 5th to 95th quantile range&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">co</span><span class="p">[</span><span class="mi">18</span><span class="p">,:],</span> <span class="n">co</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;2021&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">co</span><span class="p">[</span><span class="mi">17</span><span class="p">,:],</span> <span class="n">co</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;2020&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">co</span><span class="p">[</span><span class="mi">16</span><span class="p">,:],</span> <span class="n">co</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;2019&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">co50</span><span class="p">,</span> <span class="n">co50</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;2003-2023 median&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">fill_betweenx</span><span class="p">(</span><span class="n">co50</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="n">co05</span><span class="p">,</span> <span class="n">co95</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;2003-2023 5th to 95th quantile range&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">co</span><span class="p">[</span><span class="mi">20</span><span class="p">,:],</span> <span class="n">co</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;2023&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">co</span><span class="p">[</span><span class="mi">19</span><span class="p">,:],</span> <span class="n">co</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;2022&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">co</span><span class="p">[</span><span class="mi">18</span><span class="p">,:],</span> <span class="n">co</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;2021&#39;</span><span class="p">)</span>
 
 <span class="n">handles</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_legend_handles_labels</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
 
-<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">DATADIR</span><span class="si">}</span><span class="s1">/CO_JJA_NHem_2003-2021_profile.png&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">DATADIR</span><span class="si">}</span><span class="s1">/CO_JJA_NHem_2003-2023_profile.png&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/bdf2cd5e73a9ebc024de72305f82029f3935e3724912f4e2950dd9862081907b.png" src="_images/bdf2cd5e73a9ebc024de72305f82029f3935e3724912f4e2950dd9862081907b.png" />
+<img alt="_images/d105306d077ed7cbdae8f5792d9c277542aa37824597e3d283fe8aa338e76e22.png" src="_images/d105306d077ed7cbdae8f5792d9c277542aa37824597e3d283fe8aa338e76e22.png" />
 </div>
 </div>
-<p>Note the distribution of CO mainly in the lower part of the atmosphere, and the high values in 2021, due mainly to the significant wildfire activity that summer. See the <a class="reference external" href="https://www.ncei.noaa.gov/bams-state-of-climate">BAMS State of the Climate 2021 report</a> for more details.</p>
+<p>Note the distribution of CO mainly in the lower part of the atmosphere, and the high values in 2021 and 2023, due mainly to the significant wildfire activity those summers. See the <a class="reference external" href="https://www.ncei.noaa.gov/bams-state-of-climate">BAMS State of the Climate reports</a> for more details.</p>
 </section>
 <section id="create-zonal-mean-plot-of-co-summer-climatology-in-northern-hemisphere">
 <h2>Create zonal mean plot of CO summer climatology in Northern Hemisphere<a class="headerlink" href="#create-zonal-mean-plot-of-co-summer-climatology-in-northern-hemisphere" title="Permalink to this heading">#</a></h2>
@@ -1568,7 +1683,7 @@ Attributes:
 <p>We again aggregate over time (June, July and Aug of each year), and over space. This time however the spatial aggregation is only over the longitudinal dimension, as we want to visualise data over all latitudinal zones.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jja</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.year&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">keep_attrs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jja</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;valid_time.year&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">keep_attrs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1602,7 +1717,7 @@ Attributes:
 <span class="c1"># Configure the axes and figure title</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Latitude [degrees]&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Altitude [km]&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Zonal mean of CO in N. Hemisphere for JJA climatology (2003 to 2021)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Zonal mean of CO in N. Hemisphere for JJA climatology (2003 to 2023)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
 
 <span class="c1"># As the altitudes (15) are much less than the latitudes (180),</span>
 <span class="c1"># we need to ensure the plot fits into the size of the figure.</span>
@@ -1616,12 +1731,12 @@ Attributes:
 <span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;CO [ppbv]&#39;</span><span class="p">)</span>
 
 <span class="c1"># Save the plot</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">DATADIR</span><span class="si">}</span><span class="s1">/CO_JJA_NHem_2003-2021_zonal_mean.png&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">DATADIR</span><span class="si">}</span><span class="s1">/CO_JJA_NHem_2003-2023_zonal_mean.png&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/89185585c919f78fe0e9b751b74855f7c52e77b0bbc904fc5ccd102c37f9b4c7.png" src="_images/89185585c919f78fe0e9b751b74855f7c52e77b0bbc904fc5ccd102c37f9b4c7.png" />
+<img alt="_images/04a1d52373dc90d3d60f968c471c2f0472a5863090fb827d8e02ada375e8743b.png" src="_images/04a1d52373dc90d3d60f968c471c2f0472a5863090fb827d8e02ada375e8743b.png" />
 </div>
 </div>
 <p>Note the greater abundance of CO in the northern hemisphere, and in the lower part of the atmosphere.</p>
