@@ -457,7 +457,7 @@ td, th {
   </tr>
 </table><br><section id="install-ads-api">
 <h2>Install ADS API<a class="headerlink" href="#install-ads-api" title="Permalink to this heading">#</a></h2>
-<p>We will need to install the Application Programming Interface (API) of the <a class="reference external" href="https://ads-beta.atmosphere.copernicus.eu/">Atmosphere Data Store (ADS)</a>. This will allow us to programmatically download data.</p>
+<p>We will need to install the Application Programming Interface (API) of the <a class="reference external" href="https://ads.atmosphere.copernicus.eu/">Atmosphere Data Store (ADS)</a>. This will allow us to programmatically download data.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Note the exclamation mark in the line of code below. This means the code will run as a shell (as opposed to a notebook) command.</p>
@@ -496,12 +496,12 @@ td, th {
 </section>
 <section id="access-data">
 <h2>Access data<a class="headerlink" href="#access-data" title="Permalink to this heading">#</a></h2>
-<p>To access data from the ADS, you will need first to register (if you have not already done so), by visiting <a class="reference external" href="https://ads-beta.atmosphere.copernicus.eu/">https://ads-beta.atmosphere.copernicus.eu/</a> and selecting <strong>“Login/Register”</strong></p>
-<p>To obtain data programmatically from the ADS, you will need an API Key. This can be found in the page <a class="reference external" href="https://ads-beta.atmosphere.copernicus.eu/how-to-api">https://ads-beta.atmosphere.copernicus.eu/how-to-api</a>. Here your key will appear automatically in the black window, assuming you have already registered and logged into the ADS. Your API key is the entire string of characters that appears after <code class="docutils literal notranslate"><span class="pre">key:</span></code></p>
+<p>To access data from the ADS, you will need first to register (if you have not already done so), by visiting <a class="reference external" href="https://ads.atmosphere.copernicus.eu/">https://ads.atmosphere.copernicus.eu/</a> and selecting <strong>“Login/Register”</strong></p>
+<p>To obtain data programmatically from the ADS, you will need an API Key. This can be found in the page <a class="reference external" href="https://ads.atmosphere.copernicus.eu/how-to-api">https://ads.atmosphere.copernicus.eu/how-to-api</a>. Here your key will appear automatically in the black window, assuming you have already registered and logged into the ADS. Your API key is the entire string of characters that appears after <code class="docutils literal notranslate"><span class="pre">key:</span></code></p>
 <p>Now copy your API key into the code cell below, replacing <code class="docutils literal notranslate"><span class="pre">#######</span></code> with your key.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">URL</span> <span class="o">=</span> <span class="s1">&#39;https://ads-beta.atmosphere.copernicus.eu/api&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">URL</span> <span class="o">=</span> <span class="s1">&#39;https://ads.atmosphere.copernicus.eu/api&#39;</span>
 
 <span class="c1"># Replace the hashtags with your key:</span>
 <span class="n">KEY</span> <span class="o">=</span> <span class="s1">&#39;#############################&#39;</span>
@@ -517,7 +517,7 @@ td, th {
 </div>
 </div>
 </div>
-<p>The data we will download and inspect in this tutorial comes from the CAMS Global Atmospheric Composition Forecast dataset. This can be found in the <a class="reference external" href="https://ads-beta.atmosphere.copernicus.eu/">Atmosphere Data Store (ADS)</a> by scrolling through the datasets, or applying search filters as illustrated here:</p>
+<p>The data we will download and inspect in this tutorial comes from the CAMS Global Atmospheric Composition Forecast dataset. This can be found in the <a class="reference external" href="https://ads.atmosphere.copernicus.eu/">Atmosphere Data Store (ADS)</a> by scrolling through the datasets, or applying search filters as illustrated here:</p>
 <p><img alt="logo" src="_images/ADS_search_and_result.png" /></p>
 <p>Having selected the correct dataset, we now need to specify what product type, variables, temporal and geographic coverage we are interested in. These can all be selected in the <strong>“Download data”</strong> tab. In this tab a form appears in which we will select the following parameters to download:</p>
 <ul class="simple">
@@ -3161,7 +3161,7 @@ Attributes: (12/33)
 </section>
 <section id="regional-subset">
 <h4>Regional subset<a class="headerlink" href="#regional-subset" title="Permalink to this heading">#</a></h4>
-<p>Often we may wish to select a regional subset. Note that you can specify a region of interest in the <a class="reference external" href="https://ads-beta.atmosphere.copernicus.eu/">ADS</a> prior to downloading data. This is more efficient as it reduces the data volume. However, there may be cases when you wish to select a regional subset after download. One way to do this is with the <code class="docutils literal notranslate"><span class="pre">.where()</span></code> function.</p>
+<p>Often we may wish to select a regional subset. Note that you can specify a region of interest in the <a class="reference external" href="https://ads.atmosphere.copernicus.eu/">ADS</a> prior to downloading data. This is more efficient as it reduces the data volume. However, there may be cases when you wish to select a regional subset after download. One way to do this is with the <code class="docutils literal notranslate"><span class="pre">.where()</span></code> function.</p>
 <p>In the previous examples, we have used methods that return a subset of the original data. By default <code class="docutils literal notranslate"><span class="pre">.where()</span></code> maintains the original size of the data, with selected elements masked (which become “not a number”, or <code class="docutils literal notranslate"><span class="pre">nan</span></code>). Use of the option <code class="docutils literal notranslate"><span class="pre">drop=True</span></code> clips coordinate elements that are fully masked.</p>
 <p>The example below uses <code class="docutils literal notranslate"><span class="pre">.where()</span></code> to select a geographic subset from 30 to 60 degrees latitude. We could also specify longitudinal boundaries, by simply adding further conditions.</p>
 <div class="cell docutils container">
